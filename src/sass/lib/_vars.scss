@@ -40,10 +40,20 @@ $space-double:       $space * 2;
 // Typography
 //============================================
 
-$font:      "Helvetica Neue", Arial, sans-serif;
-$font-mono: monospace, monospace;
-$fs:        1.6rem;
-$lh:        ($space / $fs);
+$font-sans:     -apple-system, BlinkMacSystemFont, "avenir next", avenir, helvetica, "helvetica neue", ubuntu, roboto, noto, "segoe ui", arial, sans-serif;
+$font-serif:    Georgia, Times, "Times New Roman", serif;
+$font-mono:     monospace, monospace;
+$font-manuale:  "Manuale", $font-serif;
+$font-faustina: "Faustina", $font-serif;
+$font-asap:     "Asap Condensed", $font-sans;
+$font-archivo:  "Archivo", $font-sans;
+$font-saira:    "Saira", $font-sans;
+$font-saira-cond:      "Saira Condensed", $font-sans;
+$font-saira-semicond:  "Saira Semicondensed", $font-sans;
+$font-saira-extracond: "Saira Extracondensed", $font-sans;
+
+$fs: 1.6rem;
+$lh: ($space / $fs);
 
 $fs-h1: 4.8rem;
 $fs-h2: 3.6rem;
