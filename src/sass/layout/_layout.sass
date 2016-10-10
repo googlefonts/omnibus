@@ -19,20 +19,42 @@
   margin-left: auto // 2.
   margin-right: auto // 2.
 
-+mq($bp-sm)
-  .l-container
-    max-width: $layout-width-sm
-    padding-left: $layout-gutter-sm
-    padding-right: $layout-gutter-sm
+// +mq($bp-sm)
+//   .l-container
+//     max-width: $layout-width-sm
+//     padding-left: $layout-gutter-sm
+//     padding-right: $layout-gutter-sm
 
-+mq($bp-md)
-  .l-container
-    max-width: $layout-width-md
-    padding-left: $layout-gutter-md
-    padding-right: $layout-gutter-md
+// +mq($bp-md)
+//   .l-container
+//     max-width: $layout-width-md
+//     padding-left: $layout-gutter-md
+//     padding-right: $layout-gutter-md
 
-+mq($bp-lg)
-  .l-container
-    max-width: $layout-width-lg
-    padding-left: $layout-gutter-lg
-    padding-right: $layout-gutter-lg
+// +mq($bp-lg)
+//   .l-container
+//     max-width: $layout-width-lg
+//     padding-left: $layout-gutter-lg
+//     padding-right: $layout-gutter-lg
+
+
+// Main
+//============================================
+
+.l-main
+  +pos(0 0, top left)
+  +size(100%)
+  display: flex
+  overflow: hidden
+
+
+// Section
+//============================================
+
+.l-section
+  position: relative
+  width: 20%
+  min-width: 32rem
+  height: 100%
+  overflow-y: scroll
+  overflow-x: hidden
