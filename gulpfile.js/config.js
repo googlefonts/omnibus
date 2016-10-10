@@ -63,7 +63,7 @@ module.exports = {
     glob: '**/*.{html,json}',
     data: [src + '/html/data/global.json'],
     extensions: ['html', 'json'],
-    excludeFolders: ['layouts', 'shared', 'macros', 'data']
+    excludeFolders: ['layouts', 'shared', 'macros', 'data', 'sections']
   },
 
   eslint: {
