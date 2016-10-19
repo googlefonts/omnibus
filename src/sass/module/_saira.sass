@@ -28,14 +28,15 @@
 
 .saira-carousel__inner
   position: absolute
-  display: block
+  display: flex
   overflow: hidden
   width: 200%
   animation: marquee 5s linear infinite
 
 .saira-carousel__item
   float: left
-  width: 25%
+  width: calc(25% - $space-half)
+  margin-right: $space-half
 
 @keyframes marquee
   0%

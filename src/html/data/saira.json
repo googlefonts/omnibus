@@ -1,0 +1,36 @@
+{
+  "carousel": [
+    {
+      "class": "u-ff-saira-extracond u-fw-100",
+      "style": "Extralight Extracondensed"
+    },
+    {
+      "class": "u-ff-saira-extracond u-fw-200",
+      "style": "Light Extracondensed"
+    },
+    {
+      "class": "u-ff-saira-extracond u-fw-300",
+      "style": "Extralight Extracondensed"
+    },
+    {
+      "class": "u-ff-saira-extracond u-fw-400",
+      "style": "Extralight Extracondensed"
+    },
+    {
+      "class": "u-ff-saira-extracond u-fw-500",
+      "style": "Extralight Extracondensed"
+    },
+    {
+      "class": "u-ff-saira-extracond u-fw-600",
+      "style": "Extralight Extracondensed"
+    },
+    {
+      "class": "u-ff-saira-extracond u-fw-700",
+      "style": "Extralight Extracondensed"
+    },
+    {
+      "class": "u-ff-saira-extracond u-fw-800",
+      "style": "Extralight Extracondensed"
+    }
+  ]
+}

@@ -51,47 +51,25 @@
   </div>
 
   <div class="l-container">
-    <div class="u-push-btm u-padd-btm-threeQuarter saira-border-bottom">
+    <div class="u-push-btm-threeQuarter">
       <p class="saira-dropcap">3</p>
-      <p class="u-ff-faustina u-push-btm-threeQuarter">
+      <p class="u-ff-faustina u-push-btm-none">
         <span class="u-ff-saira u-fw-700 u-tt-uppercase u-push-rgt-half">Variants</span>Today, Saira is presented as a suite of 9 weight styles (Thin, Extralight, Light, Regular, Medium, Semibold, Bold, Extrabold, Black) and 4 different widths (Normal, Semicondensed, Condensed and Extracondensed). The result is a versatile super-family of 36 styles in total, with 780 characters each.
       </p>
-      <div class="saira-carousel u-push-btm-threeQuarter">
-        <div class="saira-carousel__inner">
-          <div class="saira-carousel__item u-bg-saira u-c-white u-padd-half">
-            <p class="u-h1 u-ff-saira-extracond u-fw-300 u-push-btm-none u-ta-center">A</p>
-            <p class="u-ff-saira-semicond u-fz-sm u-push-btm-none u-ta-center">Extralight Extracondensed</p>
-          </div>
-          <div class="saira-carousel__item u-bg-saira u-c-white u-padd-half">
-            <p class="u-h1 u-ff-saira-extracond u-fw-300 u-push-btm-none u-ta-center">A</p>
-            <p class="u-ff-saira-semicond u-fz-sm u-push-btm-none u-ta-center">Extralight Extracondensed</p>
-          </div>
-          <div class="saira-carousel__item u-bg-saira u-c-white u-padd-half">
-            <p class="u-h1 u-ff-saira-extracond u-fw-300 u-push-btm-none u-ta-center">A</p>
-            <p class="u-ff-saira-semicond u-fz-sm u-push-btm-none u-ta-center">Extralight Extracondensed</p>
-          </div>
-          <div class="saira-carousel__item u-bg-saira u-c-white u-padd-half">
-            <p class="u-h1 u-ff-saira-extracond u-fw-300 u-push-btm-none u-ta-center">A</p>
-            <p class="u-ff-saira-semicond u-fz-sm u-push-btm-none u-ta-center">Extralight Extracondensed</p>
-          </div>
-          <div class="saira-carousel__item u-bg-saira u-c-white u-padd-half">
-            <p class="u-h1 u-ff-saira-extracond u-fw-300 u-push-btm-none u-ta-center">A</p>
-            <p class="u-ff-saira-semicond u-fz-sm u-push-btm-none u-ta-center">Extralight Extracondensed</p>
-          </div>
-          <div class="saira-carousel__item u-bg-saira u-c-white u-padd-half">
-            <p class="u-h1 u-ff-saira-extracond u-fw-300 u-push-btm-none u-ta-center">A</p>
-            <p class="u-ff-saira-semicond u-fz-sm u-push-btm-none u-ta-center">Extralight Extracondensed</p>
-          </div>
-          <div class="saira-carousel__item u-bg-saira u-c-white u-padd-half">
-            <p class="u-h1 u-ff-saira-extracond u-fw-300 u-push-btm-none u-ta-center">A</p>
-            <p class="u-ff-saira-semicond u-fz-sm u-push-btm-none u-ta-center">Extralight Extracondensed</p>
-          </div>
-          <div class="saira-carousel__item u-bg-saira u-c-white u-padd-half">
-            <p class="u-h1 u-ff-saira-extracond u-fw-300 u-push-btm-none u-ta-center">A</p>
-            <p class="u-ff-saira-semicond u-fz-sm u-push-btm-none u-ta-center">Extralight Extracondensed</p>
-          </div>
-        </div>
+    </div>
+  </div>
+  <div class="saira-carousel u-push-btm-threeQuarter">
+    <div class="saira-carousel__inner">
+      {% for item in carousel %}
+      <div class="saira-carousel__item u-bg-saira u-c-white u-padd-half">
+        <p class="u-h1 u-push-btm-none u-ta-center u-tt-uppercase {{ item.class }}">a</p>
+        <p class="u-ff-saira-semicond u-fz-sm u-push-btm-none u-ta-center">{{ item.style }}</p>
       </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="l-container">
+    <div class="u-push-btm-threeQuarter">
       <p class="u-ff-faustina u-push-btm-none">
         Saira shares features of the geometric and neo-grotesque typographic classifications. As for geometric traits, we can mention the underlying rectangular shape, as can be seen on typefaces such as Eurostile (Aldo Novarese), DIN (Albert-Jan Pool) and Exo (Natanael Gama). Concerning neo-grotesque fonts, Saira’s simplified and open letterforms relate to Frutiger (Adrian Frutiger).
       </p>
