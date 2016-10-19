@@ -39,13 +39,19 @@
 
 .asap-dropcap-lft
   float: left
-  margin-right: $space
-  shape-outside: circle()
+  margin-right: $space-threeQuarter
+
+  @supports (shape-outside: circle())
+    shape-outside: circle()
+    margin-right: $space
 
 .asap-dropcap-rgt
   float: right
-  margin-left: $space
-  shape-outside: circle()
+  margin-left: $space-threeQuarter
+
+  @supports (shape-outside: circle())
+    shape-outside: circle()
+    margin-left: $space
 
 .asap-dropcap-green
   background-color: $color-asap-green
