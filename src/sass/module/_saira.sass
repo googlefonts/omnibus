@@ -6,10 +6,40 @@
 .saira-dropcap
   margin: 0 $space-half 0 0
   float: left
-  font-size: 19.5rem
+  font-size: 19.4rem
   font-family: $font-saira-extracond
   font-weight: 900
   line-height: 0.75
 
+.saira-blockquote
+  margin-bottom: $space-threeQuarter
+  border-left: 0.1rem solid $white
+
 .saira-border-bottom
-  border-bottom: $space solid $color-saira
+  border-bottom: 0.1rem solid $color-saira
+
+.saira-border-bottom-lg
+  border-bottom-width: $space
+
+.saira-carousel
+  position: relative
+  overflow: hidden
+  height: 11.4rem
+
+.saira-carousel__inner
+  position: absolute
+  display: block
+  overflow: hidden
+  width: 200%
+  animation: marquee 5s linear infinite
+
+.saira-carousel__item
+  float: left
+  width: 25%
+
+@keyframes marquee
+  0%
+    left: 0
+
+  100%
+    left: -100%
