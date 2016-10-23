@@ -2,6 +2,29 @@
 // Faustina
 //============================================
 
+
+// Header
+//============================================
+
+.faustina-border--top::before
+  +size(100%, 8rem)
+  position: absolute
+  z-index: $z-faustina-header
+  content: ""
+  margin-top: -$space-oneAndHalf
+  background-color: $color-faustina
+  transform: skew(0deg, -10deg)
+
+.faustina-border--bottom::after
+  +size(100%, 8rem)
+  position: absolute
+  z-index: $z-faustina-header
+  content: ""
+  margin-top: -$space
+  background-color: $color-faustina
+  transform: skew(0deg, 5deg)
+
+
 // Dropcap
 //============================================
 
@@ -13,5 +36,8 @@
   font-weight: 700
   text-align: center
   line-height: 5rem
-  border: 0.1rem solid $white
+  border: 0.2rem solid $color-faustina
   border-radius: 50%
+
+.faustina-dropcap--invert
+  border-color: $white
