@@ -18,29 +18,32 @@
 .saira-border-bottom
   border-bottom: 0.1rem solid $color-saira
 
+.saira-border-bottom-white
+  border-bottom-color: $white
+
 .saira-border-bottom-lg
   border-bottom-width: $space
 
 .saira-carousel
   position: relative
   overflow: hidden
-  height: 11.4rem
+  height: 13.2rem
 
 .saira-carousel__inner
   position: absolute
   display: flex
   overflow: hidden
-  width: 200%
-  animation: marquee 5s linear infinite
+  padding-left: 100%
+  width: calc(439.2rem + 100%)
+  animation: marquee 60s linear infinite
 
 .saira-carousel__item
-  float: left
-  width: calc(25% - $space-half)
+  width: 12rem
   margin-right: $space-half
 
 @keyframes marquee
   0%
-    left: 0
+    transform: translateX(0)
 
   100%
-    left: -100%
+    transform: translateX(-100%)
