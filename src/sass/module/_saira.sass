@@ -42,18 +42,19 @@
 .saira-carousel
   position: relative
   overflow: hidden
-  height: 13.2rem
+  height: 12rem
 
 .saira-carousel__inner
   position: absolute
   display: flex
   overflow: hidden
   padding-left: 100%
-  width: calc(439.2rem + 100%)
+  width: calc(475.2 + 100%)
   animation: marquee 60s linear infinite
 
 .saira-carousel__item
-  width: 12rem
+  +size(12rem)
+  flex-shrink: 0
   margin-right: $space-half
 
 @keyframes marquee
