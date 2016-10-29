@@ -37,6 +37,8 @@
   text-align: center
   line-height: 5.4rem
   color: $white
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
   background-color: $color-faustina
   border-radius: 50%
 
@@ -57,3 +59,69 @@
   flex-basis: 50%
   border: 0.1rem solid $white
 
+
+// X-Height
+//============================================
+
+.faustina-x-height
+  position: relative
+  margin-bottom: 0.2rem
+  padding: $space-quarter $space $space
+  background-color: $color-faustina
+  color: $white
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  line-height: 1
+  text-align: center
+
+  &::before,
+  &::after
+    position: absolute
+    left: 0
+    content: ""
+    width: 100%
+    border-top: 0.2rem solid $white
+
+  &::before
+    top: 4.6rem
+
+  &::after
+    bottom: 4.1rem
+
+.faustina-x-height__text
+  margin-bottom: 0
+  font-size: 10rem
+
+// Rounded Terminals
+//============================================
+
+.faustina-rounded-terminals
+  +size(100%, 11.4rem)
+  display: flex
+  margin-bottom: 0.2rem
+  background-color: $color-faustina
+  font-family: $font-faustina
+  color: $white
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+.faustina-rounded-terminals__item
+  position: relative
+  flex-basis: 50%
+  margin-bottom: 0
+  font-size: $fs-h1
+  text-align: center
+  overflow: hidden
+  border-left: 0.2rem solid $white
+
+.faustina-rounded-terminals__item-terminal-top
+  position: absolute
+  font-size: 36rem
+  top: -35rem
+  left: -7rem
+
+.faustina-rounded-terminals__item-terminal-bottom
+  position: absolute
+  font-size: 36rem
+  top: -22rem
+  left: 3rem
