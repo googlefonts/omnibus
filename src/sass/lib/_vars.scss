@@ -12,7 +12,7 @@
 $black:           #000; // 1.
 $white:           #fff; // 1.
 
-$primary:         #00f;
+$primary:         #f05a5a;
 
 $gray-powder:     #f7f7f7;
 $gray-dust:       #ddd;
@@ -54,8 +54,8 @@ $z-faustina-header: 1;
 
 $font-sans:     -apple-system, BlinkMacSystemFont, "avenir next", avenir, helvetica, "helvetica neue", ubuntu, roboto, noto, "segoe ui", arial, sans-serif;
 $font-serif:    Georgia, Times, "Times New Roman", serif;
-$font-mono:     "Noto Mono", "Source Code Pro", "Fira Mono", monospace, monospace;
-$font-noto:     "Noto Sans", $font-sans;
+$font-mono:     "Roboto Mono", "Source Code Pro", "Fira Mono", monospace, monospace;
+$font-roboto:   "Roboto", $font-sans;
 $font-manuale:  "Manuale", $font-serif;
 $font-faustina: "Faustina", $font-serif;
 $font-asap:     "Asap Condensed", $font-sans;
