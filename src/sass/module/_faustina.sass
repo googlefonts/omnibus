@@ -12,8 +12,8 @@
   z-index: $z-faustina-header
   content: ""
   margin-top: -$space-oneAndHalf
-  background-color: $color-faustina
-  transform: skew(0deg, -10deg)
+  border-top: 0.2rem solid $white
+  transform: skew(0deg, -4deg)
 
 .faustina-border--bottom::after
   +size(100%, 8rem)
@@ -21,8 +21,8 @@
   z-index: $z-faustina-header
   content: ""
   margin-top: -$space
-  background-color: $color-faustina
-  transform: skew(0deg, 5deg)
+  border-bottom: 0.2rem solid $white
+  transform: skew(0deg, 2deg)
 
 
 // Dropcap
@@ -35,7 +35,7 @@
   font-size: $fs-h4
   font-weight: 700
   text-align: center
-  line-height: 5.4rem
+  line-height: 5.2rem
   color: $white
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
@@ -43,8 +43,9 @@
   border-radius: 50%
 
 .faustina-dropcap--invert
-  color: $color-faustina
-  background-color: $white
+  color: $white
+  background-color: transparent
+  border: 0.2rem solid $white
 
 
 // Chessboard
@@ -54,6 +55,7 @@
   display: flex
   flex-wrap: wrap
   margin-bottom: $space-half
+  border: 0.1rem solid $white
 
 .faustina-chessboard__item
   flex-basis: 50%
@@ -73,6 +75,7 @@
   -moz-osx-font-smoothing: grayscale
   line-height: 1
   text-align: center
+  border: 0.2rem solid $white
 
   &::before,
   &::after
@@ -104,6 +107,7 @@
   color: $white
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
+  border: 0.1rem solid $white
 
 .faustina-rounded-terminals__item
   position: relative
@@ -112,7 +116,14 @@
   font-size: $fs-h1
   text-align: center
   overflow: hidden
-  border-left: 0.2rem solid $white
+  border: 0.1rem solid $white
+
+  &::before
+    +pos(0 0, top left)
+    +size(100%)
+    content: ""
+    border: 0.2rem solid $color-faustina
+    z-index: $z-faustina-header
 
 .faustina-rounded-terminals__item-terminal-top
   position: absolute
@@ -125,3 +136,21 @@
   font-size: 36rem
   top: -22rem
   left: 3rem
+
+// What the font
+//============================================
+
+.faustina-whatfont
+  display: inline-block
+  margin-bottom: 0
+  padding: 0.2rem 0.4rem 0.4rem
+  font-family: $font-faustina
+  line-height: 1
+  font-size: small
+  font-weight: 700
+  letter-spacing: 0.05rem
+  text-transform: uppercase
+  border: 0.1rem solid $white
+  color: $white
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
