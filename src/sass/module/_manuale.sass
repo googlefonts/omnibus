@@ -2,37 +2,3 @@
 // Manuale
 //============================================
 
-.manuale-frame
-  position: relative
-  max-width: calc(32rem - 0.8rem)
-  margin: 0.4rem auto $space
-  border-top: 0.4rem solid $color-manuale
-  border-bottom: 0.4rem solid $white
-  background-position: 0 0, 100% 0
-  background-repeat: no-repeat
-  background-size: 0.4rem 100%
-  background-image: linear-gradient(to bottom, $color-manuale 0%, $white 100%), linear-gradient(to bottom, $color-manuale 0%, $white 100%)
-
-  &::after
-    +center-transform
-    width: calc(100% + 0.8rem)
-    height: calc(100% + 1.6rem)
-    content: ""
-    border-top: 0.1rem solid $color-manuale
-    border-bottom: 0.1rem solid $white
-    background-position: 0 0, 100% 0
-    background-repeat: no-repeat
-    background-size: 0.1rem 100%
-    background-image: linear-gradient(to bottom, $color-manuale 0%, $white 100%), linear-gradient(to bottom, $color-manuale 0%, $white 100%)
-
-  &::before
-    +center-transform
-    width: calc(100% - 1.4rem)
-    height: calc(100% - 0.6rem)
-    content: ""
-    border-top: 0.1rem solid $color-manuale
-    border-bottom: 0.1rem solid $white
-    background-position: 0 0, 100% 0
-    background-repeat: no-repeat
-    background-size: 0.1rem 100%
-    background-image: linear-gradient(to bottom, $color-manuale 0%, $white 100%), linear-gradient(to bottom, $color-manuale 0%, $white 100%)
