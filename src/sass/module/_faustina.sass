@@ -5,9 +5,6 @@
 .faustina-title
   font-size: 8vw
 
-.faustina-border--bottom
-  border-bottom: 0.1rem solid $white
-
 .faustina-dropcap
   +size(5.8rem)
   +color-white
@@ -18,15 +15,34 @@
   text-align: center
   line-height: 5.2rem
   border: 0.1rem solid $white
-  // border-radius: 50%
+  border-radius: 50%
 
 .faustina-meta
+  // float: left
   display: inline-block
-  margin-bottom: 0
-  padding: 0rem 0.5rem 0.2rem
+  margin-bottom: $space-half
+  padding: 0 0.5rem 0.2rem
   font-family: $font-faustina
   font-size: small
   font-weight: 600
+  font-style: normal
+  line-height: $lh
   letter-spacing: 0.05rem
   text-transform: uppercase
   border: 0.1rem solid $white
+
+.faustina-meta--fill
+  margin-right: $space-half
+  background-color: $white
+  color: $color-faustina
+
+.faustina-border
+  padding: $space
+  text-align: center
+  border: 0.1rem solid $white
+
+.faustina-border--no-top
+  border-top: 0
+
+.faustina-border--large
+  padding: $space-double
