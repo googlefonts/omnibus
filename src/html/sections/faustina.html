@@ -1,5 +1,5 @@
 <section class="l-section">
-  <div class="u-bg-faustina u-c-white u-padd-top u-padd-top-double@sm">
+  <div class="u-bg-faustina u-padd-top u-padd-top-double@sm">
     <div class="u-push-btm-double">
       <div class="l-container">
         <h2 class="u-ff-faustina u-push-btm u-ta-center">Faustina</h2>
@@ -22,9 +22,25 @@
         <p class="u-ff-faustina u-push-btm-half u-fw-500" style="font-size: 1.8rem; line-height: 2.6rem;">
           The creative process can be divided into two phases, the postgraduate course and the subsequent development. Alfonso García is very thankful to Rubén Fontana, Pablo Cosgaya and all the professors for their guidance and advice. According to García creating a typeface involves a great deal of thinking, drawing and spacing lots of characters that need to maintain a consistent relation.  He learned this only after redoing and changing so many finished things because they weren’t coherent or had more peculiarities than necessary. 
         </p>
-        <p class="u-ff-faustina u-push-btm-half u-fw-600" style="font-size: 2.4rem; line-height: 3rem;">
+        <p class="u-ff-faustina u-push-btm-double u-fw-600" style="font-size: 2.4rem; line-height: 3rem;">
           The academic stage included a basic Regular set plus a few characters of other styles. Once this was finished, the process continued by expanding the original Regular and completing it with Bold plus Italics for both styles. By the end of 2014 García had presented to Omnibus-Type the full Faustina family as a set of 4 styles with 330 characters each.
         </p>
+      </div>
+
+      <div class="u-push-horz u-push-btm-half">
+        <div class="g-row">
+          {% for item in faustina.chessboard %}
+          <div class="g g-6 g-3@md">
+            <div class="u-border-top-1 u-border-top-black u-border-top-solid u-padd-top-half u-push-btm">
+              <p class="u-ff-faustina u-fw-700 u-lh-1 u-push-btm-none">{{ item.weight }}{% if item.style == 'italic' %}<span class="u-fs-italic">i</span>{% endif %}</p>
+              <p class="u-ff-faustina u-h1 u-fw-{{ item.weight }} {% if item.style == 'italic' %}u-fs-italic{% endif %} u-push-btm-none">Abc</p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="l-container">
         <p class="u-ff-faustina u-push-btm-half u-fw-700 u-hyphenate" style="font-size: 3.2rem; line-height: 3.6rem;">
           At Omnibus-Type, the original family doubled in character set and two more weight variations were developed, making Faustina a complete suite of 8 styles (Regular, Medium, Semibold and Bold, plus Italics), suitable for use in all languages written in the Latin alphabet.
         </p>
@@ -34,12 +50,57 @@
     <div class="u-push-btm-double">
       <div class="l-container">
         <h4 class="u-ff-faustina u-ta-center u-push-btm-double">Variants</h4>
-        <p class="u-ff-faustina u-push-btm-half u-fs-italic">
+        <p class="u-ff-faustina u-push-btm-double u-fs-italic">
           Faustina is a complete suite of 8 styles (Regular, Medium, Semibold and Bold, plus Italics) that can be used for all the languages written in the Latin alphabet.
         </p>
-        <p class="u-ff-faustina u-push-btm-half u-fs-italic u-fw-500" style="font-size: 1.8rem; line-height: 2.6rem;">
+      </div>
+
+      <div class="u-push-horz u-push-btm">
+        <div class="u-border-top-1 u-border-top-black u-border-top-solid u-of-hide">
+          <p class="u-ff-faustina u-push-btm-half u-no-wrap u-pull-top u-pull-top-double@md" style="font-size: 16vw; line-height: 20vw">RƏY rəyçi</p>
+        </div>
+        <div class="u-border-top-1 u-border-top-black u-border-top-solid u-of-hide">
+          <p class="u-ff-faustina u-push-btm-none u-no-wrap u-pull-top u-pull-top-double@md" style="font-size: 16vw; line-height: 20vw">GROẞE</p>
+        </div>
+        <div class="u-border-top-1 u-border-top-black u-border-top-solid u-of-hide">
+          <p class="u-ff-faustina u-push-btm-half u-no-wrap u-pull-top u-pull-top-double@md" style="font-size: 16vw; line-height: 20vw">diɲe riŋ</p>
+        </div>
+        <div class="u-border-top-1 u-border-top-black u-border-top-solid u-of-hide">
+          <p class="u-ff-faustina u-fw-700 u-lh-1 u-push-btm-none">tbar, hbar, kgreenlandic, napostrophe</p>
+          <p class="u-ff-faustina u-push-btm-none u-no-wrap u-pull-top u-pull-top-double@md" style="font-size: 16vw; line-height: 20vw">hŧo ħoĸ</p>
+        </div>
+      </div>
+
+      <div class="l-container">
+        <p class="u-ff-faustina u-push-btm-double u-fs-italic u-fw-500" style="font-size: 1.8rem; line-height: 2.6rem;">
           Following Robert Bringhurst’s classification, Faustina could be considered a postmodern typeface. Its main feature resides in the dialogue between straight and curved shapes that convey the necessary rigor for editorial use without compromising elegance, a trait better appreciated on sizes over 48pt.
         </p>
+      </div>
+
+      <div class="u-push-horz u-push-btm-double">
+        <div class="g-row">
+          <div class="g g-6">
+            <div class="u-border-top-1 u-border-top-black u-border-top-solid u-padd-top">
+              <div class="embed embed-4:3">
+                <svg class="i i-faustina-terminal-top embed_svg u-fill-text">
+                  <use xlink:href="../images/sprite.svg#faustina-terminal-top"></use>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="g g-6">
+            <div class="u-border-top-1 u-border-top-black u-border-top-solid u-padd-top">
+              <div class="embed embed-4:3">
+                <svg class="i i-faustina-terminal-bottom u-fill-text embed_svg">
+                  <use xlink:href="../images/sprite.svg#faustina-terminal-bottom"></use>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="l-container">
         <p class="u-ff-faustina u-push-btm-half u-fs-italic u-fw-600" style="font-size: 2.4rem; line-height: 3rem;">
           All García’s decisions were aimed at optimizing space efficiency: Faustina was designed to be used in newspapers, where there is little space for a lot of content, but also narrow columns and small leading, strong straight serifs combine with rounded terminals, as can be seen on lowercase ‘a’ and ‘c’. Proportions are slightly condensed, the ‘o’ being closer to an ellipse than a circle.
         </p>
