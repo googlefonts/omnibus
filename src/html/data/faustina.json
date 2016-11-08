@@ -29,6 +29,54 @@
         "weight": "700",
         "style": "italic"
       }
+    ],
+    "latin": [
+      {
+        "label": "Schwa (Azeri form) and schwa",
+        "text": "RƏY rəyçi",
+        "class": ""
+      },
+      {
+        "label": "nhookleft, eng",
+        "text": "diɲe riŋ",
+        "class": "u-fs-italic u-fw-700"
+      },
+      {
+        "label": "Sharp S",
+        "text": "GROẞE",
+        "class": "u-fw-500"
+      },
+      {
+        "label": "tbar, hbar, kgreenlandic, napostrophe",
+        "text": "hŧo ħoĸ",
+        "class": "u-fs-italic u-fw-600"
+      }
+    ], 
+    "terminals": [
+      {
+        "name": "faustina-final-a"
+      },
+      {
+        "name": "faustina-terminal-a"
+      },
+      {
+        "name": "faustina-terminal-d"
+      },
+      {
+        "name": "faustina-terminal-i"
+      },
+      {
+        "name": "faustina-terminal-l"
+      },
+      {
+        "name": "faustina-terminal-r"
+      },
+      {
+        "name": "faustina-terminal-s"
+      },
+      {
+        "name": "faustina-terminal-v"
+      }
     ]
   }
 }
