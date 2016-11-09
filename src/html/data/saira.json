@@ -1,152 +1,201 @@
 {
   "saira": {
-    "carousel": [
+    "styles": [
       {
-        "class": "u-ff-saira-extracond u-fw-100",
-        "style": "Extracondensed Thin"
-      },
-      {
-        "class": "u-ff-saira-extracond u-fw-200",
-        "style": "Extracondensed Extralight"
-      },
-      {
-        "class": "u-ff-saira-extracond u-fw-300",
-        "style": "Extracondensed Light"
-      },
-      {
-        "class": "u-ff-saira-extracond u-fw-400",
-        "style": "Extracondensed Regular"
-      },
-      {
-        "class": "u-ff-saira-extracond u-fw-500",
-        "style": "Extracondensed Medium"
-      },
-      {
-        "class": "u-ff-saira-extracond u-fw-600",
-        "style": "Extracondensed Semibold"
-      },
-      {
-        "class": "u-ff-saira-extracond u-fw-700",
-        "style": "Extracondensed Bold"
-      },
-      {
-        "class": "u-ff-saira-extracond u-fw-800",
-        "style": "Extracondensed Extrabold"
-      },
-      {
-        "class": "u-ff-saira-extracond u-fw-900",
-        "style": "Extracondensed Black"
-      },
-
-      {
-        "class": "u-ff-saira-cond u-fw-100",
-        "style": "Condensed Thin"
-      },
-      {
-        "class": "u-ff-saira-cond u-fw-200",
-        "style": "Condensed Extralight"
-      },
-      {
-        "class": "u-ff-saira-cond u-fw-300",
-        "style": "Condensed Light"
-      },
-      {
-        "class": "u-ff-saira-cond u-fw-400",
-        "style": "Condensed Regular"
-      },
-      {
-        "class": "u-ff-saira-cond u-fw-500",
-        "style": "Condensed Medium"
-      },
-      {
-        "class": "u-ff-saira-cond u-fw-600",
-        "style": "Condensed Semibold"
-      },
-      {
-        "class": "u-ff-saira-cond u-fw-700",
-        "style": "Condensed Bold"
-      },
-      {
-        "class": "u-ff-saira-cond u-fw-800",
-        "style": "Condensed Extrabold"
-      },
-      {
-        "class": "u-ff-saira-cond u-fw-900",
-        "style": "Condensed Black"
-      },
-
-      {
-        "class": "u-ff-saira-semicond u-fw-100",
-        "style": "Semicondensed Thin"
-      },
-      {
-        "class": "u-ff-saira-semicond u-fw-200",
-        "style": "Semicondensed Extralight"
-      },
-      {
-        "class": "u-ff-saira-semicond u-fw-300",
-        "style": "Semicondensed Light"
+        "class": "u-ff-saira u-fw-400",
+        "text": "Normal"
       },
       {
         "class": "u-ff-saira-semicond u-fw-400",
-        "style": "Semicondensed Regular"
+        "text": "Semicondensed"
       },
       {
-        "class": "u-ff-saira-semicond u-fw-500",
-        "style": "Semicondensed Medium"
+        "class": "u-ff-saira-cond u-fw-400",
+        "text": "Condensed"
       },
       {
-        "class": "u-ff-saira-semicond u-fw-600",
-        "style": "Semicondensed Semibold"
-      },
-      {
-        "class": "u-ff-saira-semicond u-fw-700",
-        "style": "Semicondensed Bold"
-      },
-      {
-        "class": "u-ff-saira-semicond u-fw-800",
-        "style": "Semicondensed Extrabold"
-      },
-      {
-        "class": "u-ff-saira-semicond u-fw-900",
-        "style": "Semicondensed Black"
-      },
-
-      {
-        "class": "u-ff-saira u-fw-100",
-        "style": "Thin"
-      },
-      {
-        "class": "u-ff-saira u-fw-200",
-        "style": "Extralight"
-      },
+        "class": "u-ff-saira-extracond u-fw-400",
+        "text": "Extracondensed"
+      }
+    ],
+    "widths": [
       {
         "class": "u-ff-saira u-fw-300",
-        "style": "Light"
+        "text": "Thin"
       },
       {
         "class": "u-ff-saira u-fw-400",
-        "style": "Regular"
-      },
-      {
-        "class": "u-ff-saira u-fw-500",
-        "style": "Medium"
-      },
-      {
-        "class": "u-ff-saira u-fw-600",
-        "style": "Semibold"
-      },
-      {
-        "class": "u-ff-saira u-fw-700",
-        "style": "Bold"
-      },
-      {
-        "class": "u-ff-saira u-fw-800",
-        "style": "Extrabold"
+        "text": "Regular"
       },
       {
         "class": "u-ff-saira u-fw-900",
-        "style": "Black"
+        "text": "Black"
+      },
+      {
+        "class": "u-ff-saira-extracond u-fw-300",
+        "text": "Extracondensed Thin"
+      },
+      {
+        "class": "u-ff-saira-extracond u-fw-400",
+        "text": "Extracondensed"
+      },
+      {
+        "class": "u-ff-saira-extracond u-fw-900",
+        "text": "Extracondensed Black"
+      }
+    ],
+    "chessboard": [
+      {
+        "class": "u-ff-saira-extracond u-fw-100",
+        "text": "Extracondensed Thin"
+      },
+      {
+        "class": "u-ff-saira-cond u-fw-100",
+        "text": "Condensed Thin"
+      },
+      {
+        "class": "u-ff-saira-semicond u-fw-100",
+        "text": "Semicondensed Thin"
+      },
+      {
+        "class": "u-ff-saira u-fw-100",
+        "text": "Normal Thin"
+      },
+
+      {
+        "class": "u-ff-saira-extracond u-fw-200",
+        "text": "Extracondensed Extralight"
+      },
+      {
+        "class": "u-ff-saira-cond u-fw-200",
+        "text": "Condensed Extralight"
+      },
+      {
+        "class": "u-ff-saira-semicond u-fw-200",
+        "text": "Semicondensed Extralight"
+      },
+      {
+        "class": "u-ff-saira u-fw-200",
+        "text": "Normal Extralight"
+      },
+
+      {
+        "class": "u-ff-saira-extracond u-fw-300",
+        "text": "Extracondensed Light"
+      },
+      {
+        "class": "u-ff-saira-cond u-fw-300",
+        "text": "Condensed Light"
+      },
+      {
+        "class": "u-ff-saira-semicond u-fw-300",
+        "text": "Semicondensed Light"
+      },
+      {
+        "class": "u-ff-saira u-fw-300",
+        "text": "Normal Light"
+      },
+
+      {
+        "class": "u-ff-saira-extracond u-fw-400",
+        "text": "Extracondensed Regular"
+      },
+      {
+        "class": "u-ff-saira-cond u-fw-400",
+        "text": "Condensed Regular"
+      },
+      {
+        "class": "u-ff-saira-semicond u-fw-400",
+        "text": "Semicondensed Regular"
+      },
+      {
+        "class": "u-ff-saira u-fw-400",
+        "text": "Normal Regular"
+      },
+
+      {
+        "class": "u-ff-saira-extracond u-fw-500",
+        "text": "Extracondensed Medium"
+      },
+      {
+        "class": "u-ff-saira-cond u-fw-500",
+        "text": "Condensed Medium"
+      },
+      {
+        "class": "u-ff-saira-semicond u-fw-500",
+        "text": "Semicondensed Medium"
+      },
+      {
+        "class": "u-ff-saira u-fw-500",
+        "text": "Normal Medium"
+      },
+
+      {
+        "class": "u-ff-saira-extracond u-fw-600",
+        "text": "Extracondensed Semibold"
+      },
+      {
+        "class": "u-ff-saira-cond u-fw-600",
+        "text": "Condensed Semibold"
+      },
+      {
+        "class": "u-ff-saira-semicond u-fw-600",
+        "text": "Semicondensed Semibold"
+      },
+      {
+        "class": "u-ff-saira u-fw-600",
+        "text": "Normal Semibold"
+      },
+
+      {
+        "class": "u-ff-saira-extracond u-fw-700",
+        "text": "Extracondensed Bold"
+      },
+      {
+        "class": "u-ff-saira-cond u-fw-700",
+        "text": "Condensed Bold"
+      },
+      {
+        "class": "u-ff-saira-semicond u-fw-700",
+        "text": "Semicondensed Bold"
+      },
+      {
+        "class": "u-ff-saira u-fw-700",
+        "text": "Normal Bold"
+      },
+
+      {
+        "class": "u-ff-saira-extracond u-fw-800",
+        "text": "Extracondensed Extrabold"
+      },
+      {
+        "class": "u-ff-saira-cond u-fw-800",
+        "text": "Condensed Extrabold"
+      },
+      {
+        "class": "u-ff-saira-semicond u-fw-800",
+        "text": "Semicondensed Extrabold"
+      },
+      {
+        "class": "u-ff-saira u-fw-800",
+        "text": "Normal Extrabold"
+      },
+
+      {
+        "class": "u-ff-saira-extracond u-fw-900",
+        "text": "Extracondensed Black"
+      },
+      {
+        "class": "u-ff-saira-cond u-fw-900",
+        "text": "Condensed Black"
+      },
+      {
+        "class": "u-ff-saira-semicond u-fw-900",
+        "text": "Semicondensed Black"
+      },
+      {
+        "class": "u-ff-saira u-fw-900",
+        "text": "Normal Black"
       }
     ]
   }
