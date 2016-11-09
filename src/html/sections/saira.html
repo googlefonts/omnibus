@@ -7,24 +7,64 @@
   </div>
 
   <div class="u-push-btm-double">
-    <div class="l-container">
-      <h3 class="u-ff-saira-extracond u-fw-700 u-tt-uppercase u-ta-center u-push-btm-double">Origins</h3>
-      <p class="u-ff-faustina u-push-btm-none">
-        Héctor Gatti got his inspiration from the square blueprint of Saira, the town where he was born and that gave the typeface its name. This typeface reflects the spirit of the town founders, the 20th century, hardworking and clever blacksmiths that turned into inventors of machinery for working the fields.
-      </p>
-      <p class="u-ff-faustina u-push-btm-none u-ti-double">
-        Saira is a combination of the creative and the industrial, the sensitive and the efficient. It displays great aesthetic sensibility that combines a geometric tendency with open shapes, flat curves and some whimsical details.
-      </p>
+
+    <div class="u-push-btm-double">
+      <div class="l-container">
+        <h3 class="u-ff-saira-extracond u-fw-700 u-tt-uppercase u-ta-center u-push-btm-double">Origins</h3>
+        <p class="u-ff-faustina u-push-btm-none">
+          Héctor Gatti got his inspiration from the square blueprint of Saira, the town where he was born and that gave the typeface its name. This typeface reflects the spirit of the town founders, the 20th century, hardworking and clever blacksmiths that turned into inventors of machinery for working the fields.
+        </p>
+        <p class="u-ff-faustina u-push-btm-none u-ti-double">
+          Saira is a combination of the creative and the industrial, the sensitive and the efficient. It displays great aesthetic sensibility that combines a geometric tendency with open shapes, flat curves and some whimsical details.
+        </p>
     </div>
   </div>
 
   <div class="u-push-btm-double">
+    
+    <div class="u-push-btm-double">
+      <div class="l-container">
+        <h3 class="u-ff-saira-extracond u-fw-700 u-tt-uppercase u-ta-center u-push-btm-double">Process</h3>
+        <p class="u-ff-faustina u-push-btm-none">
+          On its initial phase, Saira had 7 weights and contemplated the design of 5 expansion styles. As the project moved forward Héctor Gatti realized the font worked very well on headlines, so he figured that the expansion set was only going to need 4 styles: Normal, Semicondensed, Condensed and Extracondensed.
+        </p>
+      </div>
+    </div>
+
+    <div class="u-push-horz u-push-horz-double@md u-push-btm">
+      <div class="g-row">
+      {% for style in saira.styles %}
+        <div class="g g-12">
+        <div class="u-push-btm">
+          <p class="u-h1 {{ style.class }} u-ta-center u-push-btm-none">{{ style.text }}</p>
+        </div>
+        </div>
+      {% endfor %}
+      </div>
+    </div>
+
+    <div class="u-push-btm-double">
+      <div class="l-container">
+        <p class="u-ff-faustina u-push-btm-none">
+          For the development of the full family Gatti simultaneously drew the 3 extreme weight styles in two width ranges (these were the 6 primary files: Thin, Regular, Black, Extracondensed Thin, Extracondensed, Extracondensed Black).
+        </p>
+      </div>
+    </div>
+  
+    <div class="u-push-horz u-push-horz-double@md u-push-btm">
+      <div class="g-row">
+      {% for width in saira.widths %}
+        <div class="g g-12 g-6@sm g-4@md">
+        <div class="u-push-btm-half">
+          <p class="u-h3 {{ width.class }} u-ta-center u-push-btm-none">{{ width.text }}</p>
+        </div>
+        </div>
+      {% endfor %}
+      </div>
+    </div>
+
     <div class="l-container">
-      <h3 class="u-ff-saira-extracond u-fw-700 u-tt-uppercase u-ta-center u-push-btm-double">Process</h3>
       <p class="u-ff-faustina u-push-btm-none">
-        On its initial phase, Saira had 7 weights and contemplated the design of 5 expansion styles. As the project moved forward Héctor Gatti realized the font worked very well on headlines, so he figured that the expansion set was only going to need 4 styles: Normal, Semicondensed, Condensed and Extracondensed. For the development of the full family Gatti simultaneously drew the 3 extreme weight styles in two width ranges (these were the 6 primary files: Thin, Regular, Black, Extracondensed Thin, Extracondensed, Extracondensed Black).
-      </p>
-      <p class="u-ff-faustina u-push-btm-none u-ti-double">
         The Omnibus-Type team completed the character set for each master, programmed the interpolation of intermediate weights, revised and adjusted the preliminary results and produced the final version.
       </p>
       <p class="u-ff-faustina u-push-btm-none u-ti-double">
@@ -37,18 +77,46 @@
   </div>
 
   <div class="u-push-btm-double">
+    <div class="u-push-btm-double">
+      <div class="l-container">
+        <h3 class="u-ff-saira-extracond u-fw-700 u-tt-uppercase u-ta-center u-push-btm-double">Variants</h3>
+        <p class="u-ff-faustina u-push-btm-none">
+          Today, Saira is presented as a suite of 9 weight styles (Thin, Extralight, Light, Regular, Medium, Semibold, Bold, Extrabold, Black) and 4 different widths (Normal, Semicondensed, Condensed and Extracondensed). The result is a versatile super-family of 36 styles in total, with 780 characters each.
+        </p>
+      </div>
+    </div>
+
+    <div class="u-push-horz u-push-horz-double@md u-push-btm">
+      <div class="g-row">
+      {% for item in saira.chessboard %}
+        <div class="g g-3">
+        <div class=" u-push-btm-half">
+          <p class="u-h1 {{ item.class }} u-ta-center u-tt-uppercase u-push-btm-none">a</p>
+        </div>
+        </div>
+      {% endfor %}
+      </div>
+    </div>
+
+    <div class="u-push-btm-double">
+      <div class="l-container">
+        <p class="u-ff-faustina u-push-btm-none">
+          Saira shares features of the geometric and neo-grotesque typographic classifications. As for geometric traits, we can mention the underlying rectangular shape, as can be seen on typefaces such as Eurostile (Aldo Novarese), DIN (Albert-Jan Pool) and Exo (Natanael Gama). Concerning neo-grotesque fonts, Saira’s simplified and open letterforms relate to Frutiger (Adrian Frutiger).
+        </p>
+        <p class="u-ff-faustina u-push-btm-none u-ti-double">
+          Some characters offer stylistic alternates for each style (for example the A, G, R, 6 and 9). As the styles compress and become heavier, some characters (for example the Q, Ø, ø, ¢, $ and ¥) require a deeper study of the stroke performance as it traverses the letter’s counter in order to decide on which cases a simplified structure is needed. Saira’s alternates are gathered in stylistic options that can be activated using the OpenType feature of design software.
+        </p>
+      </div>
+    </div>
+
+    <div class="u-push-horz u-push-horz-double@md u-padd-btm-half u-push-btm">
+      <p class="saira-headline u-ta-center u-push-btm-none">
+        <span class="u-d-ibl u-ff-saira-extracond u-fw-100">A</span><span class="u-d-ibl u-ff-saira-extracond u-fw-100 u-ot-salt">A</span><span class="u-d-ibl u-ff-saira-cond u-fw-300">G</span><span class="u-d-ibl u-ff-saira-cond u-fw-300 u-ot-salt">G</span><span class="u-d-ibl u-ff-saira-semicond u-fw-500">R</span><span class="u-d-ibl u-ff-saira-semicond u-fw-500 u-ot-salt">R</span><span class="u-d-ibl u-ff-saira u-fw-700">6</span><span class="u-d-ibl u-ff-saira u-fw-700 u-ot-salt">6</span><span class="u-d-ibl u-ff-saira u-fw-900">9</span><span class="u-d-ibl u-ff-saira u-fw-900 u-ot-salt">9</span>
+      </p>
+    </div>
+
     <div class="l-container">
-      <h3 class="u-ff-saira-extracond u-fw-700 u-tt-uppercase u-ta-center u-push-btm-double">Variants</h3>
       <p class="u-ff-faustina u-push-btm-none">
-        Today, Saira is presented as a suite of 9 weight styles (Thin, Extralight, Light, Regular, Medium, Semibold, Bold, Extrabold, Black) and 4 different widths (Normal, Semicondensed, Condensed and Extracondensed). The result is a versatile super-family of 36 styles in total, with 780 characters each.
-      </p>
-      <p class="u-ff-faustina u-push-btm-none u-ti-double">
-        Saira shares features of the geometric and neo-grotesque typographic classifications. As for geometric traits, we can mention the underlying rectangular shape, as can be seen on typefaces such as Eurostile (Aldo Novarese), DIN (Albert-Jan Pool) and Exo (Natanael Gama). Concerning neo-grotesque fonts, Saira’s simplified and open letterforms relate to Frutiger (Adrian Frutiger).
-      </p>
-      <p class="u-ff-faustina u-push-btm-none u-ti-double">
-        Some characters offer stylistic alternates for each style (for example the A, G, R, 6 and 9). As the styles compress and become heavier, some characters (for example the Q, Ø, ø, ¢, $ and ¥) require a deeper study of the stroke performance as it traverses the letter’s counter in order to decide on which cases a simplified structure is needed. Saira’s alternates are gathered in stylistic options that can be activated using the OpenType feature of design software.
-      </p>
-      <p class="u-ff-faustina u-push-btm-none u-ti-double">
         Saira was designed as a super-family ideal for use on headlines and short text snippets, and this is the purpose of the flattened curves that allow the composition of compacted words. As for now, the creation of italics isn’t on the agenda, but this is not discarded for the future. The simple and open shapes of this family can be associated with activities such as science, industry, engineering and automotive machinery. Its design conveys the values of modernity, velocity and simplicity.
       </p>
     </div>
