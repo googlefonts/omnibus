@@ -1,4 +1,6 @@
-<section class="l-section u-padd-top u-padd-top-double@sm u-c-saira">
+<section class="l-section">
+  <div class="u-padd-top u-padd-top-double@sm u-bg-saira u-c-saira">
+
   <div class="u-push-btm-double">
     <div class="l-container">
       <h2 class="u-push-btm-btm u-tt-uppercase u-ff-saira-extracond u-fw-700 u-ta-center">Saira</h2>
@@ -35,9 +37,7 @@
       <div class="g-row">
       {% for style in saira.styles %}
         <div class="g g-12">
-        <div class="u-push-btm">
-          <p class="u-h1 {{ style.class }} u-ta-center u-push-btm-none">{{ style.text }}</p>
-        </div>
+          <p class="saira-headline {{ style.class }} u-ta-center u-push-btm-half u-push-btm@sm">{{ style.text }}</p>
         </div>
       {% endfor %}
       </div>
@@ -55,9 +55,7 @@
       <div class="g-row">
       {% for width in saira.widths %}
         <div class="g g-12 g-6@sm g-4@md">
-        <div class="u-push-btm-half">
-          <p class="u-h3 {{ width.class }} u-ta-center u-push-btm-none">{{ width.text }}</p>
-        </div>
+          <p class="u-h3 {{ width.class }} u-ta-center u-push-btm-quarter u-push-btm-half@sm">{{ width.text }}</p>
         </div>
       {% endfor %}
       </div>
@@ -132,5 +130,6 @@
     </div>
   </div>
 
+  </div>
   {% include "shared/google-fonts-code.html" %}
 </section>
