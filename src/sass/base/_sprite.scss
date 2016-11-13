@@ -13,6 +13,18 @@
 //===========================================
 
 $i-map: (
+  asap-terminal-a-width: 80rem,
+  asap-terminal-a-height: 60rem,
+
+  asap-terminal-g-width: 80rem,
+  asap-terminal-g-height: 60rem,
+
+  asap-terminal-l-width: 80rem,
+  asap-terminal-l-height: 60rem,
+
+  asap-terminal-r-width: 80rem,
+  asap-terminal-r-height: 60rem,
+
   faustina-final-a-width: 80rem,
   faustina-final-a-height: 60rem,
 
@@ -38,6 +50,26 @@ $i-map: (
   faustina-terminal-v-height: 60rem
 
 );
+
+.i-asap-terminal-a {
+  width: 80rem;
+  height: 60rem;
+}
+
+.i-asap-terminal-g {
+  width: 80rem;
+  height: 60rem;
+}
+
+.i-asap-terminal-l {
+  width: 80rem;
+  height: 60rem;
+}
+
+.i-asap-terminal-r {
+  width: 80rem;
+  height: 60rem;
+}
 
 .i-faustina-final-a {
   width: 80rem;
