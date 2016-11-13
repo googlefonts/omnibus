@@ -2,3 +2,89 @@
 // Asap
 //============================================
 
+
+// Headline
+//============================================
+
+.asap-headline
+  padding: 0 $space-half
+  font-size: 1.92rem
+
+  +mq($bp-sm)
+    padding: 0 $space
+    font-size: 2.98rem
+
+  +mq($bp-md)
+    font-size: 4.88rem
+
+
+// Alphabet
+//============================================
+
+.asap-alphabet
+  display: flex
+
+.asap-alphabet__item
+  padding: 0 $space-half
+  flex-basis: 50%
+  font-size: 2rem
+  line-height: 1.2
+
+  +mq($bp-sm)
+    font-size: 3rem
+    padding: 0 $space
+
+  +mq($bp-md)
+    font-size: 5.4rem
+
+
+// Border
+//============================================
+
+
+.asap-border--lft
+  border-left: 0.1rem solid $black
+
+.asap-border--rgt
+  border-right: 0.1rem solid $black
+
+
+// Terminals
+//============================================
+
+.asap-terminals
+  display: flex
+  flex-wrap: wrap
+
+.asap-terminals__item
+  flex-basis: 50%
+  flex-shrink: 0
+  margin-bottom: $space
+  padding: 0 $space-half
+
+  +mq($bp-sm)
+    padding: 0 $space
+
+// Sign
+//============================================
+
+.asap-sign
+  +size(6rem)
+  display: inline-block
+  font-size: 4rem
+  line-height: 6rem
+  background-color: $color-text
+  color: $color-asap
+  border-radius: 50%
+  font-weight: 700
+  text-transform: uppercase
+
+  +mq($bp-sm)
+    +size(10rem)
+    font-size: 6rem
+    line-height: 10rem
+
+  +mq($bp-md)
+    +size(14rem)
+    font-size: 10rem
+    line-height: 14rem
