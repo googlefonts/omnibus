@@ -65,26 +65,80 @@
   +mq($bp-sm)
     padding: 0 $space
 
-// Sign
+
+// Terminals
 //============================================
 
-.asap-sign
-  +size(6rem)
-  display: inline-block
-  font-size: 4rem
-  line-height: 6rem
-  background-color: $color-text
-  color: $color-asap
-  border-radius: 50%
-  font-weight: 700
-  text-transform: uppercase
+.asap-color
+  display: flex
+  flex-wrap: wrap
+
+.asap-color__item
+  flex-basis: 25%
+  flex-shrink: 0
+  margin-bottom: $space
+
+
+// Ascendants
+//============================================
+
+.asap-ascendants
+  position: relative
+  margin-bottom: 0
+  font-size: 6.6rem
+  line-height: 1
+  padding: 0 $space-half
+
+  &::before,
+  &::after
+    content: ""
+    position: absolute
+    left: 0
+    width: 100%
+
+  &::before
+    top: 2.2rem
+    border-top: 0.1rem solid $black
+
+  &::after
+    bottom: 0.7rem
+    border-bottom: 0.1rem solid $black
 
   +mq($bp-sm)
-    +size(10rem)
-    font-size: 6rem
-    line-height: 10rem
+    padding: 0 $space
+    font-size: 10.2rem
+
+    &::before
+      top: 3.5rem
+
+    &::after
+      bottom: 1.1rem
 
   +mq($bp-md)
-    +size(14rem)
-    font-size: 10rem
-    line-height: 14rem
+    font-size: 16.6rem
+
+    &::before
+      top: 5.9rem
+
+    &::after
+      bottom: 1.9rem
+
+
+// Ascendants
+//============================================
+
+.asap-weight
+  display: flex
+
+.asap-weight__item
+  flex-basis: 50%
+  margin-bottom: 0
+  font-size: 2rem
+  line-height: 1.2
+
+  +mq($bp-sm)
+    font-size: 3rem
+    padding: 0 $space
+
+  +mq($bp-md)
+    font-size: 5.4rem
