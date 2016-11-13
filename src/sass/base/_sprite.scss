@@ -13,6 +13,21 @@
 //===========================================
 
 $i-map: (
+  asap-arrow-width: 40rem,
+  asap-arrow-height: 40rem,
+
+  asap-elevator-width: 40rem,
+  asap-elevator-height: 40rem,
+
+  asap-object-width: 40rem,
+  asap-object-height: 40rem,
+
+  asap-people-width: 40rem,
+  asap-people-height: 40rem,
+
+  asap-signal-width: 40rem,
+  asap-signal-height: 40rem,
+
   asap-terminal-a-width: 80rem,
   asap-terminal-a-height: 60rem,
 
@@ -24,6 +39,9 @@ $i-map: (
 
   asap-terminal-r-width: 80rem,
   asap-terminal-r-height: 60rem,
+
+  asap-transport-width: 40rem,
+  asap-transport-height: 40rem,
 
   faustina-final-a-width: 80rem,
   faustina-final-a-height: 60rem,
@@ -51,6 +69,31 @@ $i-map: (
 
 );
 
+.i-asap-arrow {
+  width: 40rem;
+  height: 40rem;
+}
+
+.i-asap-elevator {
+  width: 40rem;
+  height: 40rem;
+}
+
+.i-asap-object {
+  width: 40rem;
+  height: 40rem;
+}
+
+.i-asap-people {
+  width: 40rem;
+  height: 40rem;
+}
+
+.i-asap-signal {
+  width: 40rem;
+  height: 40rem;
+}
+
 .i-asap-terminal-a {
   width: 80rem;
   height: 60rem;
@@ -69,6 +112,11 @@ $i-map: (
 .i-asap-terminal-r {
   width: 80rem;
   height: 60rem;
+}
+
+.i-asap-transport {
+  width: 40rem;
+  height: 40rem;
 }
 
 .i-faustina-final-a {
