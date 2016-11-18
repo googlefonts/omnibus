@@ -1,81 +1,79 @@
 <section class="l-section">
+
   <div class="u-bg-faustina u-c-faustina u-padd-top u-padd-top-double@sm">
 
     <!-- Intro -->
 
-    <div class="u-push-btm-double">
-      <div class="l-container">
-        <h2 class="u-ff-faustina u-push-btm u-ta-center">Faustina</h2>
-        <h4 class="u-h6 u-ff-faustina u-push-btm-none u-ta-center">from Alfonso García and <br class="u-d-none@sm">Pablo Cosgaya</h4>
-      </div>
+    <div class="l-container u-push-btm-double">
+      <h2 class="u-ff-faustina u-push-btm u-ta-center">Faustina</h2>
+      <h4 class="u-h6 u-ff-faustina u-push-btm-none u-ta-center">from Alfonso García and <br class="u-d-none@sm">Pablo Cosgaya</h4>
     </div>
+
 
     <!-- Variant -->
 
     <div class="u-push-btm-double">
-      <div class="u-push-btm-double">
-        <div class="l-container">
-          <h4 class="u-ff-faustina u-ta-center u-push-btm-double">Variants</h4>
-          <p class="u-ff-faustina u-push-btm-none">
-            Faustina is a complete suite of 8 styles (Regular, Medium, Semibold and Bold, plus Italics) that can be used for all the languages written in the Latin alphabet.
-          </p>
-        </div>
+      <div class="l-container">
+        <h4 class="u-ff-faustina u-ta-center u-push-btm-double">Variants</h4>
+        <p class="u-ff-faustina u-push-btm-none">
+          Faustina is a complete suite of 8 styles (Regular, Medium, Semibold and Bold, plus Italics) that can be used for all the languages written in the Latin alphabet.
+        </p>
       </div>
+    </div>
 
-      <div class="u-push-horz u-push-horz-double@md">
-        {% for item in faustina.latin %}
-        <div class="u-border-top-1 u-border-top-black u-border-top-solid u-of-hide u-padd-top-half">
-          <p class="u-ff-faustina u-fw-700 u-lh-1 u-tt-uppercase u-fz-sm u-push-btm-none">{{ item.label }}</p>
-          <p class="faustina-headline u-ff-faustina u-push-btm u-pull-top-quarter@sm u-pull-top@md u-no-wrap {{ item.class }}">{{ item.text }}</p>
+    <div class="u-push-horz u-push-horz-double@md">
+      {% for item in faustina.latin %}
+      <div class="u-border-top-1 u-border-top-black u-border-top-solid u-of-hide u-padd-top-half">
+        <p class="u-ff-faustina u-fw-700 u-lh-1 u-tt-uppercase u-fz-sm u-push-btm-none">{{ item.label }}</p>
+        <p class="faustina-headline u-ff-faustina u-push-btm u-pull-top-quarter@sm u-pull-top@md u-no-wrap {{ item.class }}">{{ item.text }}</p>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="u-push-btm-double">
+      <div class="l-container">
+        <p class="u-ff-faustina u-push-btm-none">
+          Following Robert Bringhurst’s classification, Faustina could be considered a postmodern typeface. Its main feature resides in the dialogue between straight and curved shapes that convey the necessary rigor for editorial use without compromising elegance, a trait better appreciated on sizes over 48pt.
+        </p>
+      </div>
+    </div>
+
+    <div class="u-push-horz u-push-horz-double@md u-push-btm">
+      <div class="g-row">
+        {% for terminal in faustina.terminals %}
+        <div class="g g-6 g-3@md">
+          <div class="u-border-top-1 u-border-top-black u-border-top-solid u-padd-top-half u-push-btm">
+            <!-- <p class="u-ff-faustina u-fw-700 u-tt-uppercase u-fz-sm u-push-btm-half">{{ terminal.label }}</p> -->
+            <div class="embed embed-4:3">
+              <svg class="i i-{{ terminal.name }} embed_svg u-fill-text-faustina">
+                <use xlink:href="images/sprite.svg#{{ terminal.name }}"></use>
+              </svg>
+            </div>
+          </div>
         </div>
         {% endfor %}
       </div>
+    </div>
 
-      <div class="u-push-btm-double">
-        <div class="l-container">
-          <p class="u-ff-faustina u-push-btm-none">
-            Following Robert Bringhurst’s classification, Faustina could be considered a postmodern typeface. Its main feature resides in the dialogue between straight and curved shapes that convey the necessary rigor for editorial use without compromising elegance, a trait better appreciated on sizes over 48pt.
-          </p>
-        </div>
-      </div>
-
-      <div class="u-push-horz u-push-horz-double@md u-push-btm">
-        <div class="g-row">
-          {% for terminal in faustina.terminals %}
-          <div class="g g-6 g-3@md">
-            <div class="u-border-top-1 u-border-top-black u-border-top-solid u-padd-top-half u-push-btm">
-              <!-- <p class="u-ff-faustina u-fw-700 u-tt-uppercase u-fz-sm u-push-btm-half">{{ terminal.label }}</p> -->
-              <div class="embed embed-4:3">
-                <svg class="i i-{{ terminal.name }} embed_svg u-fill-text-faustina">
-                  <use xlink:href="images/sprite.svg#{{ terminal.name }}"></use>
-                </svg>
-              </div>
-            </div>
-          </div>
-          {% endfor %}
-        </div>
-      </div>
-
-      <div class="u-push-btm-double">
-        <div class="l-container">
-          <p class="u-ff-faustina u-push-btm-none">
-            All García’s decisions were aimed at optimizing space efficiency: Faustina was designed to be used in newspapers, where there is little space for a lot of content, but also narrow columns and small leading, strong straight serifs combine with rounded terminals, as can be seen on lowercase ‘a’ and ‘c’. Proportions are slightly condensed, the ‘o’ being closer to an ellipse than a circle.
-          </p>
-        </div>
-      </div>
-
-      <div class="u-push-horz u-push-horz-double@md u-push-btm">
-        <div class="u-border-top-1 u-border-top-black u-border-top-solid u-of-hide u-padd-top-half">
-          <p class="u-ff-faustina u-fw-700 u-lh-1 u-tt-uppercase u-fz-sm u-push-btm-none">Base and Mean line</p>
-          <p class="faustina-headline faustina-headline--lines u-ff-faustina u-push-btm u-pull-top-quarter@sm u-pull-top@md u-no-wrap">xtlRegEhv</p>
-        </div>
-      </div>
-
+    <div class="u-push-btm-double">
       <div class="l-container">
-        <p class="u-ff-faustina u-push-btm-half">
-          The strong x-height and open counters were designed to work in small sizes, with bad quality paper and low-resolution screens in mind.
+        <p class="u-ff-faustina u-push-btm-none">
+          All García’s decisions were aimed at optimizing space efficiency: Faustina was designed to be used in newspapers, where there is little space for a lot of content, but also narrow columns and small leading, strong straight serifs combine with rounded terminals, as can be seen on lowercase ‘a’ and ‘c’. Proportions are slightly condensed, the ‘o’ being closer to an ellipse than a circle.
         </p>
       </div>
+    </div>
+
+    <div class="u-push-horz u-push-horz-double@md u-push-btm">
+      <div class="u-border-top-1 u-border-top-black u-border-top-solid u-of-hide u-padd-top-half">
+        <p class="u-ff-faustina u-fw-700 u-lh-1 u-tt-uppercase u-fz-sm u-push-btm-none">Base and Mean line</p>
+        <p class="faustina-headline faustina-headline--lines u-ff-faustina u-push-btm u-pull-top-quarter@sm u-pull-top@md u-no-wrap">xtlRegEhv</p>
+      </div>
+    </div>
+
+    <div class="l-container u-push-btm-double">
+      <p class="u-ff-faustina u-push-btm-none">
+        The strong x-height and open counters were designed to work in small sizes, with bad quality paper and low-resolution screens in mind.
+      </p>
     </div>
 
     <!-- Process -->
@@ -136,6 +134,7 @@
     </div>
     
     {% include "shared/google-fonts-code.html" %}
+
   </div>
 
 </section>
