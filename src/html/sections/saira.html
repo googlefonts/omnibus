@@ -1,5 +1,8 @@
 <section class="l-section">
   <div class="u-padd-top u-padd-top-double@sm u-bg-saira u-c-saira">
+
+    <!-- Intro -->
+
     <div class="u-push-btm-double">
       <div class="l-container">
         <h2 class="u-push-btm-btm u-ff-saira u-fw-700 u-ta-center">Saira</h2>
@@ -7,68 +10,7 @@
       </div>
     </div>
 
-    <div class="u-push-btm-double">
-      <div class="l-container">
-        <h3 class="u-ff-saira-extracond u-fw-700 u-tt-uppercase u-ta-center u-push-btm-double">Origins</h3>
-        <p class="u-ff-faustina u-push-btm-none">
-          Héctor Gatti got his inspiration from the square blueprint of Saira, the town where he was born and that gave the typeface its name. This typeface reflects the spirit of the town founders, the 20th century, hardworking and clever blacksmiths that turned into inventors of machinery for working the fields.
-        </p>
-        <p class="u-ff-faustina u-push-btm-none u-ti-double">
-          Saira is a combination of the creative and the industrial, the sensitive and the efficient. It displays great aesthetic sensibility that combines a geometric tendency with open shapes, flat curves and some whimsical details.
-        </p>
-      </div>
-    </div>
-
-    <div class="u-push-btm-double">
-      <div class="l-container">
-        <h3 class="u-ff-saira-extracond u-fw-700 u-tt-uppercase u-ta-center u-push-btm-double">Process</h3>
-        <p class="u-ff-faustina u-push-btm-none">
-          On its initial phase, Saira had 7 weights and contemplated the design of 5 expansion styles. As the project moved forward Héctor Gatti realized the font worked very well on headlines, so he figured that the expansion set was only going to need 4 styles: Normal, Semicondensed, Condensed and Extracondensed.
-        </p>
-      </div>
-    </div>
-
-    <div class="u-push-horz u-push-horz-double@md u-push-btm">
-      <div class="g-row">
-      {% for style in saira.styles %}
-        <div class="g g-12">
-          <p class="saira-headline {{ style.class }} u-ta-center u-push-btm-half u-push-btm@sm">{{ style.text }}</p>
-        </div>
-      {% endfor %}
-      </div>
-    </div>
-
-    <div class="u-push-btm-double">
-      <div class="l-container">
-        <p class="u-ff-faustina u-push-btm-none">
-          For the development of the full family Gatti simultaneously drew the 3 extreme weight styles in two width ranges (these were the 6 primary files: Thin, Regular, Black, Extracondensed Thin, Extracondensed, Extracondensed Black).
-        </p>
-      </div>
-    </div>
-  
-    <div class="u-push-horz u-push-horz-double@md u-push-btm">
-      <div class="g-row">
-      {% for width in saira.widths %}
-        <div class="g g-12 g-6@sm g-4@md">
-          <p class="u-h3 {{ width.class }} u-ta-center u-push-btm-quarter u-push-btm-half@sm">{{ width.text }}</p>
-        </div>
-      {% endfor %}
-      </div>
-    </div>
-
-    <div class="u-push-btm-double">
-      <div class="l-container">
-        <p class="u-ff-faustina u-push-btm-none">
-          The Omnibus-Type team completed the character set for each master, programmed the interpolation of intermediate weights, revised and adjusted the preliminary results and produced the final version.
-        </p>
-        <p class="u-ff-faustina u-push-btm-none u-ti-double">
-          When producing a typeface with so many styles, it becomes essential to organize its components very well, so the resulting suite is simple to use. Postproduction included testing and adjustments to make the naming of the styles and its arrangement on the dropdown menu work as needed.
-        </p>
-        <p class="u-ff-faustina u-push-btm-none u-ti-double">
-          This typeface was envisioned, planned and developed entirely to work on digital displays. For this reason, there are no hand drawn sketches.
-        </p>
-      </div>
-    </div>
+    <!-- Variants -->
 
     <div class="u-push-btm-double">
       <div class="u-push-btm-double">
@@ -134,11 +76,80 @@
       </div>
     </div>
 
+    <!-- Process -->
+
+    <div class="u-push-btm-double">
+      <div class="l-container">
+        <h3 class="u-ff-saira-extracond u-fw-700 u-tt-uppercase u-ta-center u-push-btm-double">Process</h3>
+        <p class="u-ff-faustina u-push-btm-none">
+          On its initial phase, Saira had 7 weights and contemplated the design of 5 expansion styles. As the project moved forward Héctor Gatti realized the font worked very well on headlines, so he figured that the expansion set was only going to need 4 styles: Normal, Semicondensed, Condensed and Extracondensed.
+        </p>
+      </div>
+    </div>
+
+    <div class="u-push-horz u-push-horz-double@md u-push-btm">
+      <div class="g-row">
+      {% for style in saira.styles %}
+        <div class="g g-12">
+          <p class="saira-headline {{ style.class }} u-ta-center u-push-btm-half u-push-btm@sm">{{ style.text }}</p>
+        </div>
+      {% endfor %}
+      </div>
+    </div>
+
+    <div class="u-push-btm-double">
+      <div class="l-container">
+        <p class="u-ff-faustina u-push-btm-none">
+          For the development of the full family Gatti simultaneously drew the 3 extreme weight styles in two width ranges (these were the 6 primary files: Thin, Regular, Black, Extracondensed Thin, Extracondensed, Extracondensed Black).
+        </p>
+      </div>
+    </div>
+  
+    <div class="u-push-horz u-push-horz-double@md u-push-btm">
+      <div class="g-row">
+      {% for width in saira.widths %}
+        <div class="g g-12 g-6@sm g-4@md">
+          <p class="u-h3 {{ width.class }} u-ta-center u-push-btm-quarter u-push-btm-half@sm">{{ width.text }}</p>
+        </div>
+      {% endfor %}
+      </div>
+    </div>
+
+    <div class="u-push-btm-double">
+      <div class="l-container">
+        <p class="u-ff-faustina u-push-btm-none">
+          The Omnibus-Type team completed the character set for each master, programmed the interpolation of intermediate weights, revised and adjusted the preliminary results and produced the final version.
+        </p>
+        <p class="u-ff-faustina u-push-btm-none u-ti-double">
+          When producing a typeface with so many styles, it becomes essential to organize its components very well, so the resulting suite is simple to use. Postproduction included testing and adjustments to make the naming of the styles and its arrangement on the dropdown menu work as needed.
+        </p>
+        <p class="u-ff-faustina u-push-btm-none u-ti-double">
+          This typeface was envisioned, planned and developed entirely to work on digital displays. For this reason, there are no hand drawn sketches.
+        </p>
+      </div>
+    </div>
+
+    <!-- Applications -->
+
     <div class="u-push-btm-double">
       <div class="l-container">
         <h3 class="u-ff-saira-extracond u-fw-700 u-tt-uppercase u-ta-center u-push-btm-double">Applications</h3>
         <p class="u-ff-faustina">
           Saira was designed for editorial use (mainly magazines and newspapers, digital or print). However, it works well on other scenarios too, for instance advertising, corporate design, packaging and signage projects. Saira can be matched perfectly with other families of this same collection for editorial use, such as Faustina or Manuale. Moreover, the geometry and simplicity of Saira could be nicely combined with the sensitive and humane stroke of Delius. 
+        </p>
+      </div>
+    </div>
+
+    <!-- Origins -->
+
+    <div class="u-push-btm-double">
+      <div class="l-container">
+        <h3 class="u-ff-saira-extracond u-fw-700 u-tt-uppercase u-ta-center u-push-btm-double">Origins</h3>
+        <p class="u-ff-faustina u-push-btm-none">
+          Héctor Gatti got his inspiration from the square blueprint of Saira, the town where he was born and that gave the typeface its name. This typeface reflects the spirit of the town founders, the 20th century, hardworking and clever blacksmiths that turned into inventors of machinery for working the fields.
+        </p>
+        <p class="u-ff-faustina u-push-btm-none u-ti-double">
+          Saira is a combination of the creative and the industrial, the sensitive and the efficient. It displays great aesthetic sensibility that combines a geometric tendency with open shapes, flat curves and some whimsical details.
         </p>
       </div>
     </div>
