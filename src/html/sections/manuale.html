@@ -30,7 +30,7 @@
       </p>
     </div>
 
-    <div class="u-push-horz u-push-horz-double@md u-push-btm-double">
+    <div class="u-push-horz u-push-horz-double@md u-push-btm-double u-pull-top-half">
       <p class="u-ff-manuale u-h2 u-h1@sm u-push-btm-none u-ta-center u-fw-400"><span class="u-fz-sm u-push-rgt-half u-fw-700 u-fs-regular">400</span>Regular</p>
       <p class="u-ff-manuale u-h2 u-h1@sm u-push-btm-none u-ta-center u-fw-400 u-fs-italic"><span class="u-fz-sm u-push-rgt-half u-fw-700 u-fs-regular">400</span>Italic</p>
       <p class="u-ff-manuale u-h2 u-h1@sm u-push-btm-none u-ta-center u-fw-500"><span class="u-fz-sm u-push-rgt-half u-fw-700 u-fs-regular">500</span>Medium</p>
@@ -42,31 +42,61 @@
     </div>
 
     <div class="l-container u-push-btm-double">
-      <p class="u-ff-manuale u-push-btm-half">
+      <p class="u-ff-manuale u-push-btm-none">
         By virtue of its stroke contrast, Manuale could be considered a transitional typeface. Its main features are the sharp and upright serifs that, together with its flat curves, compose compressed words of rectangular appearance, ideal for editorial use. The large x-height with short ascenders and descenders favors small leading, saving vertical space while remaining comfortable to read in extended text settings.
       </p>
+    </div>
+
+    <div class="u-push-horz u-push-horz-double@md u-push-btm-double u-pull-top-half u-no-wrap">
+      <p class="u-d-ibl u-ff-manuale u-fz-sm u-fw-700 u-tt-uppercase u-push-rgt-half u-push-btm-none">Large x-height</p>
+      <p class="manuale-ascendants u-d-ibl u-ff-manuale u-fw-700 u-ta-center u-padd-lft-half">xtlRegEhv</p>
     </div>
 
     <!-- Process -->
   
     <div class="l-container u-push-btm-double">
       <h3 class="u-h4 u-ff-manuale u-ta-center u-push-btm-double">Process</h3>
-      <p class="u-ff-manuale u-push-btm-half">
+      <p class="u-ff-manuale u-push-btm-none">
         For the purpose of stylistic definition, the initial characters were hand sketched, respecting many characteristics of the original printing. Eduardo Tunni and Pablo Cosgaya tried to preserve the sharp and metallic appearance of the typography of the «Manuale», while adjusting the baseline, proportions, spacing and terminals.
         The typographic color of each style was defined, and the project was then expanded into a complete suite of 4 weight styles plus italics.
       </p>
+      <p class="u-ff-manuale u-push-btm-none u-ti-double">
+        They wanted Manuale’s italics to be more mechanical and less ornamental than the ones in the original printing. They achieved this by redrawing a condensed and inclined version of regular style.
+      </p>
+    </div>
+
+    <div class="u-push-horz u-push-horz-double@md u-push-btm-double u-pull-top-half">
+      <p class="u-h2 u-ff-manuale u-ta-center u-fs-italic u-no-wrap u-push-btm-none">
+        <span class="u-ff-manuale u-fz-sm u-push-rgt-half u-fw-700 u-tt-uppercase u-fs-regular">Italic</span><span class="u-fw-400">Condensed</span> <span class=u-fw-500>and inclined</span> <span class="u-fw-600">version of</span> <span class="u-fw-700">regular style</span>
     </div>
 
     <div class="l-container u-push-btm-double">
-      <p class="u-ff-manuale u-push-btm-half">
-        They wanted Manuale’s italics to be more mechanical and less ornamental than the ones in the original printing. They achieved this by redrawing a condensed and inclined version of regular style.
-      </p>
-      <p class="u-ff-manuale u-push-btm-half">
+      <p class="u-ff-manuale u-push-btm-none">
         The process was divided into three stages. First they developed exploratory hand-drawn sketches in order to define the interpretation criterion of the referred printing; i.e. whether we were going to do a historical revival (with irregular structures, coarse stroke, uneven baseline and weight variations) or a contemporary interpretation. After these initial explorations, they decided on the second option. After establishing the suited proportions for an editorial typeface, they continued to the concrete digital drawing. They performed typesetting and readability tests while defining the font’s spacing.
       </p>
-      <p class="u-ff-manuale u-push-btm-half">
+      <p class="u-ff-manuale u-push-btm-none u-ti-double">
         The type designers’ goal was to achieve space efficiency without compromising the body size of the typesetting. For this purpose, in addition to its compacted verticals, Manuale displays a considerable compression that is well dissimulated by its flat curves.
       </p>
+    </div>
+
+    <div class="u-push-horz u-push-horz-double@md u-push-btm">
+      <div class="g-row">
+        {% for terminal in manuale.terminals %}
+        <div class="g g-6">
+          <div class="u-push-btm">
+            <span class="u-ff-manuale u-fz-sm u-fw-700 u-tt-uppercase">{{ terminal.weight }}</span>
+            <div class="embed embed-4:3">
+              <svg class="i i-{{ terminal.name }} embed_svg u-fill-text-faustina">
+                <use xlink:href="images/sprite.svg#{{ terminal.name }}"></use>
+              </svg>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="l-container u-push-btm-double">
       <p class="u-ff-manuale u-push-btm-none">
         One of the main concerns designing Manuale was to maintain good proportions between the uppercase letters and ascenders. The challenge was to produce distinguished and important capital letters, in spite of being of moderate height. Eduardo and Pablo found convenient to give priority to the uppercase numbers, making these the default option, and provide alternative access to the old-style numerals (also known as lowercase or proportional figures).
       </p>
@@ -78,13 +108,13 @@
     </div>
 
     <div class="l-container u-push-btm@md">
-      <p class="u-ff-manuale u-push-btm-half">
+      <p class="u-ff-manuale u-push-btm-none">
         On account of the attachment they developed toward the «Manuale», they tested the performance of the typeface in the composition of texts in Guaraní language, specifically the accentuation characters (including the “Saltillo” or “Pusó”), and the alternative structures of the letters ‘y’, ‘e’ and ‘Y’, that separate their use as vowels or consonants in this language.
       </p>
-      <p class="u-ff-manuale u-push-btm-half">
+      <p class="u-ff-manuale u-push-btm-none u-ti-double">
         As defining the color of the regular style the two type designers tested very lean stroke weights and attained a light style that —even though discarded at the time— could be revised, adjusted, and eventually published in the future. 
       </p>
-      <p class="u-ff-manuale u-push-btm-none">
+      <p class="u-ff-manuale u-push-btm-none u-ti-double">
         The design of the italic “y” was interesting. Initially, it had a classic tail that made it look too slanted in text settings, so after trying many options Eduardo and Pablo decided on the current letterform, that they believe works well and balances the rhythm of lowercase descenders (there are three soft ones and three tough ones).
       </p>
     </div>
@@ -107,10 +137,10 @@
 
     <div class="l-container u-push-btm-double">
       <h3 class="u-h4 u-ff-manuale u-ta-center u-push-btm-double">Applications</h3>
-      <p class="u-ff-manuale u-push-btm-half">
+      <p class="u-ff-manuale u-push-btm-none">
         Manuale was envisioned for use on online editorial projects (books, magazines, newspapers, blogs), although this doesn’t mean it couldn’t also perform very well on print. Eduardo and Pablo envision it on newspapers and magazine spreads, set on narrow columns with solid leading, and also composing elegant headlines on flyers and brochures.
       </p>
-      <p class="u-ff-manuale u-push-btm-half">
+      <p class="u-ff-manuale u-push-btm-none u-ti-double">
         A very suitable match for texts set in Manuale could be headlines composed in the many styles of Saira, since both families present sharp forms and slightly rectangular structures. For a better result combining them in extended text settings, Eduardo and Pablo suggest reducing the size of Saira in order to optically adjust its x-height (510) to Manuale’s (491).
       </p>
     </div>
@@ -119,7 +149,7 @@
 
     <div class="l-container u-push-btm-double">
       <h3 class="u-h4 u-ff-manuale u-ta-center u-push-btm-double">Origins</h3>
-      <p class="u-ff-manuale u-push-btm-half">
+      <p class="u-ff-manuale u-push-btm-none">
         Manuale was inspired by the first printings ever made on Argentinian territory. It’s actually a contemporary interpretation of the typeface used in the production of the «Manuale ad usum Patrum Societatis Iesu», a volume of 3.6 x 5.2in composed in Latin and Guaraní using ‘gorda’ type (a historical Spanish measure equivalent to 14pt) by the father Paulo Restivo at the Loreto Jesuitical Mission in the year 1721.
       </p>
     </div>

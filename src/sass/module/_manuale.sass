@@ -16,3 +16,42 @@
 
 .manuale-alphabet__item
   width: calc(100% / 12)
+
+.manuale-ascendants
+  position: relative
+  margin-bottom: 0
+  font-size: 5.6rem
+  line-height: 1
+
+  &::before,
+  &::after
+    content: ""
+    position: absolute
+    left: 0
+    width: 100%
+
+  &::before
+    top: 1.8rem
+    border-top: 0.1rem solid $color-text-manuale
+
+  &::after
+    bottom: 0.9rem
+    border-bottom: 0.1rem solid $color-text-manuale
+
+  +mq($bp-sm)
+    font-size: 9.2rem
+
+    &::before
+      top: 2.9rem
+
+    &::after
+      bottom: 1.6rem
+
+  +mq($bp-md)
+    font-size: 14.2rem
+
+    &::before
+      top: 4.5rem
+
+    &::after
+      bottom: 2.5rem

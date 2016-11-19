@@ -1,0 +1,22 @@
+{
+  "manuale": {
+    "terminals": [
+      {
+        "name": "manuale-terminal-a",
+        "weight": "Regular"
+      },
+      {
+        "name": "manuale-terminal-g",
+        "weight": "Medium"
+      },
+      {
+        "name": "manuale-terminal-t",
+        "weight": "Semibold"
+      },
+      {
+        "name": "manuale-terminal-r",
+        "weight": "Bold"
+      }
+    ]
+  }
+}
