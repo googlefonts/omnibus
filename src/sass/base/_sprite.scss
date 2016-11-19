@@ -65,7 +65,19 @@ $i-map: (
   faustina-terminal-s-height: 60rem,
 
   faustina-terminal-v-width: 80rem,
-  faustina-terminal-v-height: 60rem
+  faustina-terminal-v-height: 60rem,
+
+  manuale-terminal-a-width: 80rem,
+  manuale-terminal-a-height: 60rem,
+
+  manuale-terminal-g-width: 80rem,
+  manuale-terminal-g-height: 60rem,
+
+  manuale-terminal-r-width: 80rem,
+  manuale-terminal-r-height: 60rem,
+
+  manuale-terminal-t-width: 80rem,
+  manuale-terminal-t-height: 60rem
 
 );
 
@@ -155,6 +167,26 @@ $i-map: (
 }
 
 .i-faustina-terminal-v {
+  width: 80rem;
+  height: 60rem;
+}
+
+.i-manuale-terminal-a {
+  width: 80rem;
+  height: 60rem;
+}
+
+.i-manuale-terminal-g {
+  width: 80rem;
+  height: 60rem;
+}
+
+.i-manuale-terminal-r {
+  width: 80rem;
+  height: 60rem;
+}
+
+.i-manuale-terminal-t {
   width: 80rem;
   height: 60rem;
 }
