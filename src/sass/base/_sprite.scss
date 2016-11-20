@@ -13,6 +13,18 @@
 //===========================================
 
 $i-map: (
+  archivo-terminal-4-width: 80rem,
+  archivo-terminal-4-height: 60rem,
+
+  archivo-terminal-a-width: 80rem,
+  archivo-terminal-a-height: 60rem,
+
+  archivo-terminal-g-width: 80rem,
+  archivo-terminal-g-height: 60rem,
+
+  archivo-terminal-t-width: 80rem,
+  archivo-terminal-t-height: 60rem,
+
   asap-arrow-width: 40rem,
   asap-arrow-height: 40rem,
 
@@ -80,6 +92,26 @@ $i-map: (
   manuale-terminal-t-height: 60rem
 
 );
+
+.i-archivo-terminal-4 {
+  width: 80rem;
+  height: 60rem;
+}
+
+.i-archivo-terminal-a {
+  width: 80rem;
+  height: 60rem;
+}
+
+.i-archivo-terminal-g {
+  width: 80rem;
+  height: 60rem;
+}
+
+.i-archivo-terminal-t {
+  width: 80rem;
+  height: 60rem;
+}
 
 .i-asap-arrow {
   width: 40rem;
