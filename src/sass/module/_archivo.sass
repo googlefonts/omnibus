@@ -2,3 +2,53 @@
 // Archivo
 //============================================
 
+.archivo-italics
+  font-size: 18rem
+  line-height: 18rem
+
+  +mq($bp-sm)
+    font-size: 28rem
+    line-height: 26rem
+
+  +mq($bp-md)
+    font-size: 44rem
+    line-height: 40rem
+
+.archivo-ascendants
+  position: relative
+  margin-bottom: 0
+  font-size: 5rem
+  line-height: 1
+
+  &::before,
+  &::after
+    content: ""
+    position: absolute
+    left: 0
+    width: 100%
+
+  &::before
+    top: 1.5rem
+    border-top: 0.1rem solid $color-text-archivo
+
+  &::after
+    bottom: 0.7rem
+    border-bottom: 0.1rem solid $color-text-archivo
+
+  +mq($bp-sm)
+    font-size: 8rem
+
+    &::before
+      top: 2.4rem
+
+    &::after
+      bottom: 1.2rem
+
+  +mq($bp-md)
+    font-size: 12rem
+
+    &::before
+      top: 3.8rem
+
+    &::after
+      bottom: 1.7rem
