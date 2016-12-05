@@ -1,0 +1,78 @@
+//============================================
+// Geometry
+//============================================
+
+
+// Circles
+//============================================
+
+.circle
+  +size(15rem)
+  border-radius: 50%
+  background-color: $white
+  // z-index: -1
+
+.circle-1
+  +pos(-5% 5%, top left)
+  // +size(20rem)
+
+.circle-2
+  +pos(10% 55%, top left)
+  // +size(15rem)
+
+.circle-3
+  +pos(30% -10%, top left)
+  // +size(30rem)
+
+.circle-4
+  +pos(40% 35%, top left)
+
+.circle-5
+  +pos(70% 5%, top left)
+
+.circle-6
+  +pos(100% -10%, top left)
+
+.circle-7
+  +pos(150% 50%, top left)
+
+.circle-8
+  +pos(180% 30%, top left)
+
+.circle-9
+  +pos(200% 90%, top left)
+
+.circle-10
+  +pos(240% 20%, top left)
+
+
+// Rectangle
+//============================================
+
+.rect
+  +size(30rem, 15rem)
+  background-color: $white
+
+  +mq($bp-lg)
+    width: 60rem
+
+.rect-1
+  +pos(-5% -5%, top left)
+  transform: rotate(-5deg)
+
+.rect-2
+  +pos(20% 10%, top left)
+  transform: rotate(10deg)
+
+.rect-3
+  +pos(50% 5%, top left)
+  transform: rotate(-15deg)
+
+.rect-4
+  +pos(70% -10%, top left)
+  transform: rotate(5deg)
+
+.rect-5
+  +pos(90% 40%, top left)
+  transform: rotate(-20deg)
+
