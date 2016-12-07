@@ -92,7 +92,10 @@ $i-map: (
   manuale-terminal-r-height: 60rem,
 
   manuale-terminal-t-width: 80rem,
-  manuale-terminal-t-height: 60rem
+  manuale-terminal-t-height: 60rem,
+
+  saira-stylistic-width: 45rem,
+  saira-stylistic-height: 6rem
 
 );
 
@@ -229,5 +232,10 @@ $i-map: (
 .i-manuale-terminal-t {
   width: 80rem;
   height: 60rem;
+}
+
+.i-saira-stylistic {
+  width: 45rem;
+  height: 6rem;
 }
 
