@@ -1,14 +1,21 @@
-<main class="l-main js-main">
+<main class="l-main js-main" id="main">
+  <div class="intro-et__wrapper">
+    <div class="intro-et">
+      <svg class="i i-et u-fill-primary">
+        <use xlink:href="images/sprite.svg#et"></use>
+      </svg>
+    </div>
+  </div>
   {% include "sections/intro.html" %}
-  <span class="arrow arrow--1 js-arrow-intro js-right">→</span>
+  <span class="arrow arrow--intro js-arrow-intro js-arrow-right" id="test">→</span>
   {% include "sections/asap.html" %}
-  <span class="arrow arrow--2 js-arrow-asap js-right">→</span>
+  <span class="arrow arrow--asap js-arrow-asap js-arrow-right">→</span>
   {% include "sections/faustina.html" %}
-  <span class="arrow arrow--3 js-arrow-faustina js-right">→</span>
+  <span class="arrow arrow--faustina js-arrow-faustina js-arrow-right">→</span>
   {% include "sections/manuale.html" %}
-  <span class="arrow arrow--4 js-arrow-manuale js-right">→</span>
+  <span class="arrow arrow--manuale js-arrow-manuale js-arrow-right">→</span>
   {% include "sections/archivo.html" %}
-  <span class="arrow arrow--5 js-arrow-archivo js-right">→</span>
+  <span class="arrow arrow--archivo js-arrow-archivo js-arrow-right">→</span>
   {% include "sections/saira.html" %}
-  <span class="arrow arrow--6 js-arrow-saira js-right" style="display: none">→</span>
+  <span class="arrow arrow--saira js-arrow-saira js-arrow-right" style="display: none">→</span>
 </main>
