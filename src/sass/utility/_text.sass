@@ -145,6 +145,17 @@
   text-align: justify
 
 
+// Font Family
+//============================================
+
++mq($bp-md)
+  .u-col-2\@md
+    column-count: 2
+
+  .u-col-gap\@md
+    column-gap: $space
+
+
 // Text Color
 //============================================
 
@@ -222,11 +233,3 @@
 .u-bg-hover
   &:hover
     background-color: rgba($black, 0.05)
-
-
-// Text Hyphenation
-//============================================
-
-.u-hyphenate
-  hyphens: auto
-
