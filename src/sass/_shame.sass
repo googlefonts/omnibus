@@ -5,7 +5,7 @@
 .arrow
   +size(3rem)
   z-index: 999
-  background-color: $primary
+  background-color: $color-text
   color: $white
   border-radius: 100%
   font-family: $font-mono
@@ -13,39 +13,40 @@
   line-height: 2.6rem
   transition: transform 0.3s ease-in-out
   transition-delay: 1s;
+  cursor: pointer
 
-.js-left
-  transform: rotate(180deg)
-
-.js-right
-  transform: rotate(0)
-
-.arrow--1
+.arrow--intro
   position: absolute
   top: 50%
   left: calc(95% - 1.5rem)
 
-.arrow--2
+.arrow--asap
   position: absolute
   top: 50%
   left: calc(185% - 1.5rem)
 
-.arrow--3
+.arrow--faustina
   position: absolute
   top: 50%
   left: calc(275% - 1.5rem)
 
-.arrow--4
+.arrow--manuale
   position: absolute
   top: 50%
   left: calc(365% - 1.5rem)
 
-.arrow--5
+.arrow--archivo
   position: absolute
   top: 50%
   left: calc(455% - 1.5rem)
 
-.arrow--6
+.arrow--saira
   position: absolute
   top: 50%
   left: calc(545% - 1.5rem)
+
+.js-arrow-left
+  transform: rotate(180deg)
+
+.js-arrow-right
+  transform: rotate(0)
