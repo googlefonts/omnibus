@@ -25,6 +25,9 @@ $i-map: (
   archivo-terminal-t-width: 80rem,
   archivo-terminal-t-height: 60rem,
 
+  arrow-width: 1.6rem,
+  arrow-height: 1.6rem,
+
   asap-arrow-width: 40rem,
   asap-arrow-height: 40rem,
 
@@ -117,6 +120,11 @@ $i-map: (
 .i-archivo-terminal-t {
   width: 80rem;
   height: 60rem;
+}
+
+.i-arrow {
+  width: 1.6rem;
+  height: 1.6rem;
 }
 
 .i-asap-arrow {
