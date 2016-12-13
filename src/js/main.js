@@ -2,25 +2,23 @@ import scrollSnap from '../../custom_modules/scrollsnap-polyfill.js';
 import scrollMonitor from '../../custom_modules/scrollMonitor.js';
 import gfBadge from '../../custom_modules/googlefontsbadge.js';
 
-const containerElement = document.getElementsByClassName('js-main');
+const containerElement = document.getElementsByClassName('js-main')[0];
 const containerMonitor = scrollMonitor.createContainer(containerElement);
-const arrowIntro = document.getElementsByClassName('js-arrow-intro');
-const arrowAsap = document.getElementsByClassName('js-arrow-asap');
-const arrowFaustina = document.getElementsByClassName('js-arrow-faustina');
-const arrowManuale = document.getElementsByClassName('js-arrow-manuale');
-const arrowArchivo = document.getElementsByClassName('js-arrow-archivo');
-const arrowSaira = document.getElementsByClassName('js-arrow-saira');
+const arrowIntro = document.getElementsByClassName('js-arrow-intro')[0];
+const arrowAsap = document.getElementsByClassName('js-arrow-asap')[0];
+const arrowFaustina = document.getElementsByClassName('js-arrow-faustina')[0];
+const arrowManuale = document.getElementsByClassName('js-arrow-manuale')[0];
+const arrowArchivo = document.getElementsByClassName('js-arrow-archivo')[0];
+const arrowSaira = document.getElementsByClassName('js-arrow-saira')[0];
 
 function checkArrowClass(arrowClass) {
-  for(var i = 0; i < arrowClass.length; i++) {
-    if (arrowClass[i].classList.contains('js-arrow-right')) {
-      arrowClass[i].classList.remove('js-arrow-right');
-      arrowClass[i].classList.add('js-arrow-left');
-    }
-    else {
-      arrowClass[i].classList.remove('js-arrow-left');
-      arrowClass[i].classList.add('js-arrow-right');
-    }
+  if (arrowClass.classList.contains('js-arrow-right')) {
+    arrowClass.classList.remove('js-arrow-right');
+    arrowClass.classList.add('js-arrow-left');
+  }
+  else {
+    arrowClass.classList.remove('js-arrow-left');
+    arrowClass.classList.add('js-arrow-right');
   }
 }
 
@@ -33,12 +31,29 @@ function checkClassInViewport(monitorClass, arrowClass) {
   });
 }
 
+function easeInQuart(t, b, c, d) {
+  return c*(t/=d)*t*t*t + b;
+}
+
 function clickArrow(arrowClass) {
-  for(var i = 0; i < arrowClass.length; i++) {
-    arrowClass[i].onclick = function() {
-      console.log('Arrow Intro Clicked!');
-    };
-  }
+  const colWidth = window.innerWidth * 0.9;
+  arrowClass.onclick = function() {
+    requestAnimationFrame(function animate() {
+      const scrollNewCol = containerElement.scrollLeft % colWidth;
+      if (arrowClass.classList.contains('js-arrow-right')) {
+        containerElement.scrollLeft += easeInQuart(scrollNewCol, 1, 0.5, 10);
+        if ((scrollNewCol - 50) < 0) {
+          requestAnimationFrame(animate);
+        }
+      }
+      else {
+        containerElement.scrollLeft -= easeInQuart(scrollNewCol, 1, 0.5, 10);
+        if ((containerElement.scrollLeft % colWidth - 50) > 0) {
+          requestAnimationFrame(animate);
+        }
+      }
+    });
+  };
 }
 
 checkClassInViewport(arrowAsap, arrowIntro);
@@ -48,5 +63,9 @@ checkClassInViewport(arrowArchivo, arrowManuale);
 checkClassInViewport(arrowSaira, arrowArchivo);
 
 clickArrow(arrowIntro);
+clickArrow(arrowAsap);
+clickArrow(arrowFaustina);
+clickArrow(arrowManuale);
+clickArrow(arrowArchivo);
 
 gfBadge();
