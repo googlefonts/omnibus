@@ -48,7 +48,7 @@ function clickArrow(arrowClass) {
       }
       else {
         containerElement.scrollLeft -= easeInQuart(scrollNewCol, 1, 0.5, 10);
-        if ((containerElement.scrollLeft % colWidth - 50) > 0) {
+        if ((scrollNewCol - 50) > 0) {
           requestAnimationFrame(animate);
         }
       }
