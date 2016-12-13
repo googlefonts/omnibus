@@ -49,10 +49,10 @@ $space-oneAndHalf:   $space * 1.5;
 $space-double:       $space * 2;
 
 
-// Z-index
+// Timing functions
 //============================================
 
-$z-faustina-header: 1;
+$bezier: cubic-bezier(0.4, 0, 0.2, 1);
 
 
 // Typography
