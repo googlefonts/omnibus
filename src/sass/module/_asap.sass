@@ -10,11 +10,14 @@
   font-size: 1.8rem
   line-height: 1.2
 
+  +mq($bp-xs)
+    font-size: 2.4rem
+
   +mq($bp-sm)
     font-size: 3.28rem
 
   +mq($bp-md)
-    font-size: 5.26rem
+    font-size: 4.8rem
 
 
 // Alphabet
@@ -25,11 +28,14 @@
   font-size: 1.8rem
   line-height: 1.1
 
+  +mq($bp-xs)
+    font-size: 2.4rem
+
   +mq($bp-sm)
     font-size: 3rem
 
   +mq($bp-md)
-    font-size: 5.4rem
+    font-size: 4.8rem
 
 
 // Ascendants
@@ -50,22 +56,32 @@
     width: 100%
 
   &::before
-    top: 2.3rem
+    top: 1.9rem
     border-top: 0.1rem solid $color-text-asap
 
   &::after
     bottom: 0.7rem
     border-bottom: 0.1rem solid $color-text-asap
 
-  +mq($bp-sm)
+  +mq($bp-xs)
     padding: 0 $space
-    font-size: 10.2rem
+    font-size: 7rem
 
     &::before
-      top: 3.5rem
+      top: 2.5rem
 
     &::after
-      bottom: 1.1rem
+      bottom: 0.7rem
+
+  +mq($bp-sm)
+    padding: 0 $space
+    font-size: 11rem
+
+    &::before
+      top: 3.9rem
+
+    &::after
+      bottom: 1.3rem
 
   +mq($bp-md)
     font-size: 16.6rem
@@ -84,10 +100,13 @@
   font-size: 2rem
   line-height: 1.2
 
+  +mq($bp-xs)
+    font-size: 2.8rem
+
   +mq($bp-sm)
-    font-size: 3rem
+    font-size: 3.6rem
     padding: 0 $space
 
   +mq($bp-md)
-    font-size: 5.4rem
+    font-size: 5.2rem
 
