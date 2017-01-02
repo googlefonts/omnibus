@@ -1,6 +1,11 @@
-import scrollSnap from '../../custom_modules/scrollsnap-polyfill.js';
+// import scrollSnap from '../../custom_modules/scrollsnap-polyfill.js';
 import scrollMonitor from '../../custom_modules/scrollMonitor.js';
 import gfBadge from '../../custom_modules/googlefontsbadge.js';
+import widowFix from '../../custom_modules/widowFix.js';
+
+$(document).ready(function() {
+  $('.js-widowfix').widowFix();
+});
 
 const containerElement = document.getElementsByClassName('js-main')[0];
 const containerMonitor = scrollMonitor.createContainer(containerElement);
@@ -55,6 +60,16 @@ function clickArrow(arrowClass) {
     });
   };
 }
+
+$(function() {
+  $('#asap').bind('click',function(event){
+    var $anchor = $(this);
+    $('#main').stop().animate({
+      scrollTop: $($anchor.attr('href')).offset().left
+    }, 1500, 'easeInOutExpo');
+    event.preventDefault();
+  });
+});
 
 checkClassInViewport(arrowAsap, arrowIntro);
 checkClassInViewport(arrowFaustina, arrowAsap);
