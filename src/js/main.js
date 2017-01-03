@@ -37,28 +37,38 @@ function checkClassInViewport(monitorClass, arrowClass) {
   });
 }
 
-function easeInQuart(t, b, c, d) {
-  return c*(t/=d)*t*t*t + b;
+function easeOutCubic(t, b, c, d){
+  return c * ((t = t / d-1) * t * t + 1) + b;
+}
+
+function easeOutCirc(t, b, c, d) {
+	return c * Math.sqrt(1 - (t=t/d-1)*t) + b;
 }
 
 function clickArrow(arrowClass) {
-  const colWidth = window.innerWidth * 0.9;
   arrowClass.onclick = function() {
-    requestAnimationFrame(function animate() {
-      const scrollNewCol = containerElement.scrollLeft % colWidth;
-      if (arrowClass.classList.contains('js-arrow-right')) {
-        containerElement.scrollLeft += easeInQuart(scrollNewCol, 1, 0.5, 10);
-        if ((scrollNewCol - 50) < 0) {
-          requestAnimationFrame(animate);
-        }
+    const colWidth = window.innerWidth * 0.9;
+    const scrollPos = containerElement.scrollLeft
+    const direction = arrowClass.classList.contains('js-arrow-right') ? 'right' : 'left';
+    const duration = 768
+    const length = colWidth / 3
+    let start = null
+
+    function animate(timestamp) {
+      if (!start) start = timestamp;
+      const progress = timestamp - start;
+
+      if (direction === 'right') {
+        containerElement.scrollLeft = easeOutCubic(progress, scrollPos, length, duration);
+      } else {
+        containerElement.scrollLeft = easeOutCubic(progress, scrollPos, -length, duration);
       }
-      else {
-        containerElement.scrollLeft -= easeInQuart(scrollNewCol, 1, 0.5, 10);
-        if ((scrollNewCol - 50) > 0) {
-          requestAnimationFrame(animate);
-        }
+
+      if (progress < duration) {
+        requestAnimationFrame(animate);
       }
-    });
+    }
+    requestAnimationFrame(animate)
   };
 }
 
