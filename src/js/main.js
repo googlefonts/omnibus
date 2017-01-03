@@ -1,11 +1,7 @@
-// import scrollSnap from '../../custom_modules/scrollsnap-polyfill.js';
+import scrollSnap from '../../custom_modules/scrollsnap.js';
 import scrollMonitor from '../../custom_modules/scrollMonitor.js';
 import gfBadge from '../../custom_modules/googlefontsbadge.js';
 import widowFix from '../../custom_modules/widowFix.js';
-
-$(document).ready(function() {
-  $('.js-widowfix').widowFix();
-});
 
 const containerElement = document.getElementsByClassName('js-main')[0];
 const containerMonitor = scrollMonitor.createContainer(containerElement);
@@ -15,6 +11,11 @@ const arrowFaustina = document.getElementsByClassName('js-arrow-faustina')[0];
 const arrowManuale = document.getElementsByClassName('js-arrow-manuale')[0];
 const arrowArchivo = document.getElementsByClassName('js-arrow-archivo')[0];
 const arrowSaira = document.getElementsByClassName('js-arrow-saira')[0];
+
+$(document).ready(function() {
+  $('.js-widowfix').widowFix();
+  scrollSnap.init(window, document, containerElement)
+});
 
 function checkArrowClass(arrowClass) {
   if (arrowClass.classList.contains('js-arrow-right')) {
