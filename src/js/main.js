@@ -12,9 +12,15 @@ const arrowManuale = document.getElementsByClassName('js-arrow-manuale')[0];
 const arrowArchivo = document.getElementsByClassName('js-arrow-archivo')[0];
 const arrowSaira = document.getElementsByClassName('js-arrow-saira')[0];
 
+const snapConfig = {
+  scrollTimeout: 100, // time in ms after which scrolling is considered finished.
+  scrollTime: 300, // time for the smooth snap
+  scrollSnapDestination: '0% 90%' // scroll-snap-destination css value
+}
+
 $(document).ready(function() {
   $('.js-widowfix').widowFix();
-  scrollSnap.init(window, document, containerElement)
+  scrollSnap(containerElement).init(snapConfig)
 });
 
 function checkArrowClass(arrowClass) {
