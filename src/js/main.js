@@ -56,21 +56,29 @@ function clickArrow(arrowClass) {
     const colWidth = window.innerWidth * 0.9;
     const scrollPos = containerElement.scrollLeft
     const direction = arrowClass.classList.contains('js-arrow-right') ? 'right' : 'left';
-    const duration = 768
-    const length = colWidth / 3
+    const length = colWidth / 1.5
+    const duration = 500
     let start = null
 
     function animate(timestamp) {
       if (!start) start = timestamp;
-      const progress = timestamp - start;
+      const elapsed = timestamp - start;
 
       if (direction === 'right') {
-        containerElement.scrollLeft = easeOutCubic(progress, scrollPos, length, duration);
+        if (elapsed > duration) {
+          containerElement.scrollLeft = scrollPos + length;
+        } else {
+          containerElement.scrollLeft = easeOutCubic(elapsed, scrollPos, length, duration);
+        }
       } else {
-        containerElement.scrollLeft = easeOutCubic(progress, scrollPos, -length, duration);
+        if (elapsed > duration) {
+          containerElement.scrollLeft = scrollPos - length;
+        } else {
+          containerElement.scrollLeft = easeOutCubic(elapsed, scrollPos, -length, duration);
+        }
       }
 
-      if (progress < duration) {
+      if (elapsed < duration) {
         requestAnimationFrame(animate);
       }
     }
