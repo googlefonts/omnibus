@@ -19,8 +19,15 @@ const snapConfig = {
 }
 
 $(document).ready(function() {
-  $('.js-widowfix').widowFix();
+  $('.js-widowfix').widowFix({linkFix: true});
+
+  //init scrollSnap
   scrollSnap(containerElement).init(snapConfig)
+
+  //scroll to relative column if there's a hash tag in the url
+  if (location.hash !== '') {
+    setTimeout(scrollToColumn, 500);
+  }
 });
 
 function checkArrowClass(arrowClass) {
@@ -86,15 +93,47 @@ function clickArrow(arrowClass) {
   };
 }
 
-$(function() {
-  $('#asap').bind('click',function(event){
-    var $anchor = $(this);
-    $('#main').stop().animate({
-      scrollTop: $($anchor.attr('href')).offset().left
-    }, 1500, 'easeInOutExpo');
-    event.preventDefault();
-  });
-});
+
+function scrollToColumn() {
+  colWidth = window.innerWidth * 0.9;
+  scrollPos = containerElement.scrollLeft
+  direction = 'right';
+  duration = 1000
+  start = null
+  offset = colWidth * 0.3
+
+  switch (location.hash) {
+    case '#asap':
+      length = colWidth - offset
+      break;
+    case '#faustina':
+      length = (colWidth * 2) - offset
+      break;
+    case '#manuale':
+      length = (colWidth * 3) - offset
+      break;
+    case '#archivo':
+      length = (colWidth * 4) - offset
+      break;
+    case '#saira':
+      length = (colWidth * 5) - offset
+      break;
+  }
+
+  requestAnimationFrame(animate)
+}
+
+// $(function() {
+//   $('#asap').bind('click',function(event){
+//     var $anchor = $(this);
+//     $('#main').stop().animate({
+//       scrollTop: $($anchor.attr('href')).offset().left
+//     }, 1500, 'easeInOutExpo');
+//     event.preventDefault();
+//   });
+// });
+
+window.addEventListener("hashchange", scrollToColumn, false);
 
 checkClassInViewport(arrowAsap, arrowIntro);
 checkClassInViewport(arrowFaustina, arrowAsap);
