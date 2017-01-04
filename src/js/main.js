@@ -58,37 +58,47 @@ function easeOutCirc(t, b, c, d) {
 	return c * Math.sqrt(1 - (t=t/d-1)*t) + b;
 }
 
-function clickArrow(arrowClass) {
-  arrowClass.onclick = function() {
-    const colWidth = window.innerWidth * 0.9;
-    const scrollPos = containerElement.scrollLeft
-    const direction = arrowClass.classList.contains('js-arrow-right') ? 'right' : 'left';
-    const length = colWidth / 1.5
-    const duration = 500
-    let start = null
+let start,
+    duration,
+    direction,
+    length,
+    scrollPos,
+    colWidth,
+    offset;
 
-    function animate(timestamp) {
-      if (!start) start = timestamp;
-      const elapsed = timestamp - start;
+function animate(timestamp) {
+  if (!start) start = timestamp;
+  const elapsed = timestamp - start;
 
-      if (direction === 'right') {
-        if (elapsed > duration) {
-          containerElement.scrollLeft = scrollPos + length;
-        } else {
-          containerElement.scrollLeft = easeOutCubic(elapsed, scrollPos, length, duration);
-        }
-      } else {
-        if (elapsed > duration) {
-          containerElement.scrollLeft = scrollPos - length;
-        } else {
-          containerElement.scrollLeft = easeOutCubic(elapsed, scrollPos, -length, duration);
-        }
-      }
-
-      if (elapsed < duration) {
-        requestAnimationFrame(animate);
-      }
+  if (direction === 'right') {
+    if (elapsed > duration) {
+      containerElement.scrollLeft = scrollPos + length;
+    } else {
+      containerElement.scrollLeft = easeOutCubic(elapsed, scrollPos, length, duration);
     }
+  } else {
+    if (elapsed > duration) {
+      containerElement.scrollLeft = scrollPos - length;
+    } else {
+      containerElement.scrollLeft = easeOutCubic(elapsed, scrollPos, -length, duration);
+    }
+  }
+
+  if (elapsed < duration) {
+    requestAnimationFrame(animate);
+  }
+}
+
+function bindArrowClick(arrowClass) {
+  arrowClass.onclick = function() {
+    colWidth = window.innerWidth * 0.9;
+    scrollPos = containerElement.scrollLeft
+    direction = arrowClass.classList.contains('js-arrow-right') ? 'right' : 'left';
+    length = colWidth - offset
+    duration = 500
+    start = null
+    offset = colWidth * 0.3
+
     requestAnimationFrame(animate)
   };
 }
@@ -141,10 +151,10 @@ checkClassInViewport(arrowManuale, arrowFaustina);
 checkClassInViewport(arrowArchivo, arrowManuale);
 checkClassInViewport(arrowSaira, arrowArchivo);
 
-clickArrow(arrowIntro);
-clickArrow(arrowAsap);
-clickArrow(arrowFaustina);
-clickArrow(arrowManuale);
-clickArrow(arrowArchivo);
+bindArrowClick(arrowIntro);
+bindArrowClick(arrowAsap);
+bindArrowClick(arrowFaustina);
+bindArrowClick(arrowManuale);
+bindArrowClick(arrowArchivo);
 
 gfBadge();
