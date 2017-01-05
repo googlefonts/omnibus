@@ -49,14 +49,69 @@ module.exports = function (element) {
   var lastObj,
     lastScrollObj
 
+  var lastPos = null,
+  timer = 0,
+  newPos;
+
+  var deceleration = false;
+  var previousDelta = 0;
+
+  var checkScrollSpeed = function(pos) {
+
+    function clear() {
+      lastPos = null;
+    };
+
+    newPos = pos;
+    var delta
+    if ( lastPos != null ) {
+      delta = (newPos > lastPos) ? (newPos - lastPos) : (lastPos - newPos);
+    } else {
+      delta = 0;
+    }
+    lastPos = newPos;
+    timer && clearTimeout(timer);
+    timer = setTimeout(clear, 50);
+    return delta;
+  };
 
   var startAnimation = function (evt) {
-    if (!animationInProgress) {
+    var speedDelta = checkScrollSpeed(evt.target.scrollLeft);
+    var shouldSnap = false;
+
+    if (animationInProgress) {
+      return
+    }
+
+    deceleration = speedDelta < previousDelta
+
+    if (deceleration && (speedDelta <= 5)) {
+      shouldSnap = true;
+      previousDelta = 0
+    } else if (speedDelta > 5) {
+      previousDelta = speedDelta
+    }
+
+    // detect type of scroll
+    if (!animationInProgress && shouldSnap && speedDelta > 3) {
+      clearTimeout(debounce)
+      handler(evt)
+      previousDelta = 0
+      animationInProgress = true
+    } else if (!animationInProgress && speedDelta > 3) {
       clearTimeout(debounce)
       debounce = setTimeout(function () {
         handler(evt)
+        previousDelta = 0
         animationInProgress = true
       }, SCROLL_TIMEOUT)
+    } else if (speedDelta < 3) {
+      clearTimeout(debounce)
+      debounce = setTimeout(function () {
+        handler(evt)
+        previousDelta = 0
+        animationInProgress = true
+      }, 200)
     }
   }
 
@@ -65,13 +120,13 @@ module.exports = function (element) {
      * @param {Object} obj         HTML element
      */
   function setUpElement (obj) {
-                // add the event listener
+      // add the event listener
     obj.addEventListener('scroll', startAnimation, false)
 
-                // save declaration
+      // save declaration
     obj.snapLengthUnit = parseSnapCoordValue(SCROLL_SNAP_DESTINATION)
 
-                // init possible elements
+      // init possible elements
     obj.snapElements = []
   }
 
@@ -80,25 +135,25 @@ module.exports = function (element) {
    * this is the callback for scroll events.
    */
   var handler = function (evt) {
-                // use evt.target as target-element
+      // use evt.target as target-element
     lastObj = evt.target
 
     lastScrollObj = getScrollObj(lastObj)
 
-                // if currently animating, stop it. this prevents flickering.
+      // if currently animating, stop it. this prevents flickering.
     if (animationFrame) {
-                    // cross browser
+          // cross browser
       if (!cancelAnimationFrame(animationFrame)) {
         clearTimeout(animationFrame)
       }
     }
 
-                // if a previous timeout exists, clear it.
+    // if a previous timeout exists, clear it.
     if (timeOutId) {
-                    // we only want to call a timeout once after scrolling..
+      // we only want to call a timeout once after scrolling..
       clearTimeout(timeOutId)
     } else {
-                    // save new scroll start
+      // save new scroll start
       scrollStart = {
         y: lastScrollObj.scrollTop,
         x: lastScrollObj.scrollLeft
@@ -118,13 +173,13 @@ module.exports = function (element) {
    * this will be called by setTimeout once, after scrolling is finished.
    */
   var handlerDelayed = function () {
-                // if we don't move a thing, we can ignore the timeout: if we did, there'd be another timeout added for scrollStart+1.
+      // if we don't move a thing, we can ignore the timeout: if we did, there'd be another timeout added for scrollStart+1.
     if (!animationInProgress) {
       // ignore timeout
       return
     }
 
-                // detect direction of scroll. negative is up, positive is down.
+      // detect direction of scroll. negative is up, positive is down.
     var direction = {
         y: (scrollStart.y - lastScrollObj.scrollTop > 0)
                             ? -1
@@ -138,14 +193,14 @@ module.exports = function (element) {
     if (typeof lastScrollObj.snapElements !== 'undefined' && lastScrollObj.snapElements.length > 0) {
       snapPoint = getNextElementSnapPoint(lastScrollObj, lastObj, direction)
     } else {
-                    // get the next snap-point to snap-to
+          // get the next snap-point to snap-to
       snapPoint = getNextSnapPoint(lastScrollObj, lastObj, direction)
     }
 
-                // smoothly move to the snap point
+      // smoothly move to the snap point
     smoothScroll(lastScrollObj, snapPoint)
 
-                // we just jumped to the snapPoint, so this will be our next scrollStart
+      // we just jumped to the snapPoint, so this will be our next scrollStart
     if (!isNaN(snapPoint.x || !isNaN(snapPoint.y))) {
       scrollStart = snapPoint
     }
@@ -158,7 +213,7 @@ module.exports = function (element) {
    * @return {Object}
    */
   function getNextSnapPoint (scrollObj, obj, direction) {
-                // get snap length
+      // get snap length
     var snapLength = {
         y: getYSnapLength(obj, obj.snapLengthUnit.y),
         x: getXSnapLength(obj, obj.snapLengthUnit.x)
@@ -166,7 +221,7 @@ module.exports = function (element) {
       top = scrollObj.scrollTop,
       left = scrollObj.scrollLeft
 
-                // calc current and initial snappoint
+      // calc current and initial snappoint
     var currentPoint = {
         y: top / snapLength.y,
         x: left / snapLength.x
@@ -180,21 +235,21 @@ module.exports = function (element) {
         x: 0
       }
 
-                // set target and bounds by direction
+      // set target and bounds by direction
     nextPoint.y = roundByDirection(direction.y, currentPoint.y)
     nextPoint.x = roundByDirection(direction.x, currentPoint.x)
 
-                // constrain by distance
+      // constrain by distance
     nextPoint.y = constrainByDistance(initialPoint.y, currentPoint.y, nextPoint.y, scrollStart.y, top)
     nextPoint.x = constrainByDistance(initialPoint.x, currentPoint.x, nextPoint.x, scrollStart.x, left)
 
-                // calculate where to scroll
+      // calculate where to scroll
     var scrollTo = {
       y: nextPoint.y * snapLength.y,
       x: nextPoint.x * snapLength.x
     }
 
-                // stay in bounds (minimum: 0, maxmimum: absolute height)
+      // stay in bounds (minimum: 0, maxmimum: absolute height)
     scrollTo.y = stayInBounds(0, getScrollHeight(scrollObj), scrollTo.y)
     scrollTo.x = stayInBounds(0, getScrollWidth(scrollObj), scrollTo.x)
 
@@ -208,9 +263,9 @@ module.exports = function (element) {
     var l = obj.snapElements.length,
       top = scrollObj.scrollTop,
       left = scrollObj.scrollLeft,
-                    // decide upon an iteration direction (favor -1, as 1 is default and will be applied when there is no direction on an axis)
+          // decide upon an iteration direction (favor -1, as 1 is default and will be applied when there is no direction on an axis)
       primaryDirection = Math.min(direction.y, direction.x),
-                    // get scrollable snap destination as offset
+          // get scrollable snap destination as offset
       snapDest = {
         y: getYSnapLength(obj, obj.snapLengthUnit.y),
         x: getXSnapLength(obj, obj.snapLengthUnit.x)
@@ -223,44 +278,44 @@ module.exports = function (element) {
     for (var i = currentIteration + primaryDirection; i < l && i >= 0; i = i + primaryDirection) {
       currentIteratedObj = obj.snapElements[i]
 
-                    // get objects snap coords by adding obj.top + obj.snaplength.y
+          // get objects snap coords by adding obj.top + obj.snaplength.y
       snapCoords = {
         y: (currentIteratedObj.offsetTop - scrollObj.offsetTop) + getYSnapLength(currentIteratedObj, currentIteratedObj.snapLengthUnit.y),
-                        // & obj.left + obj.snaplength.x
+              // & obj.left + obj.snaplength.x
         x: (currentIteratedObj.offsetLeft - scrollObj.offsetLeft) + getXSnapLength(currentIteratedObj, currentIteratedObj.snapLengthUnit.x)
       }
 
       currentIteratedObj.snapCoords = snapCoords
-                    // check if object snappoint is "close" enough to scrollable snappoint
+          // check if object snappoint is "close" enough to scrollable snappoint
 
-                    // not scrolled past element snap coords
+          // not scrolled past element snap coords
       if ((left <= snapCoords.x && left + getWidth(scrollObj) >= snapCoords.x && top <= snapCoords.y && top + getHeight(scrollObj) >= snapCoords.y)) {
-                        // ok, we found a snap point.
+              // ok, we found a snap point.
         currentIteration = i
-                        // stay in bounds (minimum: 0, maxmimum: absolute height)
+              // stay in bounds (minimum: 0, maxmimum: absolute height)
         return {
           y: stayInBounds(0, getScrollHeight(scrollObj), snapCoords.y - snapDest.y),
           x: stayInBounds(0, getScrollWidth(scrollObj), snapCoords.x - snapDest.x)
         }
       }
     }
-                // no snap found, use first or last?
+      // no snap found, use first or last?
     if (primaryDirection == 1 && i === l - 1) {
       currentIteration = l - 1
-                    // the for loop stopped at the last element
+          // the for loop stopped at the last element
       return {
         y: stayInBounds(0, getScrollHeight(scrollObj), snapCoords.y - snapDest.y),
         x: stayInBounds(0, getScrollWidth(scrollObj), snapCoords.x - snapDest.x)
       }
     } else if (primaryDirection == -1 && i === 0) {
       currentIteration = 0
-                    // the for loop stopped at the first element
+          // the for loop stopped at the first element
       return {
         y: stayInBounds(0, getScrollHeight(scrollObj), snapCoords.y - snapDest.y),
         x: stayInBounds(0, getScrollWidth(scrollObj), snapCoords.x - snapDest.x)
       }
     }
-                // stay in the same place
+      // stay in the same place
     return {
       y: stayInBounds(0, getScrollHeight(scrollObj), obj.snapElements[currentIteration].snapCoords.y - snapDest.y),
       x: stayInBounds(0, getScrollWidth(scrollObj), obj.snapElements[currentIteration].snapCoords.x - snapDest.x)
@@ -275,10 +330,10 @@ module.exports = function (element) {
    */
   function roundByDirection (direction, currentPoint) {
     if (direction === -1) {
-                    // when we go up, we floor the number to jump to the next snap-point in scroll direction
+          // when we go up, we floor the number to jump to the next snap-point in scroll direction
       return Math.floor(currentPoint)
     }
-                // go down, we ceil the number to jump to the next in view.
+      // go down, we ceil the number to jump to the next in view.
     return Math.ceil(currentPoint)
   }
 
@@ -291,12 +346,12 @@ module.exports = function (element) {
    */
   function constrainByDistance (initialPoint, currentPoint, nextPoint, scrollStart, currentScrollValue) {
     if ((Math.abs(initialPoint - currentPoint) >= SNAP_CONSTRAINT) && Math.abs(nextPoint - currentPoint) > CONSTRAINT) {
-                    // constrain jumping to a point too high/low when scrolling for more than SNAP_CONSTRAINT points.
-                    // (if the point is 85% further than we are, don't jump..)
+          // constrain jumping to a point too high/low when scrolling for more than SNAP_CONSTRAINT points.
+          // (if the point is 85% further than we are, don't jump..)
       return Math.round(currentPoint)
     }
     if ((Math.abs(scrollStart - currentScrollValue) < MIN_PX_CONSTRAINT) && (Math.abs(initialPoint - currentPoint) < SNAP_CONSTRAINT) && (Math.abs(nextPoint - currentPoint) > FIRST_CONSTRAINT)) {
-                    // constrain jumping to a point too high/low when scrolling just for a few pixels (less than 10 pixels) and (5% of scrollable length)
+          // constrain jumping to a point too high/low when scrolling just for a few pixels (less than 10 pixels) and (5% of scrollable length)
       return Math.round(currentPoint)
     }
     return nextPoint
@@ -319,9 +374,9 @@ module.exports = function (element) {
    * @return {Object}
    */
   function parseSnapCoordValue (declaration) {
-                // regex to parse lengths
+      // regex to parse lengths
     var regex = /(\d+)(px|%) (\d+)(px|%)/g,
-                    // defaults
+          // defaults
       parsed = {
         y: {
           value: 0,
@@ -335,10 +390,10 @@ module.exports = function (element) {
       parsable,
       result
 
-                // parse value and unit
+      // parse value and unit
     if (parsable !== null) {
       result = regex.exec(declaration)
-                    // if regexp fails, value is null
+          // if regexp fails, value is null
       if (result !== null) {
         parsed.y = {
           value: result[1],
@@ -360,13 +415,13 @@ module.exports = function (element) {
    */
   function getYSnapLength (obj, declaration) {
     if (declaration.unit == 'vh') {
-                    // when using vh, one snap is the length of vh / 100 * value
+          // when using vh, one snap is the length of vh / 100 * value
       return Math.max(document.documentElement.clientHeight, window.innerHeight || 1) / 100 * declaration.value
     } else if (declaration.unit == '%') {
-                    // when using %, one snap is the length of element height / 100 * value
+          // when using %, one snap is the length of element height / 100 * value
       return getHeight(obj) / 100 * declaration.value
     } else {
-                    // when using px, one snap is the length of element height / value
+          // when using px, one snap is the length of element height / value
       return getHeight(obj) / declaration.value
     }
 
@@ -380,13 +435,13 @@ module.exports = function (element) {
    */
   function getXSnapLength (obj, declaration) {
     if (declaration.unit == 'vw') {
-                    // when using vw, one snap is the length of vw / 100 * value
+          // when using vw, one snap is the length of vw / 100 * value
       return Math.max(document.documentElement.clientWidth, window.innerWidth || 1) / 100 * declaration.value
     } else if (declaration.unit == '%') {
-                    // when using %, one snap is the length of element width / 100 * value
+          // when using %, one snap is the length of element width / 100 * value
       return getWidth(obj) / 100 * declaration.value
     } else {
-                    // when using px, one snap is the length of element width / value
+          // when using px, one snap is the length of element width / value
       return getWidth(obj) / declaration.value
     }
 
@@ -436,13 +491,13 @@ module.exports = function (element) {
    * @return {Object}
    */
   function getScrollObj (obj) {
-                // if the scroll container is body, the scrolling is invoked on window/document.
+      // if the scroll container is body, the scrolling is invoked on window/document.
     if (obj == document || obj == window) {
-                    // firefox scrolls on document.documentElement
+          // firefox scrolls on document.documentElement
       if (document.documentElement.scrollTop > 0 || document.documentElement.scrollLeft > 0) {
         return document.documentElement
       }
-                    // chrome scrolls on body
+          // chrome scrolls on body
       return document.querySelector('body')
     }
 
@@ -492,7 +547,7 @@ module.exports = function (element) {
     return easeInCubic(elapsed, start, (end - start), duration)
   }
 
-            // a current animation frame
+  // a current animation frame
   var animationFrame = null
 
             /**
@@ -510,31 +565,32 @@ module.exports = function (element) {
         x: obj.scrollLeft
       },
 
-                    // get animation frame or a fallback
+          // get animation frame or a fallback
       requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || function (fn) {
         window.setTimeout(fn, 15)
       },
-      duration = Math.max(getDuration(start.y, end.y), getDuration(start.x, end.x))
+      // duration = Math.max(getDuration(start.y, end.y), getDuration(start.x, end.x))
+      duration = SCROLL_TIME
 
     var startTime = null
 
-                // setup the stepping function
+      // setup the stepping function
     function step (timestamp) {
       if (!startTime)
                       { startTime = timestamp }
       var elapsed = timestamp - startTime
 
-                    // change position on y-axis if result is a number.
+          // change position on y-axis if result is a number.
       if (!isNaN(end.y)) {
         obj.scrollTop = position(start.y, end.y, elapsed, duration)
       }
 
-                    // change position on x-axis if result is a number.
+          // change position on x-axis if result is a number.
       if (!isNaN(end.x)) {
         obj.scrollLeft = position(start.x, end.x, elapsed, duration)
       }
 
-                    // check if we are over due;
+          // check if we are over due;
       if ((elapsed < duration) && (Math.floor(obj.scrollLeft) !== Math.floor(end.x))) {
         requestAnimationFrame(step)
       } else {
