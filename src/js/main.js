@@ -13,7 +13,7 @@ const arrowArchivo = document.getElementsByClassName('js-arrow-archivo')[0];
 const arrowSaira = document.getElementsByClassName('js-arrow-saira')[0];
 
 const snapConfig = {
-  scrollTimeout: 100, // time in ms after which scrolling is considered finished.
+  scrollTimeout: 50, // time in ms after which scrolling is considered finished.
   scrollTime: 300, // time for the smooth snap
   scrollSnapDestination: '0% 90%' // scroll-snap-destination css value
 }
@@ -92,12 +92,12 @@ function animate(timestamp) {
 function bindArrowClick(arrowClass) {
   arrowClass.onclick = function() {
     colWidth = window.innerWidth * 0.9;
+    offset = colWidth * 0.3
     scrollPos = containerElement.scrollLeft
     direction = arrowClass.classList.contains('js-arrow-right') ? 'right' : 'left';
     length = colWidth - offset
-    duration = 500
+    duration = 700
     start = null
-    offset = colWidth * 0.3
 
     requestAnimationFrame(animate)
   };
@@ -106,11 +106,11 @@ function bindArrowClick(arrowClass) {
 
 function scrollToColumn() {
   colWidth = window.innerWidth * 0.9;
+  offset = colWidth * 0.3
   scrollPos = containerElement.scrollLeft
   direction = 'right';
-  duration = 1000
+  duration = 700
   start = null
-  offset = colWidth * 0.3
 
   switch (location.hash) {
     case '#asap':
