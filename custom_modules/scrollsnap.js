@@ -1,3 +1,5 @@
+import mobileDetect from './mobileDetect'
+
 module.exports = function (element) {
     /**
      * constraint to jumping to the next snap-point.
@@ -55,6 +57,7 @@ module.exports = function (element) {
 
   var deceleration = false;
   var previousDelta = 0;
+  var mobile = mobileDetect();
 
   var checkScrollSpeed = function(pos) {
 
@@ -93,7 +96,7 @@ module.exports = function (element) {
     }
 
     // detect type of scroll
-    if (!animationInProgress && shouldSnap && speedDelta > 3) {
+    if (!animationInProgress && shouldSnap && speedDelta > 3 && !mobile) {
       clearTimeout(debounce)
       handler(evt)
       previousDelta = 0
@@ -104,7 +107,7 @@ module.exports = function (element) {
         handler(evt)
         previousDelta = 0
         animationInProgress = true
-      }, SCROLL_TIMEOUT)
+      }, 200)
     } else if (speedDelta < 3) {
       clearTimeout(debounce)
       debounce = setTimeout(function () {
