@@ -200,8 +200,21 @@ module.exports = function (element) {
       snapPoint = getNextSnapPoint(lastScrollObj, lastObj, direction)
     }
 
+    lastObj.removeEventListener('scroll', startAnimation, false);
+
       // smoothly move to the snap point
-    smoothScroll(lastScrollObj, snapPoint)
+    smoothScroll(lastScrollObj, snapPoint, function() {
+      if(lastScrollObj.scrollLeft > 0 && lastScrollObj.scrollLeft < ((getWidth(lastScrollObj) * 0.9) * 5)) {
+        lastObj.style.overflowX = 'hidden';
+      }
+      setTimeout(function () {
+        animationInProgress = false
+        lastObj.style.overflowX = 'auto';
+      }, 150)
+
+      // after moving to the snap point, rebind the scroll event handler
+      lastObj.addEventListener('scroll', startAnimation, false);
+    })
 
       // we just jumped to the snapPoint, so this will be our next scrollStart
     if (!isNaN(snapPoint.x || !isNaN(snapPoint.y))) {
@@ -562,7 +575,7 @@ module.exports = function (element) {
    * @param  {Number}   duration scroll duration
    * @param  {Function} callback called when the scrolling is finished
    */
-  var smoothScroll = function (obj, end) {
+  var smoothScroll = function (obj, end, callback) {
     var start = {
         y: obj.scrollTop,
         x: obj.scrollLeft
@@ -597,11 +610,14 @@ module.exports = function (element) {
       if ((elapsed < duration) && (Math.floor(obj.scrollLeft) !== Math.floor(end.x))) {
         requestAnimationFrame(step)
       } else {
-        var endAnimation
-        clearTimeout(endAnimation)
-        endAnimation = setTimeout(function () {
-          animationInProgress = false
-        }, 150)
+        // is there a callback?
+        if (typeof callback === 'function') {
+          // stop execution and run the callback
+          return callback(end);
+        }
+
+        // stop execution
+        return;
       }
     }
     animationFrame = requestAnimationFrame(step)
