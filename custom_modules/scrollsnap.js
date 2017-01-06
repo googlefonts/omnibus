@@ -28,59 +28,42 @@ module.exports = function (element) {
 
     SCROLL_TIMEOUT,
     SCROLL_TIME,
-    SCROLL_SNAP_DESTINATION;
+    SCROLL_SNAP_DESTINATION
 
   var animationInProgress,
-    debounce
+    debounce,
+    timeOutId = null,
+    scrollStart = null,
+    lastObj,
+    lastScrollObj,
+    lastPos = null,
+    timer = 0,
+    newPos,
+    deceleration = false,
+    previousDelta = 0,
+    mobile = mobileDetect()
 
-            /**
-   * the last created timeOutId for scroll event timeouts.
-   * @type int
-   */
-  var timeOutId = null
-
-            /**
-   * starting point for current scroll
-   * @type length
-   */
-  var scrollStart = null
-
-            /**
-   * the last object receiving a scroll event
-   */
-  var lastObj,
-    lastScrollObj
-
-  var lastPos = null,
-  timer = 0,
-  newPos;
-
-  var deceleration = false;
-  var previousDelta = 0;
-  var mobile = mobileDetect();
-
-  var checkScrollSpeed = function(pos) {
-
-    function clear() {
-      lastPos = null;
-    };
-
-    newPos = pos;
-    var delta
-    if ( lastPos != null ) {
-      delta = (newPos > lastPos) ? (newPos - lastPos) : (lastPos - newPos);
-    } else {
-      delta = 0;
+  var checkScrollSpeed = function (pos) {
+    function clear () {
+      lastPos = null
     }
-    lastPos = newPos;
-    timer && clearTimeout(timer);
-    timer = setTimeout(clear, 50);
-    return delta;
-  };
+
+    newPos = pos
+    var delta
+    if (lastPos != null) {
+      delta = (newPos > lastPos) ? (newPos - lastPos) : (lastPos - newPos)
+    } else {
+      delta = 0
+    }
+    lastPos = newPos
+    timer && clearTimeout(timer)
+    timer = setTimeout(clear, 50)
+    return delta
+  }
 
   var startAnimation = function (evt) {
-    var speedDelta = checkScrollSpeed(evt.target.scrollLeft);
-    var shouldSnap = false;
+    var speedDelta = checkScrollSpeed(evt.target.scrollLeft)
+    var shouldSnap = false
 
     if (animationInProgress) {
       return
@@ -89,7 +72,7 @@ module.exports = function (element) {
     deceleration = speedDelta < previousDelta
 
     if (deceleration && (speedDelta <= 5)) {
-      shouldSnap = true;
+      shouldSnap = true
       previousDelta = 0
     } else if (speedDelta > 5) {
       previousDelta = speedDelta
@@ -200,16 +183,16 @@ module.exports = function (element) {
       snapPoint = getNextSnapPoint(lastScrollObj, lastObj, direction)
     }
 
-    lastObj.removeEventListener('scroll', startAnimation, false);
+    lastObj.removeEventListener('scroll', startAnimation, false)
 
       // smoothly move to the snap point
-    smoothScroll(lastScrollObj, snapPoint, function() {
+    smoothScroll(lastScrollObj, snapPoint, function () {
       setTimeout(function () {
         animationInProgress = false
       }, 150)
 
       // after moving to the snap point, rebind the scroll event handler
-      lastObj.addEventListener('scroll', startAnimation, false);
+      lastObj.addEventListener('scroll', startAnimation, false)
     })
 
       // we just jumped to the snapPoint, so this will be our next scrollStart
@@ -609,11 +592,11 @@ module.exports = function (element) {
         // is there a callback?
         if (typeof callback === 'function') {
           // stop execution and run the callback
-          return callback(end);
+          return callback(end)
         }
 
         // stop execution
-        return;
+        return
       }
     }
     animationFrame = requestAnimationFrame(step)
@@ -621,9 +604,9 @@ module.exports = function (element) {
 
   return {
     init: function (config) {
-      SCROLL_TIMEOUT = config.scrollTimeout;
-      SCROLL_TIME = config.scrollTime;
-      SCROLL_SNAP_DESTINATION = config.scrollSnapDestination;
+      SCROLL_TIMEOUT = config.scrollTimeout
+      SCROLL_TIME = config.scrollTime
+      SCROLL_SNAP_DESTINATION = config.scrollSnapDestination
 
       setUpElement(element)
     }
