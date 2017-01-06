@@ -204,12 +204,8 @@ module.exports = function (element) {
 
       // smoothly move to the snap point
     smoothScroll(lastScrollObj, snapPoint, function() {
-      if(lastScrollObj.scrollLeft > 0 && lastScrollObj.scrollLeft < ((getWidth(lastScrollObj) * 0.9) * 5)) {
-        lastObj.style.overflowX = 'hidden';
-      }
       setTimeout(function () {
         animationInProgress = false
-        lastObj.style.overflowX = 'auto';
       }, 150)
 
       // after moving to the snap point, rebind the scroll event handler
