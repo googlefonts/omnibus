@@ -1,11 +1,8 @@
 {
-  "name": "gulp-plate",
-  "version": "1.4.0",
-  "description": "Gulp boilerplate for static page generation",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/arillo/gulp-plate.git"
-  },
+  "name": "omnibus-type",
+  "version": "0.1.0",
+  "description": "",
+  "repository": "https://bitbucket.org/aminalhazwani/omnibus-type",
   "scripts": {
     "start": "gulp",
     "gulp": "gulp",
