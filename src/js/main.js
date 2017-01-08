@@ -113,7 +113,7 @@ function scrollToColumn() {
   start = null
 
   switch (location.hash) {
-    case '#asap-condesed':
+    case '#asap-condensed':
       length = colWidth - offset
       break;
     case '#faustina':
