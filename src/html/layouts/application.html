@@ -2,12 +2,33 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>{% block title %}{{ title }}{% endblock %}</title>
-    <link rel="stylesheet" href="css/main.css">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% include "shared/app-icons.html" %}
-    {% block head %}{% endblock %}
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}">
+    <meta name="keywords" content="{{ keywords }}">
+    <meta name="apple-mobile-web-app-title" content="{{ title }}">
+    <meta name="application-name" content="{{ title }}">
+    <base href="{{ url }}">
+
+    <meta property="og:type" content="{{ type }}">
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:description" content="{{ description }}">
+    <meta property="og:url" content="{{ url }}">
+    <meta property="og:locale" content="{{ locale }}">
+    <meta property="og:image" content="{{ image }}">
+    <meta property="fb:app_id" content="{{ id }}">
+
+    <meta name="twitter:url" content="{{ url }}">
+    <meta name="twitter:title" content="{{ title }}">
+    <meta name="twitter:description" content="{{ description }}">
+    <meta name="twitter:image" content="{{ image }}">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="stylesheet" href="css/main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    
+    {% include "shared/app-icons.html" %}
   </head>
   <body>
     {% block content %}{% endblock %}
