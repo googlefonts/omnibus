@@ -17,14 +17,21 @@
   transition-delay: 1s;
   cursor: pointer
 
+  +mq($bp-sm)
+    +size(4rem)
+    top: calc(50% - 2rem)
+    line-height: 3.6rem
+
   +mq($bp-md)
     +size(5rem)
     top: calc(50% - 2.5rem)
-    transition: transform 0.3s $bezier
     line-height: 4.6rem
 
 .arrow--intro
   left: calc(95% - 1.5rem)
+
+  +mq($bp-sm)
+    left: calc(95% - 2rem)
 
   +mq($bp-md)
     left: calc(95% - 2.5rem)
@@ -32,11 +39,17 @@
 .arrow--asap
   left: calc(185% - 1.5rem)
 
+  +mq($bp-sm)
+    left: calc(185% - 2rem)
+
   +mq($bp-md)
     left: calc(185% - 2.5rem)
 
 .arrow--faustina
   left: calc(275% - 1.5rem)
+
+  +mq($bp-sm)
+    left: calc(275% - 2rem)
 
   +mq($bp-md)
     left: calc(275% - 2.5rem)
@@ -44,11 +57,18 @@
 .arrow--manuale
   left: calc(365% - 1.5rem)
 
+  +mq($bp-sm)
+    left: calc(365% - 2rem)
+
   +mq($bp-md)
     left: calc(365% - 2.5rem)
 
 .arrow--archivo
   left: calc(455% - 1.5rem)
+
+  +mq($bp-sm)
+    left: calc(455% - 2rem)
+
 
   +mq($bp-md)
     left: calc(455% - 2.5rem)
@@ -56,11 +76,16 @@
 .arrow--saira
   left: calc(545% - 1.5rem)
 
+  +mq($bp-sm)
+    left: calc(545% - 2rem)
+
   +mq($bp-md)
     left: calc(545% - 2.5rem)
 
 .js-arrow-left
   transform: rotate(180deg)
+  transition: transform 0.3s $bezier
 
 .js-arrow-right
   transform: rotate(0)
+  transition: transform 0.3s $bezier
