@@ -113,7 +113,7 @@ function scrollToColumn() {
   start = null
 
   switch (location.hash) {
-    case '#asap':
+    case '#asap-condesed':
       length = colWidth - offset
       break;
     case '#faustina':
@@ -132,16 +132,6 @@ function scrollToColumn() {
 
   requestAnimationFrame(animate)
 }
-
-// $(function() {
-//   $('#asap').bind('click',function(event){
-//     var $anchor = $(this);
-//     $('#main').stop().animate({
-//       scrollTop: $($anchor.attr('href')).offset().left
-//     }, 1500, 'easeInOutExpo');
-//     event.preventDefault();
-//   });
-// });
 
 window.addEventListener("hashchange", scrollToColumn, false);
 
