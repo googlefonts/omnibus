@@ -7,15 +7,23 @@
 
 .archivo-italics
   font-size: 16rem
-  line-height: 16rem
+  line-height: 15rem
+
+  +mq($bp-xs)
+    font-size: 21rem
+    line-height: 19rem
 
   +mq($bp-sm)
-    font-size: 28rem
-    line-height: 26rem
+    font-size: 31rem
+    line-height: 28rem
 
   +mq($bp-md)
-    font-size: 44rem
-    line-height: 40rem
+    font-size: 43rem
+    line-height: 38rem
+
+  +mq($bp-lg)
+    font-size: 49rem
+    line-height: 44rem
 
 
 // Ascendants
@@ -42,6 +50,15 @@
     bottom: 0.6rem
     border-bottom: 0.1rem solid $color-text-archivo
 
+  +mq($bp-xs)
+    font-size: 6rem
+
+    &::before
+      top: 1.8rem
+
+    &::after
+      bottom: 1rem
+
   +mq($bp-sm)
     font-size: 8rem
 
@@ -59,3 +76,12 @@
 
     &::after
       bottom: 1.7rem
+
+  +mq($bp-lg)
+    font-size: 14rem
+
+    &::before
+      top: 4.3rem
+
+    &::after
+      bottom: 2.2rem
