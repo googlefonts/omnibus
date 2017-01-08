@@ -18,15 +18,15 @@
     </div>
 
     <div class="l-container l-container--lg u-push-btm@sm">
-      <div class="u-padd-top-half u-border-top-1 u-border-top-black u-border-top-solid">
-        <div class="g-row">
-          {% for item in saira.chessboard %}
-            <div class="g g-3">
-              <div class=" u-push-btm-half">
-                <p class="u-h1 {{ item.class }} u-ta-center u-tt-uppercase u-push-btm-none">a</p>
+      <div class="saira-chessboard u-padd-top-half u-padd-top-threeQuarter@md u-border-top-1 u-border-top-black u-border-top-solid">
+        <div class="u-pull-horz-quarter u-pull-horz@sm">
+          <div class="g-row">
+            {% for item in saira.chessboard %}
+              <div class="g g-3">
+                <p class="{{ item.class }} u-ta-center u-tt-uppercase u-push-btm-half">a</p>
               </div>
-            </div>
-          {% endfor %}
+            {% endfor %}
+          </div>
         </div>
       </div>
     </div>
