@@ -1,8 +1,8 @@
-'use strict';
 
-var gulp    = require('gulp');
-var config  = require('../config').production;
-var uglify  = require('gulp-uglify');
+
+const gulp = require('gulp');
+const config = require('../config').production;
+const uglify = require('gulp-uglify');
 
 gulp.task('uglifyJs', function() {
   return gulp.src(config.jsSrc)

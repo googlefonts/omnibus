@@ -1,9 +1,7 @@
-'use strict';
+const convertToRem = require('./util/convertToRem');
 
-var convertToRem = require('./util/convertToRem');
-
-var dest = './dist';
-var src = './src';
+const dest = './dist';
+const src = './src';
 
 module.exports = {
   destFolder: dest,
@@ -11,10 +9,10 @@ module.exports = {
   browserSync: {
     port: 9000,
     server: {
-      baseDir: dest
+      baseDir: dest,
     },
     notify: false,
-    open: false
+    open: false,
   },
 
   sass: {
@@ -22,7 +20,7 @@ module.exports = {
     dest: dest + '/css',
     settings: {
       indentedSyntax: true, // Enable .sass syntax!
-      outputStyle: 'expanded'
+      outputStyle: 'expanded',
     },
     prefix: [
       'ie >= 10',
@@ -34,11 +32,11 @@ module.exports = {
       'ios >= 8',
       'edge >= 13',
       'android >= 4.4',
-      'bb >= 10'
+      'bb >= 10',
     ],
     // Css Selectors that should be removed from your css.
     // useful to remove unneeded thirdparty styles.
-    remove: []
+    remove: [],
   },
 
   // Generic move task, useful to move assets that do
@@ -48,13 +46,13 @@ module.exports = {
   move: [
     {
       src: src + '/fonts/**',
-      dest: dest + '/fonts'
-    }
+      dest: dest + '/fonts',
+    },
   ],
 
   images: {
     src: src + '/images/**',
-    dest: dest + '/images'
+    dest: dest + '/images',
   },
 
   html: {
@@ -63,12 +61,12 @@ module.exports = {
     glob: '**/*.{html,json}',
     data: src + '/html/data/*.json',
     extensions: ['html', 'json'],
-    excludeFolders: ['layouts', 'shared', 'macros', 'data', 'modules', 'sections']
+    excludeFolders: ['layouts', 'shared', 'macros', 'data', 'modules', 'sections'],
   },
 
   eslint: {
     src: src + '/js/**/*.js',
-    options: './eslintrc.json'
+    options: './.eslintrc.json',
   },
 
   svgSprite: {
@@ -89,7 +87,7 @@ module.exports = {
     templateCss: 'gulpfile.js/tpl/_sprite-css.scss',
     templateVars: {
       cssPath: '../images/',
-      rem: convertToRem
+      rem: convertToRem,
     },
   },
 
@@ -101,9 +99,9 @@ module.exports = {
       {
         entries: src + '/js/main.js',
         dest: dest + '/js',
-        outputName: 'main.js'
-      }
-    ]
+        outputName: 'main.js',
+      },
+    ],
   },
 
   production: {
@@ -118,21 +116,21 @@ module.exports = {
     htmlDest: dest,
 
     htmlminOpts: {
-      'collapseWhitespace': true
+      'collapseWhitespace': true,
     },
 
     cssCompressionOpts: {
       safe: true,
       mergeLonghand: false,
       discardComments: {
-        removeAll: true
-      }
+        removeAll: true,
+      },
     },
 
     reportSrc: [
       dest + '/css/*.css',
       dest + '/js/*.js',
-      dest + '/images/**/*'
-    ]
-  }
+      dest + '/images/**/*',
+    ],
+  },
 };

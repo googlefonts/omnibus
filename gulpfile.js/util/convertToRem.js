@@ -1,4 +1,4 @@
-'use strict';
+
 
 // Template helper to convert pixel values to rem.
 
@@ -7,11 +7,11 @@
 
 module.exports = function() {
   return function(pos, render) {
-    var num = parseInt(render(pos)) / 10;
+    const num = parseInt(render(pos)) / 10;
     if (num === 0) {
       return '0';
     } else {
       return num + 'rem';
     }
-  }
+  };
 };

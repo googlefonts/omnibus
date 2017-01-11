@@ -15,16 +15,16 @@ const arrowSaira = document.getElementsByClassName('js-arrow-saira')[0];
 const snapConfig = {
   scrollTimeout: 50, // time in ms after which scrolling is considered finished.
   scrollTime: 300, // time for the smooth snap
-  scrollSnapDestination: '0% 90%' // scroll-snap-destination css value
-}
+  scrollSnapDestination: '0% 90%', // scroll-snap-destination css value
+};
 
 $(document).ready(function() {
-  $('.js-widowfix').widowFix({linkFix: true});
+  $('.js-widowfix').widowFix({ linkFix: true });
 
-  //init scrollSnap
-  scrollSnap(containerElement).init(snapConfig)
+  // init scrollSnap
+  scrollSnap(containerElement).init(snapConfig);
 
-  //scroll to relative column if there's a hash tag in the url
+  // scroll to relative column if there's a hash tag in the url
   if (location.hash !== '') {
     setTimeout(scrollToColumn, 500);
   }
@@ -34,8 +34,7 @@ function checkArrowClass(arrowClass) {
   if (arrowClass.classList.contains('js-arrow-right')) {
     arrowClass.classList.remove('js-arrow-right');
     arrowClass.classList.add('js-arrow-left');
-  }
-  else {
+  } else {
     arrowClass.classList.remove('js-arrow-left');
     arrowClass.classList.add('js-arrow-right');
   }
@@ -50,24 +49,24 @@ function checkClassInViewport(monitorClass, arrowClass) {
   });
 }
 
-function easeOutCubic(t, b, c, d){
-  return c * ((t = t / d-1) * t * t + 1) + b;
+function easeOutCubic(t, b, c, d) {
+  return c * ((t = t / d - 1) * t * t + 1) + b;
 }
 
 function easeOutCirc(t, b, c, d) {
-	return c * Math.sqrt(1 - (t=t/d-1)*t) + b;
+  return c * Math.sqrt(1 - (t = t / d - 1) * t) + b;
 }
 
 let start,
-    duration,
-    direction,
-    length,
-    scrollPos,
-    colWidth,
-    offset;
+  duration,
+  direction,
+  length,
+  scrollPos,
+  colWidth,
+  offset;
 
 function animate(timestamp) {
-  if (!start) start = timestamp;
+  if (!start) {start = timestamp;}
   const elapsed = timestamp - start;
 
   if (direction === 'right') {
@@ -76,12 +75,10 @@ function animate(timestamp) {
     } else {
       containerElement.scrollLeft = easeOutCubic(elapsed, scrollPos, length, duration);
     }
+  } else if (elapsed > duration) {
+    containerElement.scrollLeft = scrollPos - length;
   } else {
-    if (elapsed > duration) {
-      containerElement.scrollLeft = scrollPos - length;
-    } else {
-      containerElement.scrollLeft = easeOutCubic(elapsed, scrollPos, -length, duration);
-    }
+    containerElement.scrollLeft = easeOutCubic(elapsed, scrollPos, -length, duration);
   }
 
   if (elapsed < duration) {
@@ -92,48 +89,48 @@ function animate(timestamp) {
 function bindArrowClick(arrowClass) {
   arrowClass.onclick = function() {
     colWidth = window.innerWidth * 0.9;
-    offset = colWidth * 0.3
-    scrollPos = containerElement.scrollLeft
+    offset = colWidth * 0.3;
+    scrollPos = containerElement.scrollLeft;
     direction = arrowClass.classList.contains('js-arrow-right') ? 'right' : 'left';
-    length = colWidth - offset
-    duration = 700
-    start = null
+    length = colWidth - offset;
+    duration = 700;
+    start = null;
 
-    requestAnimationFrame(animate)
+    requestAnimationFrame(animate);
   };
 }
 
 
 function scrollToColumn() {
   colWidth = window.innerWidth * 0.9;
-  offset = colWidth * 0.3
-  scrollPos = containerElement.scrollLeft
+  offset = colWidth * 0.3;
+  scrollPos = containerElement.scrollLeft;
   direction = 'right';
-  duration = 700
-  start = null
+  duration = 700;
+  start = null;
 
   switch (location.hash) {
-    case '#asap-condensed':
-      length = colWidth - offset
-      break;
-    case '#faustina':
-      length = (colWidth * 2) - offset
-      break;
-    case '#manuale':
-      length = (colWidth * 3) - offset
-      break;
-    case '#archivo':
-      length = (colWidth * 4) - offset
-      break;
-    case '#saira':
-      length = (colWidth * 5) - offset
-      break;
+  case '#asap-condensed':
+    length = colWidth - offset;
+    break;
+  case '#faustina':
+    length = (colWidth * 2) - offset;
+    break;
+  case '#manuale':
+    length = (colWidth * 3) - offset;
+    break;
+  case '#archivo':
+    length = (colWidth * 4) - offset;
+    break;
+  case '#saira':
+    length = (colWidth * 5) - offset;
+    break;
   }
 
-  requestAnimationFrame(animate)
+  requestAnimationFrame(animate);
 }
 
-window.addEventListener("hashchange", scrollToColumn, false);
+window.addEventListener('hashchange', scrollToColumn, false);
 
 checkClassInViewport(arrowAsap, arrowIntro);
 checkClassInViewport(arrowFaustina, arrowAsap);

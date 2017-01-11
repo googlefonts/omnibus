@@ -1,4 +1,4 @@
-'use strict';
+
 
 // Post CSS utility to remove css classes
 // that come from third party imports.
@@ -6,14 +6,14 @@
 module.exports = function(classes) {
 
   // Match class name helper
-  var matchClassnames = function (selector) {
+  const matchClassnames = function(selector) {
     if (!classes.length) {
       return;
     }
 
-    var matches = false;
+    let matches = false;
 
-    classes.forEach(function(className){
+    classes.forEach(function(className) {
       if (selector.indexOf(className) > -1) {
         matches = true;
       }
@@ -24,11 +24,11 @@ module.exports = function(classes) {
 
   // Return css process function
   return function(css, opts) {
-    css.walkRules(function(node){
+    css.walkRules(function(node) {
 
-      if(matchClassnames(node.selector)) {
+      if (matchClassnames(node.selector)) {
         node.remove();
       }
     });
   };
-}
+};

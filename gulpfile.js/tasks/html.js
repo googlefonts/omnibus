@@ -1,30 +1,30 @@
-'use strict';
 
-var config       = require('../config').html;
-var browserSync  = require('browser-sync');
-var data         = require('gulp-data');
-var gulp         = require('gulp');
-var handleErrors = require('../util/handleErrors');
-var path         = require('path');
-var render       = require('gulp-nunjucks-render');
-var fs           = require('fs');
-var _            = require('lodash');
-var glob         = require("glob");
 
-var getData = function() {
-  let data = {};
+const config = require('../config').html;
+const browserSync = require('browser-sync');
+const data = require('gulp-data');
+const gulp = require('gulp');
+const handleErrors = require('../util/handleErrors');
+const path = require('path');
+const render = require('gulp-nunjucks-render');
+const fs = require('fs');
+const _ = require('lodash');
+const glob = require('glob');
 
-  let files = glob.sync(config.data)
+const getData = function() {
+  const data = {};
+
+  const files = glob.sync(config.data);
   files.forEach((el) => {
     const dataPath = path.resolve(el);
-    _.extend(data, JSON.parse(fs.readFileSync(dataPath, 'utf8')))
+    _.extend(data, JSON.parse(fs.readFileSync(dataPath, 'utf8')));
   });
 
   return data;
-}
+};
 
-var exclude = path.normalize('!**/{' + config.excludeFolders.join(',') + '}/**');
-var src = [path.join(config.src, config.glob), exclude];
+const exclude = path.normalize('!**/{' + config.excludeFolders.join(',') + '}/**');
+const src = [path.join(config.src, config.glob), exclude];
 
 gulp.task('html', function() {
   return gulp.src(src)
@@ -33,10 +33,10 @@ gulp.task('html', function() {
     .pipe(render({
       path: config.src,
       envOptions: {
-        watch: false
-      }
+        watch: false,
+      },
     }))
     .on('error', handleErrors)
     .pipe(gulp.dest(config.dest))
-    .pipe(browserSync.reload({stream:true}));
+    .pipe(browserSync.reload({ stream: true }));
 });
