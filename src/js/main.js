@@ -100,6 +100,25 @@ function bindArrowClick(arrowClass) {
   };
 }
 
+function bindKeyPress() {
+  document.addEventListener('keydown', function(e) {
+    colWidth = window.innerWidth * 0.9;
+    offset = colWidth * 0.3;
+    scrollPos = containerElement.scrollLeft;
+    length = colWidth - offset;
+    duration = 700;
+    start = null;
+
+    if (e.keyCode === 39) {
+      direction = 'right';
+      requestAnimationFrame(animate);
+    } else if (e.keyCode === 37) {
+      direction = 'left';
+      requestAnimationFrame(animate);
+    }
+  }, false);
+}
+
 
 function scrollToColumn() {
   colWidth = window.innerWidth * 0.9;
@@ -143,5 +162,7 @@ bindArrowClick(arrowAsap);
 bindArrowClick(arrowFaustina);
 bindArrowClick(arrowManuale);
 bindArrowClick(arrowArchivo);
+
+bindKeyPress();
 
 gfBadge();
