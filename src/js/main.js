@@ -5,6 +5,7 @@ import widowFix from '../../custom_modules/widowFix.js';
 
 const containerElement = document.getElementsByClassName('js-main')[0];
 const containerMonitor = scrollMonitor.createContainer(containerElement);
+const columnElements = document.getElementsByClassName('l-section');
 const arrowIntro = document.getElementsByClassName('js-arrow-intro')[0];
 const arrowAsap = document.getElementsByClassName('js-arrow-asap')[0];
 const arrowFaustina = document.getElementsByClassName('js-arrow-faustina')[0];
@@ -165,4 +166,6 @@ bindArrowClick(arrowArchivo);
 
 bindKeyPress();
 
-gfBadge();
+for (let i = 0; i < columnElements.length; i++) {
+  gfBadge(columnElements[i]);
+}
