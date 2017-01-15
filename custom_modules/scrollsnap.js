@@ -129,25 +129,18 @@ module.exports = function(element) {
       };
     }
 
-    /* set a timeout for every scroll event.
-    * if we have new scroll events in that time, the previous timeouts are cleared.
-    * thus we can be sure that the timeout will be called 50ms after the last scroll event.
-    * this means a huge improvement in speed, as we just assign a timeout in the scroll event,
-    * which will be called only once (after scrolling is finished)
-    */
-
-    if (absSpeed < 5 && shouldSnap) {
-      handlerDelayed();
+    if ((mobile && absSpeed < 2 && shouldSnap) ||
+        (!mobile && absSpeed < 5 && shouldSnap)) {
+      animationHandler();
     } else if (absSpeed < 5) {
-      timeOutId = setTimeout(handlerDelayed, SCROLL_TIMEOUT);
+      timeOutId = setTimeout(animationHandler, SCROLL_TIMEOUT);
     }
   }
 
   /**
-  * a delayed handler for scrolling.
-  * this will be called by setTimeout once, after scrolling is finished.
+  * the animation handler for scrolling.
   */
-  function handlerDelayed() {
+  function animationHandler() {
     // detect direction of scroll. negative is up, positive is down.
     let direction = {
         y: (speedDelta > 0) ? 1 : -1,
@@ -176,7 +169,7 @@ module.exports = function(element) {
       previousDelta = 0;
       lastObj.addEventListener('scroll', startAnimation, false);
       if (mobile) {
-        lastScrollObj.style.overflowX = 'visible';
+        lastScrollObj.style.overflowX = 'auto';
       }
     });
 
