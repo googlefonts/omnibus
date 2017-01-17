@@ -10,7 +10,7 @@
     "prod": "gulp production"
   },
   "engines": {
-    "node": "^5.9.0",
+    "node": "^7.4.0",
     "npm": "^3.7.3"
   },
   "license": "MIT",
