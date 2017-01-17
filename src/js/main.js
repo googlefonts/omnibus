@@ -14,7 +14,7 @@ const arrowArchivo = document.getElementsByClassName('js-arrow-archivo')[0];
 const arrowSaira = document.getElementsByClassName('js-arrow-saira')[0];
 
 const snapConfig = {
-  scrollTimeout: 50, // time in ms after which scrolling is considered finished.
+  scrollTimeout: 25, // time in ms after which scrolling is considered finished.
   scrollTime: 300, // time for the smooth snap
   scrollSnapDestination: '0% 90%', // scroll-snap-destination css value
 };
@@ -27,7 +27,7 @@ $(document).ready(function() {
 
   // scroll to relative column if there's a hash tag in the url
   if (location.hash !== '') {
-    setTimeout(scrollToColumn, 500);
+    setTimeout(scrollToColumn, 300);
   }
 });
 
@@ -90,11 +90,11 @@ function animate(timestamp) {
 function bindArrowClick(arrowClass) {
   arrowClass.onclick = function() {
     colWidth = window.innerWidth * 0.9;
-    offset = colWidth * 0.3;
+    offset = colWidth * 0.5;
     scrollPos = containerElement.scrollLeft;
     direction = arrowClass.classList.contains('js-arrow-right') ? 'right' : 'left';
     length = colWidth - offset;
-    duration = 700;
+    duration = 300;
     start = null;
 
     requestAnimationFrame(animate);
@@ -104,10 +104,10 @@ function bindArrowClick(arrowClass) {
 function bindKeyPress() {
   document.addEventListener('keydown', function(e) {
     colWidth = window.innerWidth * 0.9;
-    offset = colWidth * 0.3;
+    offset = colWidth * 0.5;
     scrollPos = containerElement.scrollLeft;
     length = colWidth - offset;
-    duration = 700;
+    duration = 300;
     start = null;
 
     if (e.keyCode === 39) {
@@ -123,10 +123,10 @@ function bindKeyPress() {
 
 function scrollToColumn() {
   colWidth = window.innerWidth * 0.9;
-  offset = colWidth * 0.3;
+  offset = colWidth * 0.5;
   scrollPos = containerElement.scrollLeft;
   direction = 'right';
-  duration = 700;
+  duration = 300;
   start = null;
 
   switch (location.hash) {
