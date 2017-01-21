@@ -7,43 +7,38 @@ module.exports = function(element) {
   * but the current distance is less than 1-0.18 (read: 18 percent),
   * the snap-will go back to the closer snap-point.
   */
-  let CONSTRAINT = 1 - 0.18,
-    /*
-    * if scrolling for one snap-point only,
-    * the scroll distance must be at least 5% of the scroll-width.
-    */
-    FIRST_CONSTRAINT = 1 - 0.05,
+  const CONSTRAINT = 1 - 0.18;
 
-    /*
-    * minimum scroll distance in pixel
-    */
-    MIN_PX_CONSTRAINT = 5,
+  // if scrolling for one snap-point only, the scroll distance must be at least 5% of the scroll-width.
+  const FIRST_CONSTRAINT = 1 - 0.05;
 
-    /**
-    * when scrolling for more than SNAP_CONSTRAINT snap points,
-    * a constraint is applied for scrolling to snap points in the distance.
-    * @type {Number}
-    */
-    SNAP_CONSTRAINT = 2,
+  // minimum scroll distance in pixel
+  const MIN_PX_CONSTRAINT = 5;
 
-    SCROLL_TIMEOUT,
-    SCROLL_TIME,
-    SCROLL_SNAP_DESTINATION;
+  /** when scrolling for more than SNAP_CONSTRAINT snap points,
+  * a constraint is applied for scrolling to snap points in the distance.
+  */
+  const SNAP_CONSTRAINT = 2;
 
-  let timeOutId = null,
-    scrollStart = null,
-    animating = false,
-    lastObj,
-    lastScrollObj,
-    lastPos = null,
-    timer = 0,
-    newPos,
-    speedDelta,
-    absSpeed,
-    shouldSnap,
-    deceleration = false,
-    previousDelta = 0,
-    mobile = mobileDetect();
+  let SCROLL_TIMEOUT;
+  let SCROLL_TIME;
+  let SCROLL_SNAP_DESTINATION;
+  let onAnimationEnd;
+  let timeOutId = null;
+  let scrollStart = null;
+  let animating = false;
+  let lastObj;
+  let lastScrollObj;
+  let lastPos = null;
+  let timer = 0;
+  let newPos;
+  let speedDelta;
+  let absSpeed;
+  let shouldSnap;
+  let deceleration = false;
+  let previousDelta = 0;
+
+  const mobile = mobileDetect();
 
   function checkScrollSpeed(pos) {
     function clear() {
@@ -52,7 +47,7 @@ module.exports = function(element) {
 
     newPos = pos;
     let delta;
-    if (lastPos != null) {
+    if (lastPos !== null) {
       delta = newPos - lastPos;
     } else {
       delta = 0;

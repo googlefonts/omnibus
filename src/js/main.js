@@ -58,13 +58,14 @@ function easeOutCirc(t, b, c, d) {
   return c * Math.sqrt(1 - (t = t / d - 1) * t) + b;
 }
 
-let start,
-  duration,
-  direction,
-  length,
-  scrollPos,
-  colWidth,
-  offset;
+let start;
+let duration;
+let direction;
+let length;
+let scrollPos;
+let colWidth;
+let offset;
+let timeOutId;
 
 function animate(timestamp) {
   if (!start) {start = timestamp;}
