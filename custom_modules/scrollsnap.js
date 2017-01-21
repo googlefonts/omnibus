@@ -134,6 +134,8 @@ module.exports = function(element) {
       animationHandler();
     } else if (absSpeed < 5) {
       timeOutId = setTimeout(animationHandler, SCROLL_TIMEOUT);
+    } else if (lastScrollObj.scrollLeft <= 0 || lastScrollObj.scrollLeft >= getWidth(lastScrollObj) * 4) {
+      onAnimationEnd();
     }
   }
 
@@ -171,6 +173,7 @@ module.exports = function(element) {
       if (mobile) {
         lastScrollObj.style.overflowX = 'auto';
       }
+      onAnimationEnd();
     });
 
     // we just jumped to the snapPoint, so this will be our next scrollStart
@@ -583,10 +586,12 @@ module.exports = function(element) {
   }
 
   return {
-    init: function(config) {
+    init: function(config, callback) {
       SCROLL_TIMEOUT = config.scrollTimeout;
       SCROLL_TIME = config.scrollTime;
       SCROLL_SNAP_DESTINATION = config.scrollSnapDestination;
+
+      onAnimationEnd = callback;
 
       setUpElement(element);
     },

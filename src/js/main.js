@@ -23,7 +23,7 @@ $(document).ready(function() {
   $('.js-widowfix').widowFix({ linkFix: true });
 
   // init scrollSnap
-  scrollSnap(containerElement).init(snapConfig);
+  scrollSnap(containerElement).init(snapConfig, updateHash);
 
   // scroll to relative column if there's a hash tag in the url
   if (location.hash !== '') {
@@ -148,6 +148,31 @@ function scrollToColumn() {
   }
 
   requestAnimationFrame(animate);
+}
+
+function updateHash() {
+  window.removeEventListener('hashchange', scrollToColumn, false);
+  const scrollPosition = containerElement.scrollLeft;
+  colWidth = window.innerWidth * 0.9;
+  if (scrollPosition > colWidth * 4) {
+    location.hash = '#saira';
+  } else if (scrollPosition > colWidth * 3) {
+    location.hash = '#archivo';
+  } else if (scrollPosition > colWidth * 2) {
+    location.hash = '#manuale';
+  } else if (scrollPosition > colWidth) {
+    location.hash = '#faustina';
+  } else if (scrollPosition > colWidth / 2) {
+    location.hash = '#asap-condensed';
+  } else {
+    location.hash = '';
+  }
+  if (timeOutId) {
+    clearTimeout(timeOutId);
+  }
+  timeOutId = setTimeout(() => {
+    window.addEventListener('hashchange', scrollToColumn, false);
+  }, 50);
 }
 
 window.addEventListener('hashchange', scrollToColumn, false);
