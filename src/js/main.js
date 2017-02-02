@@ -131,16 +131,16 @@ function scrollToColumn() {
   start = null;
 
   switch (location.hash) {
-  case '#asap-condensed':
+  case '#faustina':
     length = colWidth - offset;
     break;
-  case '#faustina':
+  case '#manuale':
     length = (colWidth * 2) - offset;
     break;
-  case '#manuale':
+  case '#archivo':
     length = (colWidth * 3) - offset;
     break;
-  case '#archivo':
+  case '#asap-condensed':
     length = (colWidth * 4) - offset;
     break;
   case '#saira':
@@ -158,13 +158,13 @@ function updateHash() {
   if (scrollPosition > colWidth * 4) {
     location.hash = '#saira';
   } else if (scrollPosition > colWidth * 3) {
-    location.hash = '#archivo';
-  } else if (scrollPosition > colWidth * 2) {
-    location.hash = '#manuale';
-  } else if (scrollPosition > colWidth) {
-    location.hash = '#faustina';
-  } else if (scrollPosition > colWidth / 2) {
     location.hash = '#asap-condensed';
+  } else if (scrollPosition > colWidth * 2) {
+    location.hash = '#archivo';
+  } else if (scrollPosition > colWidth) {
+    location.hash = '#manuale';
+  } else if (scrollPosition > colWidth / 2) {
+    location.hash = '#faustina';
   } else {
     location.hash = '';
   }
