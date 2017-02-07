@@ -24,17 +24,23 @@ $color-bg:        $white;
 $color-error:     #ed331a;
 $color-success:   #2fa714;
 
-$color-asap:      #ffb3ba;
-$color-faustina:  #ffdfba;
-$color-manuale:   #c6ebbf;
-$color-archivo:   #bae1ff;
-$color-saira:     #ffffba;
+$background-asap:      #ffb3ba;
+$background-faustina:  #ffdfba;
+$background-manuale:   #c6ebbf;
+$background-archivo:   #cce9ff;
+$background-saira:     #ffffba;
 
-$color-text-asap:     #211718;
-$color-text-faustina: #211d18;
-$color-text-manuale:  #1a1e19;
-$color-text-saira:    #181d21;
-$color-text-archivo:  #212118;
+$color-asap:     rgba(0, 0, 0, .87);
+$color-faustina: rgba(0, 0, 0, .87);
+$color-manuale:  rgba(0, 0, 0, .87);
+$color-saira:    rgba(0, 0, 0, .87);
+$color-archivo:  rgba(0, 0, 0, .87);
+
+$fill-asap:     #211718;
+$fill-faustina: #211d18;
+$fill-manuale:  #1a1e19;
+$fill-saira:    #181d21;
+$fill-archivo:  #4784b3;
 
 
 // Dimensions
