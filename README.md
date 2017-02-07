@@ -18,5 +18,5 @@ $ npm run watch
 To compile down to HTML, CSS, and JavaScript:
 
 ```sh
-$ npm run production
+$ gulp production
 ```
