@@ -21,11 +21,11 @@
       </div>
     </div>
 
-    <div class="l-container l-container--lg u-relative">
+    <div class="l-container u-relative">
       {% for item in faustina.latin %}
       <div class="u-border-top-1 u-border-top-faustina u-border-top-solid u-of-hide u-padd-top-half">
-        <p class="u-ff-faustina u-fw-700 u-lh-1 u-tt-uppercase u-fz-sm u-push-btm-none">{{ item.label }}</p>
-        <p class="faustina-headline u-ff-faustina u-push-btm u-pull-top-quarter@sm u-pull-top-half@md u-no-wrap {{ item.class }}">{{ item.text }}</p>
+        <p class="u-ff-faustina u-fw-700 u-lh-1 u-tt-uppercase u-fz-sm u-push-btm-none u-fill-faustina">{{ item.label }}</p>
+        <p class="faustina-headline u-ff-faustina u-push-btm u-pull-top-quarter@sm u-pull-top-half@md u-no-wrap {{ item.class }} u-fill-faustina">{{ item.text }}</p>
       </div>
       {% endfor %}
     </div>
@@ -38,13 +38,13 @@
       </div>
     </div>
 
-    <div class="l-container l-container--lg u-push-btm@sm">
+    <div class="l-container u-push-btm@sm">
       <div class="g-row">
         {% for terminal in faustina.terminals %}
         <div class="g g-6 g-3@md">
           <div class="u-border-top-1 u-border-top-faustina u-border-top-solid u-padd-top-half u-push-btm">
             <div class="embed embed-4:3">
-              <svg class="i i-{{ terminal.name }} embed_svg u-fill-text-faustina">
+              <svg class="i i-{{ terminal.name }} embed_svg u-fill-faustina">
                 <use xlink:href="images/sprite.svg#{{ terminal.name }}"></use>
               </svg>
             </div>
@@ -62,9 +62,9 @@
       </div>
     </div>
 
-    <div class="l-container l-container--lg u-push-btm@sm">
+    <div class="l-container u-push-btm@sm">
       <div class="u-border-top-1 u-border-top-faustina u-border-top-solid u-of-hide u-padd-top-half@sm">
-        <p class="faustina-headline faustina-headline--lines u-ff-faustina u-push-btm u-pull-top-quarter@sm u-pull-top@md u-no-wrap u-ta-center">xtlRegEhv</p>
+        <p class="faustina-headline faustina-headline--lines u-ff-faustina u-push-btm u-pull-top-quarter@sm u-pull-top@md u-no-wrap u-ta-center u-fill-faustina">xtlRegEhv</p>
       </div>
     </div>
 
@@ -88,13 +88,13 @@
       </div>
     </div>
 
-    <div class="l-container l-container--lg u-push-btm-half@sm">
+    <div class="l-container u-push-btm-half@sm">
       <div class="g-row">
         {% for item in faustina.chessboard %}
         <div class="g g-6 g-3@md">
           <div class="u-border-top-1 u-border-top-faustina u-border-top-solid u-padd-top-half u-push-btm">
-            <p class="u-ff-faustina u-fw-700 u-lh-1 u-fz-sm u-push-btm-none">{{ item.weight }}{% if item.style == 'italic' %}<span class="u-fs-italic">i</span>{% endif %}</p>
-            <p class="u-ff-faustina u-h1 u-fw-{{ item.weight }} {% if item.style == 'italic' %}u-fs-italic{% endif %} u-push-btm-none">Abc</p>
+            <p class="u-ff-faustina u-fw-700 u-lh-1 u-fz-sm u-push-btm-none u-fill-faustina">{{ item.weight }}{% if item.style == 'italic' %}<span class="u-fs-italic">i</span>{% endif %}</p>
+            <p class="u-ff-faustina u-h1 u-fw-{{ item.weight }} {% if item.style == 'italic' %}u-fs-italic{% endif %} u-push-btm-none u-fill-faustina">Abc</p>
           </div>
         </div>
         {% endfor %}
