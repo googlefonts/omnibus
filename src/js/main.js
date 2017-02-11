@@ -1,8 +1,9 @@
-import scrollSnap from '../../custom_modules/scrollsnap.js';
+import ScrollSnap from '../../custom_modules/scrollsnap.js';
 import scrollMonitor from '../../custom_modules/scrollMonitor.js';
 import gfBadge from '../../custom_modules/googlefontsbadge.js';
 import widowFix from '../../custom_modules/widowFix.js';
 import fitText from '../../custom_modules/fittext.js';
+import throttle from 'lodash/throttle';
 
 const containerElement = document.getElementsByClassName('js-main')[0];
 const containerMonitor = scrollMonitor.createContainer(containerElement);
@@ -14,17 +15,30 @@ const arrowManuale = document.getElementsByClassName('js-arrow-manuale')[0];
 const arrowArchivo = document.getElementsByClassName('js-arrow-archivo')[0];
 const arrowSaira = document.getElementsByClassName('js-arrow-saira')[0];
 
+function getScrollPositions(colWidth) {
+  return {
+    intro: 0,
+    faustina: colWidth,
+    manuale: colWidth * 2,
+    archivo: colWidth * 3,
+    asapCondensed: colWidth * 4,
+    saira: colWidth * 5,
+  };
+}
+
 const snapConfig = {
   scrollTimeout: 50, // time in ms after which scrolling is considered finished.
   scrollTime: 300, // time for the smooth snap
   scrollSnapDestination: '0% 90%', // scroll-snap-destination css value
 };
 
+const snapObject = new ScrollSnap(containerElement);
+
 $(document).ready(function() {
   $('.js-widowfix').widowFix({ linkFix: true });
 
   // init scrollSnap
-  scrollSnap(containerElement).init(snapConfig, updateHash);
+  snapObject.init(snapConfig, updateHash);
 
   // scroll to relative column if there's a hash tag in the url
   if (location.hash !== '') {
@@ -51,12 +65,13 @@ function checkClassInViewport(monitorClass, arrowClass) {
   });
 }
 
-function easeOutCubic(t, b, c, d) {
-  return c * ((t = t / d - 1) * t * t + 1) + b;
+function easeInCubic(t, b, c, d) {
+  return c * (t = t / d) * t * t + b;
 }
 
-function easeOutCirc(t, b, c, d) {
-  return c * Math.sqrt(1 - (t = t / d - 1) * t) + b;
+function easeInOutCubic(t, b, c, d) {
+  if ((t = t / d / 2) < 1) {return c / 2 * t * t * t + b;}
+  return c / 2 * ((t = t - 2) * t * t + 2) + b;
 }
 
 let start;
@@ -65,7 +80,6 @@ let direction;
 let length;
 let scrollPos;
 let colWidth;
-let offset;
 let timeOutId;
 
 function animate(timestamp) {
@@ -76,26 +90,31 @@ function animate(timestamp) {
     if (elapsed > duration) {
       containerElement.scrollLeft = scrollPos + length;
     } else {
-      containerElement.scrollLeft = easeOutCubic(elapsed, scrollPos, length, duration);
+      containerElement.scrollLeft = easeInCubic(elapsed, scrollPos, length, duration);
     }
   } else if (elapsed > duration) {
     containerElement.scrollLeft = scrollPos - length;
   } else {
-    containerElement.scrollLeft = easeOutCubic(elapsed, scrollPos, -length, duration);
+    containerElement.scrollLeft = easeInCubic(elapsed, scrollPos, -length, duration);
   }
 
   if (elapsed < duration) {
     requestAnimationFrame(animate);
+  } else {
+    // end animation
+    updateHash();
+    snapObject.init(snapConfig, updateHash);
   }
 }
 
 function bindArrowClick(arrowClass) {
   arrowClass.onclick = function() {
+    snapObject.unbind();
+
     colWidth = window.innerWidth * 0.9;
-    offset = colWidth * 0.5;
     scrollPos = containerElement.scrollLeft;
     direction = arrowClass.classList.contains('js-arrow-right') ? 'right' : 'left';
-    length = colWidth - offset;
+    length = colWidth;
     duration = 300;
     start = null;
 
@@ -103,49 +122,88 @@ function bindArrowClick(arrowClass) {
   };
 }
 
+function bindHomeClick(arrowClass) {
+  arrowClass.onclick = function() {
+    snapObject.unbind();
+    location.hash = '#intro';
+  };
+}
+
 function bindKeyPress() {
-  document.addEventListener('keydown', function(e) {
+  document.addEventListener('keydown', throttle(function(e) {
+    snapObject.unbind();
+
     colWidth = window.innerWidth * 0.9;
-    offset = colWidth * 0.5;
     scrollPos = containerElement.scrollLeft;
-    length = colWidth - offset;
+    length = colWidth;
     duration = 300;
     start = null;
 
     if (e.keyCode === 39) {
       direction = 'right';
-      requestAnimationFrame(animate);
+      if (isEnd()) {
+        location.hash = '#intro';
+      } else {
+        requestAnimationFrame(animate);
+      }
     } else if (e.keyCode === 37) {
       direction = 'left';
       requestAnimationFrame(animate);
     }
-  }, false);
+  }, 500));
 }
 
 
 function scrollToColumn() {
+  snapObject.unbind();
+
+  function getDirection(x, x2) {
+    return x < x2 ? 'right' : 'left';
+  }
+
   colWidth = window.innerWidth * 0.9;
-  offset = colWidth * 0.5;
   scrollPos = containerElement.scrollLeft;
-  direction = 'right';
   duration = 300;
   start = null;
 
+  const scrollPositions = getScrollPositions(colWidth);
+
   switch (location.hash) {
   case '#faustina':
-    length = colWidth - offset;
+    direction = getDirection(scrollPos, scrollPositions.faustina);
+    length = (direction === 'left')
+      ? scrollPos - scrollPositions.faustina
+      : scrollPos + (scrollPositions.faustina - scrollPos);
     break;
   case '#manuale':
-    length = (colWidth * 2) - offset;
+    direction = getDirection(scrollPos, scrollPositions.manuale);
+    length = (direction === 'left')
+      ? scrollPos - scrollPositions.manuale
+      : scrollPos + (scrollPositions.manuale - scrollPos);
     break;
   case '#archivo':
-    length = (colWidth * 3) - offset;
+    direction = getDirection(scrollPos, scrollPositions.archivo);
+    length = (direction === 'left')
+      ? scrollPos - scrollPositions.archivo
+      : scrollPos + (scrollPositions.archivo - scrollPos);
     break;
   case '#asap-condensed':
-    length = (colWidth * 4) - offset;
+    direction = getDirection(scrollPos, scrollPositions.asapCondensed);
+    length = (direction === 'left')
+      ? scrollPos - scrollPositions.asapCondensed
+      : scrollPos + (scrollPositions.asapCondensed - scrollPos);
     break;
   case '#saira':
-    length = (colWidth * 5) - offset;
+    direction = getDirection(scrollPos, scrollPositions.saira);
+    length = (direction === 'left')
+      ? scrollPos - scrollPositions.saira
+      : scrollPos + (scrollPositions.saira - scrollPos);
+    break;
+  case '#intro':
+    direction = getDirection(scrollPos, scrollPositions.intro);
+    length = (direction === 'left')
+      ? scrollPos - scrollPositions.intro
+      : scrollPos + (scrollPositions.intro - scrollPos);
     break;
   }
 
@@ -156,18 +214,21 @@ function updateHash() {
   window.removeEventListener('hashchange', scrollToColumn, false);
   const scrollPosition = containerElement.scrollLeft;
   colWidth = window.innerWidth * 0.9;
-  if (scrollPosition > colWidth * 4) {
+  const scrollPositions = getScrollPositions(colWidth);
+
+  if (scrollPosition === scrollPositions.saira) {
     location.hash = '#saira';
-  } else if (scrollPosition > colWidth * 3) {
+    bindEndOfPageListener();
+  } else if (scrollPosition === scrollPositions.asapCondensed) {
     location.hash = '#asap-condensed';
-  } else if (scrollPosition > colWidth * 2) {
+  } else if (scrollPosition === scrollPositions.archivo) {
     location.hash = '#archivo';
-  } else if (scrollPosition > colWidth) {
+  } else if (scrollPosition === scrollPositions.manuale) {
     location.hash = '#manuale';
-  } else if (scrollPosition > colWidth / 2) {
+  } else if (scrollPosition === scrollPositions.faustina) {
     location.hash = '#faustina';
-  } else {
-    location.hash = '';
+  } else if (scrollPosition === scrollPositions.intro) {
+    location.hash = '#intro';
   }
   if (timeOutId) {
     clearTimeout(timeOutId);
@@ -175,6 +236,30 @@ function updateHash() {
   timeOutId = setTimeout(() => {
     window.addEventListener('hashchange', scrollToColumn, false);
   }, 50);
+}
+
+function wheelHandler(evt) {
+  const delta = evt.deltaX;
+  if (delta <= 0) {
+    unbindEndOfPageListener();
+  } else if (delta > 1) {
+    unbindEndOfPageListener();
+    setTimeout(function() {
+      location.hash = '#intro';
+    }, 700);
+  }
+}
+
+function isEnd() {
+  return location.hash === '#saira';
+}
+
+function bindEndOfPageListener() {
+  containerElement.addEventListener('wheel', wheelHandler);
+}
+
+function unbindEndOfPageListener() {
+  containerElement.removeEventListener('wheel', wheelHandler);
 }
 
 window.addEventListener('hashchange', scrollToColumn, false);
@@ -190,6 +275,7 @@ bindArrowClick(arrowAsap);
 bindArrowClick(arrowFaustina);
 bindArrowClick(arrowManuale);
 bindArrowClick(arrowArchivo);
+bindHomeClick(arrowSaira);
 
 bindKeyPress();
 
@@ -197,7 +283,7 @@ for (let i = 0; i < columnElements.length; i++) {
   gfBadge(columnElements[i]);
 }
 
-window.fitText(document.getElementsByClassName("js-asap-headline"), 1.28);
-window.fitText(document.getElementsByClassName("js-saira-headline"), 0.57);
-window.fitText(document.getElementsByClassName("js-archivo-headline"), 0.152);
-window.fitText(document.getElementsByClassName("js-manuale-headline"));
+window.fitText(document.getElementsByClassName('js-asap-headline'), 1.28);
+window.fitText(document.getElementsByClassName('js-saira-headline'), 0.57);
+window.fitText(document.getElementsByClassName('js-archivo-headline'), 0.152);
+window.fitText(document.getElementsByClassName('js-manuale-headline'));
