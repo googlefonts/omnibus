@@ -85,6 +85,9 @@ $i-map: (
   faustina-terminal-v-width: 80rem,
   faustina-terminal-v-height: 60rem,
 
+  home-width: 1.6rem,
+  home-height: 1.8rem,
+
   manuale-terminal-a-width: 80rem,
   manuale-terminal-a-height: 60rem,
 
@@ -220,6 +223,11 @@ $i-map: (
 .i-faustina-terminal-v {
   width: 80rem;
   height: 60rem;
+}
+
+.i-home {
+  width: 1.6rem;
+  height: 1.8rem;
 }
 
 .i-manuale-terminal-a {
