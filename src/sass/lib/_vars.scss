@@ -19,7 +19,7 @@ $gray-dust:       #ddd;
 $gray-concrete:   #767676;
 $gray-space:      #212121;
 
-$color-text:      $gray-space;
+$color-text:      rgba(0, 0, 0, 0.87);
 $color-bg:        $white;
 $color-error:     #ed331a;
 $color-success:   #2fa714;
@@ -30,11 +30,11 @@ $background-asap:     rgba(#ebbfc6, 0.54);
 $background-archivo:  rgba(#e4bfeb, 0.54);
 $background-saira:    rgba(#bfc6eb, 0.54);
 
-$color-faustina: rgba(0, 0, 0, 0.87);
-$color-manuale:  rgba(0, 0, 0, 0.87);
-$color-asap:     rgba(0, 0, 0, 0.87);
-$color-archivo:  rgba(0, 0, 0, 0.87);
-$color-saira:    rgba(0, 0, 0, 0.87);
+$color-faustina: $color-text;
+$color-manuale:  $color-text;
+$color-asap:     $color-text;
+$color-archivo:  $color-text;
+$color-saira:    $color-text;
 
 $fill-faustina: rgba(#76a36e, 0.87);
 $fill-manuale:  rgba(#a39b6e, 0.87);
