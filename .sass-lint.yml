@@ -37,9 +37,10 @@ rules:
       include: true
 
   no-color-literals:
-    - 1
+    - 0
     -
       allow-rgba: true
+      allow-hex: true
 
   no-misspelled-properties:
   - 1
