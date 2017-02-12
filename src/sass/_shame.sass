@@ -1,3 +1,27 @@
 //============================================
 // Shame
 //============================================
+
+.intro
+  font-family: $font-mono
+  font-weight: 400
+  color: $gray-dust
+
+  +mq($bp-sm)
+    position: absolute
+    top: $space-threeQuarter
+    left: $space
+    z-index: -999
+    color: $gray-powder
+    font-size: 12rem
+    line-height: 12rem
+
+  +mq($bp-md)
+    top: $space-half
+    font-size: 14rem
+    line-height: 14rem
+
+  +mq($bp-lg)
+    top: 0
+    font-size: 18rem
+    line-height: 18rem
