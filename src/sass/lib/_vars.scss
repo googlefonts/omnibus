@@ -24,11 +24,11 @@ $color-bg:        $white;
 $color-error:     #ed331a;
 $color-success:   #2fa714;
 
-$background-faustina:  #ffedd1;
-$background-manuale:   #d4ffcc;
-$background-asap:      #ffd9dd;
-$background-archivo:   #d9eeff;
-$background-saira:     #fbe5ff;
+$background-faustina:  rgba(#c6ebbf, 0.54);
+$background-manuale:   rgba(#ebe4bf, 0.54);
+$background-asap:      rgba(#ebbfc6, 0.54);
+$background-archivo:   rgba(#e4bfeb, 0.54);
+$background-saira:     rgba(#bfc6eb, 0.54);
 
 $color-faustina: rgba(0, 0, 0, 0.87);
 $color-manuale:  rgba(0, 0, 0, 0.87);
@@ -36,16 +36,16 @@ $color-asap:     rgba(0, 0, 0, 0.87);
 $color-archivo:  rgba(0, 0, 0, 0.87);
 $color-saira:    rgba(0, 0, 0, 0.87);
 
-$fill-faustina: rgba(#de8d3c, 0.87);
-$fill-manuale:  rgba(#5e9954, 0.87);
-$fill-asap:     rgba(#b35962, 0.87);
-$fill-archivo:  rgba(#4784b3, 0.87);
-$fill-saira:    rgba(#985ba3, 0.87);
+$fill-faustina: rgba(#76a36e, 0.87);
+$fill-manuale:  rgba(#a39b6e, 0.87);
+$fill-asap:     rgba(#a36e76, 0.87);
+$fill-archivo:  rgba(#9b6ea3, 0.87);
+$fill-saira:    rgba(#6e76a3, 0.87);
 
-$fill-faustina-overlay: #e2994f;
-$fill-archivo-overlay:  #5a92bd;
-$fill-manuale-overlay:  #6ca663;
-$fill-asap-overlay:     #bc6972;
+$fill-faustina-overlay: #80ab78;
+$fill-manuale-overlay:  #aba578;
+$fill-archivo-overlay:  #a578ab;
+$fill-asap-overlay:     #ab7880;
 
 
 // Dimensions
