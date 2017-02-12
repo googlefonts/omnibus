@@ -44,158 +44,211 @@
         "text": "Extracondensed Black"
       }
     ],
-    "chessboard": [
+    "chess": [
       {
-        "class": "u-ff-saira-extracond u-fw-100",
-        "text": "Extracondensed Thin"
+        "items": [
+          {
+            "class": "u-ff-saira-extracond u-fw-100",
+            "text": "Extracondensed Thin"
+          },
+          {
+            "class": "u-ff-saira-cond u-fw-100",
+            "text": "Condensed Thin"
+          },
+          {
+            "class": "u-ff-saira-semicond u-fw-100",
+            "text": "Semicondensed Thin"
+          },
+          {
+            "class": "u-ff-saira u-fw-100",
+            "text": "Normal Thin"
+          }
+        ]
       },
       {
-        "class": "u-ff-saira-cond u-fw-100",
-        "text": "Condensed Thin"
+        "items": [
+          {
+            "class": "u-ff-saira-extracond u-fw-200",
+            "text": "Extracondensed Extralight"
+          },
+          {
+            "class": "u-ff-saira-cond u-fw-200",
+            "text": "Condensed Extralight"
+          },
+          {
+            "class": "u-ff-saira-semicond u-fw-200",
+            "text": "Semicondensed Extralight"
+          },
+          {
+            "class": "u-ff-saira u-fw-200",
+            "text": "Normal Extralight"
+          }
+        ]
       },
       {
-        "class": "u-ff-saira-semicond u-fw-100",
-        "text": "Semicondensed Thin"
+        "items": [
+          {
+            "class": "u-ff-saira-extracond u-fw-300",
+            "text": "Extracondensed Light"
+          },
+          {
+            "class": "u-ff-saira-cond u-fw-300",
+            "text": "Condensed Light"
+          },
+          {
+            "class": "u-ff-saira-semicond u-fw-300",
+            "text": "Semicondensed Light"
+          },
+          {
+            "class": "u-ff-saira u-fw-300",
+            "text": "Normal Light"
+          }
+        ]
       },
       {
-        "class": "u-ff-saira u-fw-100",
-        "text": "Normal Thin"
+        "items": [
+          {
+            "class": "u-ff-saira-extracond u-fw-400",
+            "text": "Extracondensed Regular"
+          },
+          {
+            "class": "u-ff-saira-cond u-fw-400",
+            "text": "Condensed Regular"
+          },
+          {
+            "class": "u-ff-saira-semicond u-fw-400",
+            "text": "Semicondensed Regular"
+          },
+          {
+            "class": "u-ff-saira u-fw-400",
+            "text": "Normal Regular"
+          }
+        ]
       },
+      {
+        "items": [
+          {
+            "class": "u-ff-saira-extracond u-fw-400",
+            "text": "Extracondensed Regular"
+          },
+          {
+            "class": "u-ff-saira-cond u-fw-400",
+            "text": "Condensed Regular"
+          },
+          {
+            "class": "u-ff-saira-semicond u-fw-400",
+            "text": "Semicondensed Regular"
+          },
+          {
+            "class": "u-ff-saira u-fw-400",
+            "text": "Normal Regular"
+          }
+        ]
+      },
+      {
+        "items": [
+          {
+            "class": "u-ff-saira-extracond u-fw-500",
+            "text": "Extracondensed Medium"
+          },
+          {
+            "class": "u-ff-saira-cond u-fw-500",
+            "text": "Condensed Medium"
+          },
+          {
+            "class": "u-ff-saira-semicond u-fw-500",
+            "text": "Semicondensed Medium"
+          },
+          {
+            "class": "u-ff-saira u-fw-500",
+            "text": "Normal Medium"
+          }
+        ]
+      },
+      {
+        "items": [
+          {
+            "class": "u-ff-saira-extracond u-fw-600",
+            "text": "Extracondensed Semibold"
+          },
+          {
+            "class": "u-ff-saira-cond u-fw-600",
+            "text": "Condensed Semibold"
+          },
+          {
+            "class": "u-ff-saira-semicond u-fw-600",
+            "text": "Semicondensed Semibold"
+          },
+          {
+            "class": "u-ff-saira u-fw-600",
+            "text": "Normal Semibold"
+          }
+        ]
+      },
+      {
+        "items": [
+          {
+            "class": "u-ff-saira-extracond u-fw-700",
+            "text": "Extracondensed Bold"
+          },
+          {
+            "class": "u-ff-saira-cond u-fw-700",
+            "text": "Condensed Bold"
+          },
+          {
+            "class": "u-ff-saira-semicond u-fw-700",
+            "text": "Semicondensed Bold"
+          },
+          {
+            "class": "u-ff-saira u-fw-700",
+            "text": "Normal Bold"
+          }
+        ]
+      },
+      {
+        "items": [
 
-      {
-        "class": "u-ff-saira-extracond u-fw-200",
-        "text": "Extracondensed Extralight"
+        ]
       },
       {
-        "class": "u-ff-saira-cond u-fw-200",
-        "text": "Condensed Extralight"
+        "items": [
+          {
+            "class": "u-ff-saira-extracond u-fw-800",
+            "text": "Extracondensed Extrabold"
+          },
+          {
+            "class": "u-ff-saira-cond u-fw-800",
+            "text": "Condensed Extrabold"
+          },
+          {
+            "class": "u-ff-saira-semicond u-fw-800",
+            "text": "Semicondensed Extrabold"
+          },
+          {
+            "class": "u-ff-saira u-fw-800",
+            "text": "Normal Extrabold"
+          }
+        ]
       },
       {
-        "class": "u-ff-saira-semicond u-fw-200",
-        "text": "Semicondensed Extralight"
-      },
-      {
-        "class": "u-ff-saira u-fw-200",
-        "text": "Normal Extralight"
-      },
-
-      {
-        "class": "u-ff-saira-extracond u-fw-300",
-        "text": "Extracondensed Light"
-      },
-      {
-        "class": "u-ff-saira-cond u-fw-300",
-        "text": "Condensed Light"
-      },
-      {
-        "class": "u-ff-saira-semicond u-fw-300",
-        "text": "Semicondensed Light"
-      },
-      {
-        "class": "u-ff-saira u-fw-300",
-        "text": "Normal Light"
-      },
-
-      {
-        "class": "u-ff-saira-extracond u-fw-400",
-        "text": "Extracondensed Regular"
-      },
-      {
-        "class": "u-ff-saira-cond u-fw-400",
-        "text": "Condensed Regular"
-      },
-      {
-        "class": "u-ff-saira-semicond u-fw-400",
-        "text": "Semicondensed Regular"
-      },
-      {
-        "class": "u-ff-saira u-fw-400",
-        "text": "Normal Regular"
-      },
-
-      {
-        "class": "u-ff-saira-extracond u-fw-500",
-        "text": "Extracondensed Medium"
-      },
-      {
-        "class": "u-ff-saira-cond u-fw-500",
-        "text": "Condensed Medium"
-      },
-      {
-        "class": "u-ff-saira-semicond u-fw-500",
-        "text": "Semicondensed Medium"
-      },
-      {
-        "class": "u-ff-saira u-fw-500",
-        "text": "Normal Medium"
-      },
-
-      {
-        "class": "u-ff-saira-extracond u-fw-600",
-        "text": "Extracondensed Semibold"
-      },
-      {
-        "class": "u-ff-saira-cond u-fw-600",
-        "text": "Condensed Semibold"
-      },
-      {
-        "class": "u-ff-saira-semicond u-fw-600",
-        "text": "Semicondensed Semibold"
-      },
-      {
-        "class": "u-ff-saira u-fw-600",
-        "text": "Normal Semibold"
-      },
-
-      {
-        "class": "u-ff-saira-extracond u-fw-700",
-        "text": "Extracondensed Bold"
-      },
-      {
-        "class": "u-ff-saira-cond u-fw-700",
-        "text": "Condensed Bold"
-      },
-      {
-        "class": "u-ff-saira-semicond u-fw-700",
-        "text": "Semicondensed Bold"
-      },
-      {
-        "class": "u-ff-saira u-fw-700",
-        "text": "Normal Bold"
-      },
-
-      {
-        "class": "u-ff-saira-extracond u-fw-800",
-        "text": "Extracondensed Extrabold"
-      },
-      {
-        "class": "u-ff-saira-cond u-fw-800",
-        "text": "Condensed Extrabold"
-      },
-      {
-        "class": "u-ff-saira-semicond u-fw-800",
-        "text": "Semicondensed Extrabold"
-      },
-      {
-        "class": "u-ff-saira u-fw-800",
-        "text": "Normal Extrabold"
-      },
-
-      {
-        "class": "u-ff-saira-extracond u-fw-900",
-        "text": "Extracondensed Black"
-      },
-      {
-        "class": "u-ff-saira-cond u-fw-900",
-        "text": "Condensed Black"
-      },
-      {
-        "class": "u-ff-saira-semicond u-fw-900",
-        "text": "Semicondensed Black"
-      },
-      {
-        "class": "u-ff-saira u-fw-900",
-        "text": "Normal Black"
+        "items": [
+          {
+            "class": "u-ff-saira-extracond u-fw-900",
+            "text": "Extracondensed Black"
+          },
+          {
+            "class": "u-ff-saira-cond u-fw-900",
+            "text": "Condensed Black"
+          },
+          {
+            "class": "u-ff-saira-semicond u-fw-900",
+            "text": "Semicondensed Black"
+          },
+          {
+            "class": "u-ff-saira u-fw-900",
+            "text": "Normal Black"
+          }
+        ]
       }
     ]
   }

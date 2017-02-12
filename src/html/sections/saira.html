@@ -24,9 +24,13 @@
     </div>
 
     <div class="l-container u-push-btm@sm">
-      <div class="saira-chessboard u-padd-top-half u-padd-top-threeQuarter@md u-border-top-1 u-border-top-saira u-border-top-solid">
-        {% for item in saira.chessboard %}
-          <span class="{{ item.class }} u-tt-uppercase u-push-btm-half u-fill-saira saira-chessboard__item">a</span>
+      <div class="saira-chessboard u-padd-top-quarter u-padd-top-threeQuarter@md u-border-top-1 u-border-top-saira u-border-top-solid">
+        {% for row in saira.chess %}
+          <p class="saira-chessboard__row">
+            {% for item in row.items %}
+              <span class="{{ item.class }} u-tt-uppercase u-push-btm-half u-fill-saira">a</span>
+            {% endfor %}
+          </p>
         {% endfor %}
       </div>
     </div>

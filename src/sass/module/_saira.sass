@@ -7,23 +7,21 @@
 //============================================
 
 .saira-chessboard
-  display: flex
-  flex-wrap: wrap
-  font-size: 4rem
-  line-height: 4rem
+  font-size: 6rem
+  line-height: 6rem
 
   +mq($bp-sm)
-    font-size: 6rem
-    line-height: 6rem
-
-  +mq($bp-lg)
     font-size: 8rem
     line-height: 8rem
 
-.saira-chessboard__item
-  flex-grow: 1
-  flex-shrink: 0
-  flex-basis: 25%
+  +mq($bp-lg)
+    font-size: 10rem
+    line-height: 10rem
+
+.saira-chessboard__row
+  display: flex
+  justify-content: space-between
+  margin-bottom: 0
 
 
 // Headlines
