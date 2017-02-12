@@ -2,6 +2,7 @@ import scrollSnap from '../../custom_modules/scrollsnap.js';
 import scrollMonitor from '../../custom_modules/scrollMonitor.js';
 import gfBadge from '../../custom_modules/googlefontsbadge.js';
 import widowFix from '../../custom_modules/widowFix.js';
+import fitText from '../../custom_modules/fittext.js';
 
 const containerElement = document.getElementsByClassName('js-main')[0];
 const containerMonitor = scrollMonitor.createContainer(containerElement);
@@ -195,3 +196,8 @@ bindKeyPress();
 for (let i = 0; i < columnElements.length; i++) {
   gfBadge(columnElements[i]);
 }
+
+window.fitText(document.getElementsByClassName("js-asap-headline"), 1.28);
+window.fitText(document.getElementsByClassName("js-saira-headline"), 0.57);
+window.fitText(document.getElementsByClassName("js-archivo-headline"), 0.152);
+window.fitText(document.getElementsByClassName("js-manuale-headline"));

@@ -23,7 +23,7 @@
       </div>
     </div>
 
-    <div class="l-container l-container--lg u-push-btm@sm">
+    <div class="l-container u-push-btm@sm">
       <div class="saira-chessboard u-padd-top-half u-padd-top-threeQuarter@md u-border-top-1 u-border-top-saira u-border-top-solid">
         {% for item in saira.chessboard %}
           <span class="{{ item.class }} u-tt-uppercase u-push-btm-half u-fill-saira saira-chessboard__item">a</span>
@@ -44,12 +44,12 @@
       </div>
     </div>
 
-    <div class="l-container l-container--lg u-push-btm@sm">
-      <div class="u-padd-top-half u-padd-top-quarter@sm u-border-top-1 u-border-top-saira u-border-top-solid">
-        <p class="saira-headline u-push-btm-none u-d-none u-d-blk@md u-fill-saira">
+    <div class="l-container u-push-btm@sm">
+      <div class="u-padd-top-half u-padd-top-threeQuarter@sm u-border-top-1 u-border-top-saira u-border-top-solid">
+        <p class="saira-headline u-push-btm-none u-d-none u-d-blk@md u-fill-saira js-saira-headline">
           <span class="u-d-ibl u-ff-saira-extracond u-fw-100">A</span><span class="u-d-ibl u-ff-saira-extracond u-fw-100 u-ot-salt">A</span><span class="u-d-ibl u-ff-saira-cond u-fw-300">G</span><span class="u-d-ibl u-ff-saira-cond u-fw-300 u-ot-salt">G</span><span class="u-d-ibl u-ff-saira-semicond u-fw-500">R</span><span class="u-d-ibl u-ff-saira-semicond u-fw-500 u-ot-salt">R</span><span class="u-d-ibl u-ff-saira u-fw-700">6</span><span class="u-d-ibl u-ff-saira u-fw-700 u-ot-salt">6</span><span class="u-d-ibl u-ff-saira u-fw-900">9</span><span class="u-d-ibl u-ff-saira u-fw-900 u-ot-salt">9</span>
         </p>
-        <div class="saira-stylistic u-d-none@md u-pull-top-half u-pull-top-none@sm">
+        <div class="saira-stylistic u-d-none@md u-pull-top-half u-pull-top-none@sm u-push-lft-none">
           <svg class="i i-saira-stylistic u-fill-saira">
             <use xlink:href="images/sprite.svg#saira-stylistic"></use>
           </svg>
@@ -67,9 +67,9 @@
       </div>
     </div>
 
-    <div class="l-container l-container--lg u-padd-btm-half u-push-btm@sm">
-      <div class="u-padd-top-quarter u-border-top-1 u-border-top-saira u-border-top-solid">
-        <p class="saira-headline u-push-btm-none u-fill-saira">
+    <div class="l-container u-padd-btm-half u-push-btm@sm">
+      <div class="u-padd-top-half u-padd-top-threeQuarter@sm u-border-top-1 u-border-top-saira u-border-top-solid">
+        <p class="saira-headline u-push-btm-none u-fill-saira js-saira-headline">
           <span class="u-d-ibl u-ff-saira-extracond u-fw-100">$</span><span class="u-d-ibl u-ff-saira-extracond u-fw-100 u-ot-salt">$</span><span class="u-d-ibl u-ff-saira-cond u-fw-300">$</span><span class="u-d-ibl u-ff-saira-cond u-fw-300 u-ot-salt">$</span><span class="u-d-ibl u-ff-saira-semicond u-fw-500">$</span><span class="u-d-ibl u-ff-saira-semicond u-fw-500 u-ot-salt">$</span><span class="u-d-ibl u-ff-saira u-fw-700">$</span><span class="u-d-ibl u-ff-saira u-fw-700 u-ot-salt">$</span><span class="u-d-ibl u-ff-saira u-fw-900">$</span><span class="u-d-ibl u-ff-saira u-fw-900 u-ot-salt">$</span>
         </p>
       </div>
@@ -103,7 +103,7 @@
       </div>
     </div>
 
-    <div class="l-container l-container--lg u-push-btm@sm">
+    <div class="l-container u-push-btm@sm">
       <div class="u-padd-top-half u-border-top-1 u-border-top-saira u-border-top-solid u-push-btm-half">
         {% for style in saira.styles %}
           <p class="saira-headline {{ style.class }} u-push-btm-quarter u-push-btm-half@sm u-fill-saira">{{ style.text }}</p>
@@ -121,12 +121,12 @@
       </div>
     </div>
   
-    <div class="l-container l-container--lg u-push-btm@sm">
+    <div class="l-container u-push-btm@sm">
       <div class="u-padd-top-half u-border-top-1 u-border-top-saira u-border-top-solid u-push-btm-quarter">
         <div class="g-row">
           {% for width in saira.widths %}
             <div class="g g-12 g-6@sm g-4@md">
-              <p class="u-h3 {{ width.class }} u-push-btm-quarter u-push-btm-half@md u-fill-saira">{{ width.text }}</p>
+              <p class="u-h3 {{ width.class }} u-push-btm-none u-push-btm-quarter@sm u-fill-saira">{{ width.text }}</p>
             </div>
           {% endfor %}
         </div>
