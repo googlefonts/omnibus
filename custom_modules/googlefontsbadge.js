@@ -19,7 +19,7 @@ if (typeof window !== 'undefined' && typeof document !== 'undefined') {
   badgeLink.style.unset = 'all';
   badgeLink.style.border = 'none';
   badgeLink.style.background = 'transparent';
-  badgeLink.style.padding = '16px 16px 14px 16px';
+  badgeLink.style.padding = '24px 24px 16px 24px';
   badgeLink.style.boxSizing = 'border-box';
   badgeLink.style.margin = '0';
   badgeLink.style.display = 'block';
