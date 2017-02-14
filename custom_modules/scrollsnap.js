@@ -164,8 +164,11 @@ module.exports = function(element) {
       previousDelta = 0;
       element.addEventListener('scroll', startAnimation, false);
       if (mobile) {
-        lastScrollObj.style.overflowX = 'auto';
-        lastScrollObj.style.overflowY = 'auto';
+        if (scrollDirection === 'scrollLeft') {
+          lastScrollObj.style.overflowX = 'auto';
+        } else {
+          lastScrollObj.style.overflowY = 'auto';
+        }
       }
       onAnimationEnd();
     });
@@ -324,10 +327,10 @@ module.exports = function(element) {
       return Math.max(document.documentElement.clientHeight, window.innerHeight || 1) / 100 * declaration.value;
     } else if (declaration.unit === '%') {
       // when using %, one snap is the length of element height / 100 * value
-      return getHeight(obj) / 100 * declaration.value;
+      return Math.round(getHeight(obj) / 100 * declaration.value);
     } else {
       // when using px, one snap is the length of element height / value
-      return getHeight(obj) / declaration.value;
+      return Math.round(getHeight(obj) / declaration.value);
     }
   }
 
@@ -342,10 +345,10 @@ module.exports = function(element) {
       return Math.max(document.documentElement.clientWidth, window.innerWidth || 1) / 100 * declaration.value;
     } else if (declaration.unit === '%') {
       // when using %, one snap is the length of element width / 100 * value
-      return getWidth(obj) / 100 * declaration.value;
+      return Math.round(getWidth(obj) / 100 * declaration.value);
     } else {
       // when using px, one snap is the length of element width / value
-      return getWidth(obj) / declaration.value;
+      return Math.round(getWidth(obj) / declaration.value);
     }
   }
 
