@@ -220,17 +220,17 @@ function updateHash() {
   colWidth = Math.round(window.innerWidth * 0.9);
   const scrollPositions = getScrollPositions(colWidth);
 
-  if (scrollPosition === scrollPositions.asapCondensed) {
-    location.hash = '#asap-condensed';
-  } else if (scrollPosition === scrollPositions.archivo) {
-    location.hash = '#archivo';
-  } else if (scrollPosition === scrollPositions.manuale) {
-    location.hash = '#manuale';
-  } else if (scrollPosition === scrollPositions.faustina) {
-    location.hash = '#faustina';
-  } else if (scrollPosition === scrollPositions.intro) {
+  if (scrollPosition === scrollPositions.intro) {
     location.hash = '#intro';
-  } else if (scrollPosition > scrollPositions.asapCondensed) {
+  } else if ((scrollPosition - colWidth / 2) < scrollPositions.faustina) {
+    location.hash = '#faustina';
+  } else if ((scrollPosition - colWidth / 2) < scrollPositions.manuale) {
+    location.hash = '#manuale';
+  } else if ((scrollPosition - colWidth / 2) < scrollPositions.archivo) {
+    location.hash = '#archivo';
+  } else if ((scrollPosition - colWidth / 2) < scrollPositions.asapCondensed) {
+    location.hash = '#asap-condensed';
+  } else if ((scrollPosition - colWidth / 2) < scrollPositions.saira) {
     location.hash = '#saira';
     bindEndOfPageListener();
   }
