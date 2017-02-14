@@ -3,6 +3,7 @@ import scrollMonitor from '../../custom_modules/scrollMonitor.js';
 import gfBadge from '../../custom_modules/googlefontsbadge.js';
 import widowFix from '../../custom_modules/widowFix.js';
 import fitText from '../../custom_modules/fittext.js';
+import mobileDetect from '../../custom_modules/mobileDetect.js';
 import throttle from 'lodash/throttle';
 
 const containerElement = document.getElementsByClassName('js-main')[0];
@@ -14,6 +15,8 @@ const arrowFaustina = document.getElementsByClassName('js-arrow-faustina')[0];
 const arrowManuale = document.getElementsByClassName('js-arrow-manuale')[0];
 const arrowArchivo = document.getElementsByClassName('js-arrow-archivo')[0];
 const arrowSaira = document.getElementsByClassName('js-arrow-saira')[0];
+
+const mobile = mobileDetect();
 
 function getScrollPositions(colWidth) {
   return {
@@ -111,7 +114,7 @@ function bindArrowClick(arrowClass) {
   arrowClass.onclick = function() {
     snapObject.unbind();
 
-    colWidth = window.innerWidth * 0.9;
+    colWidth = Math.round(window.innerWidth * 0.9);
     scrollPos = containerElement.scrollLeft;
     direction = arrowClass.classList.contains('js-arrow-right') ? 'right' : 'left';
     length = colWidth;
@@ -125,6 +128,7 @@ function bindArrowClick(arrowClass) {
 function bindHomeClick(arrowClass) {
   arrowClass.onclick = function() {
     snapObject.unbind();
+    unbindEndOfPageListener();
     location.hash = '#intro';
   };
 }
@@ -133,7 +137,7 @@ function bindKeyPress() {
   document.addEventListener('keydown', throttle(function(e) {
     snapObject.unbind();
 
-    colWidth = window.innerWidth * 0.9;
+    colWidth = Math.round(window.innerWidth * 0.9);
     scrollPos = containerElement.scrollLeft;
     length = colWidth;
     duration = 300;
@@ -161,7 +165,7 @@ function scrollToColumn() {
     return x < x2 ? 'right' : 'left';
   }
 
-  colWidth = window.innerWidth * 0.9;
+  colWidth = Math.round(window.innerWidth * 0.9);
   scrollPos = containerElement.scrollLeft;
   duration = 300;
   start = null;
@@ -213,13 +217,10 @@ function scrollToColumn() {
 function updateHash() {
   window.removeEventListener('hashchange', scrollToColumn, false);
   const scrollPosition = containerElement.scrollLeft;
-  colWidth = window.innerWidth * 0.9;
+  colWidth = Math.round(window.innerWidth * 0.9);
   const scrollPositions = getScrollPositions(colWidth);
 
-  if (scrollPosition === scrollPositions.saira) {
-    location.hash = '#saira';
-    bindEndOfPageListener();
-  } else if (scrollPosition === scrollPositions.asapCondensed) {
+  if (scrollPosition === scrollPositions.asapCondensed) {
     location.hash = '#asap-condensed';
   } else if (scrollPosition === scrollPositions.archivo) {
     location.hash = '#archivo';
@@ -229,6 +230,9 @@ function updateHash() {
     location.hash = '#faustina';
   } else if (scrollPosition === scrollPositions.intro) {
     location.hash = '#intro';
+  } else if (scrollPosition > scrollPositions.asapCondensed) {
+    location.hash = '#saira';
+    bindEndOfPageListener();
   }
   if (timeOutId) {
     clearTimeout(timeOutId);
@@ -250,16 +254,44 @@ function wheelHandler(evt) {
   }
 }
 
+let touchStart = 0;
+
+function touchStartHandler(evt) {
+  touchStart = evt.touches[0].clientX;
+}
+
+function touchMoveHandler(evt) {
+  const touchDelta = evt.changedTouches[0].clientX - touchStart;
+  if (touchDelta > 0) {
+    unbindEndOfPageListener();
+  } else {
+    unbindEndOfPageListener();
+    setTimeout(function() {
+      location.hash = '#intro';
+    }, 700);
+  }
+}
+
 function isEnd() {
   return location.hash === '#saira';
 }
 
 function bindEndOfPageListener() {
-  containerElement.addEventListener('wheel', wheelHandler);
+  if (mobile) {
+    containerElement.addEventListener('touchstart', touchStartHandler);
+    containerElement.addEventListener('touchmove', touchMoveHandler);
+  } else {
+    containerElement.addEventListener('wheel', wheelHandler);
+  }
 }
 
 function unbindEndOfPageListener() {
-  containerElement.removeEventListener('wheel', wheelHandler);
+  if (mobile) {
+    containerElement.removeEventListener('touchstart', touchStartHandler);
+    containerElement.removeEventListener('touchmove', touchMoveHandler);
+  } else {
+    containerElement.removeEventListener('wheel', wheelHandler);
+  }
 }
 
 window.addEventListener('hashchange', scrollToColumn, false);
