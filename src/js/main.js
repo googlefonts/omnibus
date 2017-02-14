@@ -9,7 +9,7 @@ import throttle from 'lodash/throttle';
 const containerElement = document.getElementsByClassName('js-main')[0];
 const containerMonitor = scrollMonitor.createContainer(containerElement);
 const columnElements = document.getElementsByClassName('l-section');
-const arrowIntro = document.getElementsByClassName('js-arrow-intro')[0];
+const arrowIndex = document.getElementsByClassName('js-arrow-index')[0];
 const arrowAsap = document.getElementsByClassName('js-arrow-asap')[0];
 const arrowFaustina = document.getElementsByClassName('js-arrow-faustina')[0];
 const arrowManuale = document.getElementsByClassName('js-arrow-manuale')[0];
@@ -20,7 +20,7 @@ const mobile = mobileDetect();
 
 function getScrollPositions(colWidth) {
   return {
-    intro: 0,
+    index: 0,
     faustina: colWidth,
     manuale: colWidth * 2,
     archivo: colWidth * 3,
@@ -129,7 +129,7 @@ function bindHomeClick(arrowClass) {
   arrowClass.onclick = function() {
     snapObject.unbind();
     unbindEndOfPageListener();
-    location.hash = '#intro';
+    location.hash = '#index';
   };
 }
 
@@ -146,7 +146,7 @@ function bindKeyPress() {
     if (e.keyCode === 39) {
       direction = 'right';
       if (isEnd()) {
-        location.hash = '#intro';
+        location.hash = '#index';
       } else {
         requestAnimationFrame(animate);
       }
@@ -203,11 +203,11 @@ function scrollToColumn() {
       ? scrollPos - scrollPositions.saira
       : scrollPos + (scrollPositions.saira - scrollPos);
     break;
-  case '#intro':
-    direction = getDirection(scrollPos, scrollPositions.intro);
+  case '#index':
+    direction = getDirection(scrollPos, scrollPositions.index);
     length = (direction === 'left')
-      ? scrollPos - scrollPositions.intro
-      : scrollPos + (scrollPositions.intro - scrollPos);
+      ? scrollPos - scrollPositions.index
+      : scrollPos + (scrollPositions.index - scrollPos);
     break;
   }
 
@@ -220,8 +220,8 @@ function updateHash() {
   colWidth = Math.round(window.innerWidth * 0.9);
   const scrollPositions = getScrollPositions(colWidth);
 
-  if (scrollPosition === scrollPositions.intro) {
-    location.hash = '#intro';
+  if (scrollPosition === scrollPositions.index) {
+    location.hash = '#index';
   } else if ((scrollPosition - colWidth / 2) < scrollPositions.faustina) {
     location.hash = '#faustina';
   } else if ((scrollPosition - colWidth / 2) < scrollPositions.manuale) {
@@ -249,7 +249,7 @@ function wheelHandler(evt) {
   } else if (delta > 1) {
     unbindEndOfPageListener();
     setTimeout(function() {
-      location.hash = '#intro';
+      location.hash = '#index';
     }, 700);
   }
 }
@@ -267,7 +267,7 @@ function touchMoveHandler(evt) {
   } else {
     unbindEndOfPageListener();
     setTimeout(function() {
-      location.hash = '#intro';
+      location.hash = '#index';
     }, 700);
   }
 }
@@ -296,13 +296,13 @@ function unbindEndOfPageListener() {
 
 window.addEventListener('hashchange', scrollToColumn, false);
 
-checkClassInViewport(arrowAsap, arrowIntro);
+checkClassInViewport(arrowAsap, arrowIndex);
 checkClassInViewport(arrowFaustina, arrowAsap);
 checkClassInViewport(arrowManuale, arrowFaustina);
 checkClassInViewport(arrowArchivo, arrowManuale);
 checkClassInViewport(arrowSaira, arrowArchivo);
 
-bindArrowClick(arrowIntro);
+bindArrowClick(arrowIndex);
 bindArrowClick(arrowAsap);
 bindArrowClick(arrowFaustina);
 bindArrowClick(arrowManuale);
