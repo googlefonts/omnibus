@@ -127,8 +127,6 @@ function bindArrowClick(arrowClass) {
 
 function bindHomeClick(arrowClass) {
   arrowClass.onclick = function() {
-    snapObject.unbind();
-    unbindEndOfPageListener();
     location.hash = '#intro';
   };
 }
@@ -168,55 +166,26 @@ function scrollToColumn() {
 
   colWidth = Math.round(window.innerWidth * 0.9);
   scrollPos = containerElement.scrollLeft;
-  duration = 300;
   start = null;
 
   const scrollPositions = getScrollPositions(colWidth);
+  const sectionName = location.hash.substring(1).replace(/-([a-z])/g, g => g[1].toUpperCase());
 
-  switch (location.hash) {
-  case '#faustina':
-    direction = getDirection(scrollPos, scrollPositions.faustina);
-    length = (direction === 'left')
-      ? scrollPos - scrollPositions.faustina
-      : scrollPos + (scrollPositions.faustina - scrollPos);
-    break;
-  case '#manuale':
-    direction = getDirection(scrollPos, scrollPositions.manuale);
-    length = (direction === 'left')
-      ? scrollPos - scrollPositions.manuale
-      : scrollPos + (scrollPositions.manuale - scrollPos);
-    break;
-  case '#archivo':
-    direction = getDirection(scrollPos, scrollPositions.archivo);
-    length = (direction === 'left')
-      ? scrollPos - scrollPositions.archivo
-      : scrollPos + (scrollPositions.archivo - scrollPos);
-    break;
-  case '#asap-condensed':
-    direction = getDirection(scrollPos, scrollPositions.asapCondensed);
-    length = (direction === 'left')
-      ? scrollPos - scrollPositions.asapCondensed
-      : scrollPos + (scrollPositions.asapCondensed - scrollPos);
-    break;
-  case '#saira':
-    direction = getDirection(scrollPos, scrollPositions.saira);
-    length = (direction === 'left')
-      ? scrollPos - scrollPositions.saira
-      : scrollPos + (scrollPositions.saira - scrollPos);
-    break;
-  case '#intro':
-    direction = getDirection(scrollPos, scrollPositions.intro);
-    length = (direction === 'left')
-      ? scrollPos - scrollPositions.intro
-      : scrollPos + (scrollPositions.intro - scrollPos);
-    break;
-  }
+  direction = getDirection(scrollPos, scrollPositions[sectionName]);
+  length = (direction === 'left')
+    ? scrollPos - scrollPositions[sectionName]
+    : scrollPos + (scrollPositions[sectionName] - scrollPos);
+
+  const distanceInColumns = length / colWidth;
+  duration = 200 + distanceInColumns * 100;
 
   requestAnimationFrame(animate);
 }
 
 function updateHash() {
   window.removeEventListener('hashchange', scrollToColumn, false);
+  unbindEndOfPageListener();
+
   const scrollPosition = containerElement.scrollLeft;
   colWidth = Math.round(window.innerWidth * 0.9);
   const scrollPositions = getScrollPositions(colWidth);
@@ -251,7 +220,7 @@ function wheelHandler(evt) {
     unbindEndOfPageListener();
     setTimeout(function() {
       location.hash = '#intro';
-    }, 700);
+    }, 400);
   }
 }
 
@@ -269,7 +238,7 @@ function touchMoveHandler(evt) {
     unbindEndOfPageListener();
     setTimeout(function() {
       location.hash = '#intro';
-    }, 700);
+    }, 400);
   }
 }
 
