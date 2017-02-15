@@ -135,7 +135,6 @@ function bindHomeClick(arrowClass) {
 
 function bindKeyPress() {
   document.addEventListener('keydown', throttle(function(e) {
-    snapObject.unbind();
 
     colWidth = Math.round(window.innerWidth * 0.9);
     scrollPos = containerElement.scrollLeft;
@@ -148,10 +147,12 @@ function bindKeyPress() {
       if (isEnd()) {
         location.hash = '#intro';
       } else {
+        snapObject.unbind();
         requestAnimationFrame(animate);
       }
     } else if (e.keyCode === 37) {
       direction = 'left';
+      snapObject.unbind();
       requestAnimationFrame(animate);
     }
   }, 500));
