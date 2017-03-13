@@ -285,7 +285,7 @@ for (let i = 0; i < columnElements.length; i++) {
   gfBadge(columnElements[i]);
 }
 
-window.fitText(document.getElementsByClassName('js-asap-headline'), 1.28);
+window.fitText(document.getElementsByClassName('js-asap-headline'), 1.30);
 window.fitText(document.getElementsByClassName('js-saira-headline'), 0.57);
 window.fitText(document.getElementsByClassName('js-archivo-headline'), 0.152);
 window.fitText(document.getElementsByClassName('js-manuale-headline'));
