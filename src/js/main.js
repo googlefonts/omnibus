@@ -143,7 +143,7 @@ function bindKeyPress() {
     if (e.keyCode === 39) {
       direction = 'right';
       if (isEnd()) {
-        location.hash = '#intro';
+        location.hash = '#saira';
       } else {
         snapObject.unbind();
         requestAnimationFrame(animate);
@@ -216,11 +216,11 @@ function wheelHandler(evt) {
   const delta = evt.deltaX;
   if (delta <= 0) {
     unbindEndOfPageListener();
-  } else if (delta > 1) {
-    unbindEndOfPageListener();
-    setTimeout(function() {
-      location.hash = '#intro';
-    }, 400);
+  // } else if (delta > 1) {
+  //   unbindEndOfPageListener();
+  //   setTimeout(function() {
+  //     location.hash = '#intro';
+  //   }, 400);
   }
 }
 
@@ -234,11 +234,11 @@ function touchMoveHandler(evt) {
   const touchDelta = evt.changedTouches[0].clientX - touchStart;
   if (touchDelta > 0) {
     unbindEndOfPageListener();
-  } else {
-    unbindEndOfPageListener();
-    setTimeout(function() {
-      location.hash = '#intro';
-    }, 400);
+  // } else {
+  //   unbindEndOfPageListener();
+  //   setTimeout(function() {
+  //     location.hash = '#intro';
+  //   }, 400);
   }
 }
 
