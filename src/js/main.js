@@ -169,3 +169,35 @@ bindKeyPress();
 for (let i = 0; i < columnElements.length; i++) {
   gfBadge(columnElements[i]);
 }
+
+// Demo
+let $exampleWrapper = $(".js-example");
+let exampleFormChildren = $exampleWrapper;
+
+console.log("children", exampleFormChildren);
+
+exampleFormChildren.map(function(index) {
+  let example = exampleFormChildren[index];
+  let $exampleForm = $(example).find(".js-example-form");
+  let $exampleOutput = $(example).find(".js-example-output");
+
+  var state = {
+    wdth: 1,
+    wght: 1
+  };
+
+  var setFontVariationSettings = function() {
+    $exampleOutput.css(
+      "font-variation-settings",
+      `"wdth" ${state.wdth}, "wght" ${state.wght}`
+    );
+  };
+
+  $(this).on("input", function(e) {
+    // Not very efficient
+    let axis = $exampleForm.find("input").attr("data-axis");
+
+    state[axis] = e.target.valueAsNumber;
+    setFontVariationSettings();
+  });
+});
