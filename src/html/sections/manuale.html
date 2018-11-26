@@ -160,6 +160,11 @@
         </div>
       </div>
     </div>
+    
+    {% set parameters = {'url': '#!', 'family': 'Manuale'} %}
+
+    <!-- Variable -->
+    {% include "shared/variable.html" %}
 
     <!-- Applications -->
 
@@ -181,11 +186,6 @@
         Manuale is a contemporary interpretation of the type used in the <em>Manuale ad usum Patrum Societatis Iesu</em>, the first book ever printed in the territory that would become Argentina. The original was printed in a small format, just 3.6 by 5.2 inches, using type designed by the Jesuit priest Paulo Restivo. The text was composed in both Latin and Guaraní using gorda type, a historical Spanish measure equivalent to 14pt.
       </p>
     </div>
-
-    {% set parameters = {'url': '#!', 'family': 'Manuale'} %}
-
-    <!-- Variable -->
-    {% include "shared/variable.html" %}
 
     {% include "shared/column-footer.html" %}
 

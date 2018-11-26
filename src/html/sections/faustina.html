@@ -111,6 +111,11 @@
         </p>
       </div>
     </div>
+    
+    {% set parameters = {'url': '#!', 'family': 'Faustina'} %}
+
+    <!-- Variable -->
+    {% include "shared/variable.html" %}
 
     <!-- Applications -->
 
@@ -141,11 +146,6 @@
         </p>
       </div>
     </div>
-
-    {% set parameters = {'url': '#!', 'family': 'Faustina'} %}
-
-    <!-- Variable -->
-    {% include "shared/variable.html" %}
     
     {% include "shared/column-footer.html" %}
 
