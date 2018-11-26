@@ -171,15 +171,13 @@ for (let i = 0; i < columnElements.length; i++) {
 }
 
 // Demo
-let $exampleWrapper = $(".js-example");
-let exampleFormChildren = $exampleWrapper;
+let $variableWrapper = $(".js-variable");
+let variableFormChildren = $variableWrapper;
 
-console.log("children", exampleFormChildren);
-
-exampleFormChildren.map(function(index) {
-  let example = exampleFormChildren[index];
-  let $exampleForm = $(example).find(".js-example-form");
-  let $exampleOutput = $(example).find(".js-example-output");
+variableFormChildren.map(function(index) {
+  let variable = variableFormChildren[index];
+  let $variableForm = $(variable).find(".js-variable-form");
+  let $variableOutput = $(variable).find(".js-variable-output");
 
   var state = {
     wdth: 1,
@@ -187,7 +185,7 @@ exampleFormChildren.map(function(index) {
   };
 
   var setFontVariationSettings = function() {
-    $exampleOutput.css(
+    $variableOutput.css(
       "font-variation-settings",
       `"wdth" ${state.wdth}, "wght" ${state.wght}`
     );
@@ -195,7 +193,7 @@ exampleFormChildren.map(function(index) {
 
   $(this).on("input", function(e) {
     // Not very efficient
-    let axis = $exampleForm.find("input").attr("data-axis");
+    let axis = $variableForm.find("input").attr("data-axis");
 
     state[axis] = e.target.valueAsNumber;
     setFontVariationSettings();
