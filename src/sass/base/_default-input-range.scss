@@ -1,7 +1,6 @@
-/* Based on Basscss Input Range 
- * https://github.com/basscss/addons/tree/master/modules/input-range
- * MIT License https://github.com/basscss/addons/blob/master/LICENSE.md
- */
+// Based on Basscss Input Range
+// https://github.com/basscss/addons/tree/master/modules/input-range
+// MIT License https://github.com/basscss/addons/blob/master/LICENSE.md
 
 .input-range {
   vertical-align: middle;
@@ -9,7 +8,6 @@
   padding-top: var(--form-field-padding-y);
   padding-bottom: var(--form-field-padding-y);
   color: inherit;
-  background-color: transparent;
   -webkit-appearance: none;
 }
 
@@ -24,8 +22,8 @@
   -webkit-appearance: none;
 }
 
-/* Touch screen friendly pseudo element */
-.input-range::-webkit-slider-thumb:before {
+// Touch screen friendly pseudo element
+.input-range::before {
   content: "";
   display: block;
   position: absolute;
