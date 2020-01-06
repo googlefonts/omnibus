@@ -1,8 +1,8 @@
 {
-  "name": "omnibus-type",
-  "version": "0.1.0",
-  "description": "",
-  "repository": "https://bitbucket.org/aminalhazwani/omnibus-type",
+  "name": "omnibus",
+  "version": "0.2.0",
+  "description": "Digital type specimen to showcase the Omnibus-Type Press Series, a collection of typefaces made specifically for text-intensive typography such as in books, magazines and newspapers; for both screen and print media.",
+  "repository": "https://github.com/googlefonts/omnibus",
   "scripts": {
     "start": "gulp",
     "gulp": "gulp",
@@ -13,7 +13,7 @@
     "node": "^7.4.0",
     "npm": "^3.7.3"
   },
-  "license": "MIT",
+  "license": "Apache-2.0",
   "browserify": {
     "transform": [
       "browserify-shim",
