@@ -7,7 +7,8 @@
     "start": "gulp",
     "gulp": "gulp",
     "watch": "gulp watch",
-    "prod": "gulp production"
+    "prod": "gulp production",
+    "build": "gulp production"
   },
   "engines": {
     "node": "^7.4.0",
