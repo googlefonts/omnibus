@@ -27,7 +27,7 @@ jobs:
         npm run build --if-present
       env:
         CI: true
-      name: Deploy
+    - name: Deploy
       if: success()
       uses: crazy-max/ghaction-github-pages@v1
       with:
