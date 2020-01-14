@@ -20,3 +20,9 @@ To compile down to HTML, CSS, and JavaScript:
 ```sh
 $ npm run build
 ```
+
+To manually build and commit to the `gh-pages` branch, for deploying to GitHub Pages:
+
+```sh
+$ npm run deploy
+```
