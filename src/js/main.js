@@ -170,32 +170,52 @@ for (let i = 0; i < columnElements.length; i++) {
   gfBadge(columnElements[i]);
 }
 
-// Demo
+// Variable demo section
 let $variableWrapper = $(".js-variable");
 let variableFormChildren = $variableWrapper;
 
 variableFormChildren.map(function(index) {
   let variable = variableFormChildren[index];
-  let $variableForm = $(variable).find(".js-variable-form");
-  let $variableOutput = $(variable).find(".js-variable-output");
-
-  var state = {
-    wdth: 1,
-    wght: 1
-  };
-
+  let $variable = $(variable);
+  let $variableForm = $variable.find(".js-variable-form");
+  let $variableOutput = $variable.find(".js-variable-output");
+  let axes = $variableForm.find(".js-variable-form-axes");
+  let axesJson = []
+  var state = {}
+  
   var setFontVariationSettings = function() {
+    let stateKeys = Object.keys(state).map(function (key, index) {
+      return '"' + key + '" ' + state[key]
+    })
+
+    console.log('state', state)
+
     $variableOutput.css(
       "font-variation-settings",
-      `"wdth" ${state.wdth}, "wght" ${state.wght}`
+      stateKeys.join(', ')
     );
   };
+  
+  let $variableFormInputs = $variableForm.find('input');
+  if ($variableFormInputs && $variableFormInputs.length >= 1) {
+    $variableFormInputs.each(function(index) {
+      let $item = $($variableFormInputs[index])
+      let axisKey = $item.attr('data-axis')
+      if (axisKey) {
+        // Get default value
+        state[axisKey] = $item.val() || 1 
 
-  $(this).on("input", function(e) {
-    // Not very efficient
-    let axis = $variableForm.find("input").attr("data-axis");
+        console.log('item value', $item, $item.val(), $item[0].value)
 
-    state[axis] = e.target.valueAsNumber;
-    setFontVariationSettings();
-  });
+        // Set up event
+        $item.on('input', function (e) {
+          state[axisKey] = e.target.valueAsNumber ? e.target.valueAsNumber : parseFloat(e.target.value, 10);
+          setFontVariationSettings();
+        })
+        
+        // Run on initial setup as well
+        setFontVariationSettings()
+      }
+    })
+  }
 });
