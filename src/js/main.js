@@ -188,8 +188,6 @@ variableFormChildren.map(function(index) {
       return '"' + key + '" ' + state[key]
     })
 
-    console.log('state', state)
-
     $variableOutput.css(
       "font-variation-settings",
       stateKeys.join(', ')
@@ -204,9 +202,7 @@ variableFormChildren.map(function(index) {
       if (axisKey) {
         // Get default value
         state[axisKey] = $item.val() || 1 
-
-        console.log('item value', $item, $item.val(), $item[0].value)
-
+        
         // Set up event
         $item.on('input', function (e) {
           state[axisKey] = e.target.valueAsNumber ? e.target.valueAsNumber : parseFloat(e.target.value, 10);
