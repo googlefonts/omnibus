@@ -17,7 +17,7 @@
   height: var(--range-thumb-height);
   cursor: pointer;
   margin-top: var(--range-thumb-offset);
-  border-radius: var(--border-radius);
+  border-radius: 50%;
   background-color: currentcolor;
   -webkit-appearance: none;
 }
@@ -42,7 +42,7 @@
   width: var(--range-thumb-width);
   height: var(--range-thumb-height);
   cursor: pointer;
-  border-radius: var(--border-radius);
+  border-radius: 50%;
   border-color: transparent;
   border-width: 0;
   background-color: currentcolor;
@@ -51,15 +51,15 @@
 .input-range::-webkit-slider-runnable-track {
   height: var(--range-track-height);
   cursor: pointer;
-  border-radius: var(--border-radius);
-  background-color: var(--darken-3);
+  border-radius: 0;
+  background-color: $black;
 }
 
 .input-range::-moz-range-track {
   height: var(--range-track-height);
   cursor: pointer;
-  border-radius: var(--border-radius);
-  background-color: var(--darken-3);
+  border-radius: 0;
+  background-color: $black;
 }
 
 .input-range:focus {
@@ -67,17 +67,13 @@
 }
 
 :root {
-  --form-field-padding-x: 0.5rem;
-  --form-field-padding-y: 0.5rem;
+  --form-field-padding-x: map-get($dimension-utility-sizes, 4);
+  --form-field-padding-y: map-get($dimension-utility-sizes, 4);
   --form-field-height: 2.25rem;
-  --border-radius: 3px;
-  --darken-3: rgba(0, 0, 0, 0.25);
 
-  --range-thumb-width: var(--form-field-padding-x);
-  --range-thumb-height: calc(
-    var(--form-field-height) - (var(--form-field-padding-y) * 2)
-  );
-  --range-track-height: calc(var(--form-field-padding-y) / 2);
+  --range-thumb-width: 1rem;
+  --range-thumb-height: 1rem;
+  --range-track-height: 1px;
   --range-thumb-offset: calc(
     var(--range-thumb-height) / -2 + (var(--range-track-height) / 2)
   );
