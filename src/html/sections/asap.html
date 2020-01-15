@@ -226,7 +226,9 @@
       </p>
     </div>
     
-    {% set parameters = {'family': 'Asap Condensed'} %}
+    {% set parameters = {'family': 'Asap Condensed', axes: {
+      wght: { min: 77, max: 129, step: 0.25 }
+    } } %}
     
     <!-- Variable -->
     {% include "shared/variable.html" %}
