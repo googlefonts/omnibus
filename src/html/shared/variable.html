@@ -19,7 +19,7 @@
                      step="{{ axis.step if axis.step else 1 }}"
                      min="{{ axis.min }}"
                      max="{{ axis.max }}"
-                     value="{{ axis.max/2|round }}"
+                     value="{{ (((axis.max - axis.min)/2) + axis.min)|round }}"
                      type="range" data-axis="{{ axisKey }}" />
             </label>
           {% endfor %}
