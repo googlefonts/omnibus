@@ -1,9 +1,11 @@
+{% set googleFontsUrl = "https://fonts.google.com/specimen/" + parameters.family %}
+
 <div class="u-padd-vert-double u-ff-roboto u-bg-black--05 u-c-text">
   <div class="l-container">
     <h3 class="u-h6 u-push-btm-quarter u-fw-500">Embed Fonts</h3>
     <p class="u-fz-sm">
-      You are viewing a selection of fonts from the Google Fonts directory. To embed these fonts into a webpage, visit <a class="u-td-underline" href="{{ parameters.url }}">fonts.google.com/specimen/{{ parameters.family }}</a>.
+      You are viewing a selection of fonts from the Google Fonts directory. To embed these fonts into a webpage, visit <a class="u-td-underline" href="{{ googleFontsUrl }}" target="_blank" rel="noopener">fonts.google.com/specimen/{{ parameters.family }}</a>.
     </p>
-    <a class="u-ff-roboto u-tt-uppercase u-fw-500 u-fz-sm u-padd-half u-bg-black--10 u-radius-2" href="#!">Try this family on Google Fonts</a>
+    <a href="{{ googleFontsUrl }}" target="_blank" rel="noopener" class="u-ff-roboto u-tt-uppercase u-fw-500 u-fz-sm u-padd-half u-bg-black--10 u-radius-2">Try this family on Google Fonts</a>
   </div>
 </div>
