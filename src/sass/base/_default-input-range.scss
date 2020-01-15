@@ -52,14 +52,14 @@
   height: var(--range-track-height);
   cursor: pointer;
   border-radius: 0;
-  background-color: $black;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .input-range::-moz-range-track {
   height: var(--range-track-height);
   cursor: pointer;
   border-radius: 0;
-  background-color: $black;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .input-range:focus {
@@ -71,8 +71,8 @@
   --form-field-padding-y: map-get($dimension-utility-sizes, 4);
   --form-field-height: 2.25rem;
 
-  --range-thumb-width: 1rem;
-  --range-thumb-height: 1rem;
+  --range-thumb-width: 2rem;
+  --range-thumb-height: 2rem;
   --range-track-height: 1px;
   --range-thumb-offset: calc(
     var(--range-thumb-height) / -2 + (var(--range-track-height) / 2)
