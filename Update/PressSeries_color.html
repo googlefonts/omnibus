@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Press Series: color</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;
+  --paper:#FFFFFF; --ink:#1A181F; --soft:#757575; --rule:#D9D7D0;
+  --maxw:1180px; --pad:clamp(20px,5vw,76px)
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:16px;line-height:1.5}
+
+/* ── utilities ── */
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--pad);position:relative;z-index:1}
+.eyebrow{font-family:"Archivo",system-ui,sans-serif;font-weight:600;font-size:.72rem;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--soft)}
+a.brand{text-decoration:none;cursor:pointer;transition:color .2s;white-space:nowrap;color:var(--soft)}
+a.brand:hover{color:var(--ink)}
+.ext{width:1.12em;height:1.12em;vertical-align:-.19em;margin-left:.12em;flex:0 0 auto}
+.menu-nav a .ext{width:.6em;height:.6em;margin-left:.22em}
+
+/* ── masthead (mirror of the main site) ── */
+.masthead{border-bottom:1px solid var(--rule);position:sticky;top:0;z-index:5;background:rgba(241,241,241,.9);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.masthead .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:14px}
+.masthead nav{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.masthead nav a{font-family:"Archivo",sans-serif;font-weight:500;font-size:.82rem;text-decoration:none;color:var(--soft);transition:color .2s}
+.masthead nav a:hover{color:var(--ink)}
+.menu-btn{display:none;background:none;border:none;cursor:pointer;color:var(--soft);padding:4px;margin:-4px}
+.menu-btn svg{width:26px;height:26px;display:block}
+@media(max-width:720px){ .nav-link{display:none} .menu-btn{display:flex} }
+
+/* ── mobile menu (fullscreen overlay) ── */
+.mobile-menu{display:none;position:fixed;inset:0;background:var(--paper);z-index:10;flex-direction:column}
+.mobile-menu.open{display:flex}
+.menu-top{display:flex;justify-content:space-between;align-items:center;padding:14px var(--pad);border-bottom:1px solid var(--rule)}
+.menu-close{background:none;border:none;cursor:pointer;color:var(--soft);padding:4px;margin:-4px}
+.menu-close svg{width:26px;height:26px;display:block}
+.menu-nav{display:flex;flex-direction:column;gap:1.4em;padding:clamp(28px,7vh,60px) var(--pad) 0}
+.menu-nav a{font-family:"Archivo",sans-serif;font-weight:800;font-variation-settings:"wght" 800;
+  font-size:clamp(2.6rem,8vw,5.2rem);line-height:.98;text-decoration:none;color:var(--ink);letter-spacing:-.02em}
+.menu-nav a:active{color:var(--soft)}
+
+/* ── section head (unified with .spec-name / .spec-lead) ── */
+.section-head{padding-block:clamp(40px,6vw,72px) clamp(24px,3vw,36px)}
+.section-head .eyebrow{display:block}
+.section-head .spec-lead{font-family:"Archivo",sans-serif;font-size:1.08rem;line-height:1.62;
+  margin:.6rem 0 0;max-width:62ch;color:var(--ink)}
+
+/* ── content: swatches ── */
+.content{padding-bottom:clamp(40px,6vw,72px)}
+.row{display:grid;grid-template-columns:150px 1fr;gap:16px;align-items:center;margin-bottom:14px}
+.lbl{display:flex;flex-direction:column;gap:2px;font-weight:600;font-size:1rem}
+.lbl .dot{width:16px;height:16px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12);margin-bottom:4px}
+.lbl .hue{font-weight:400;color:#9a9a9a;font-size:.72rem;letter-spacing:.02em}
+.ramp{display:grid;grid-template-columns:repeat(11,1fr);gap:0;border-radius:12px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.sw{aspect-ratio:1/1.5;display:flex;flex-direction:column;justify-content:flex-end;padding:8px 6px;font-size:.62rem;line-height:1.25;min-height:74px}
+.sw .hx{font-weight:600;letter-spacing:.01em}
+.sw .mt{opacity:.7}
+.head-scale{display:grid;grid-template-columns:150px 1fr;gap:16px;margin-bottom:8px}
+.scale{display:grid;grid-template-columns:repeat(11,1fr);gap:0;font-size:.62rem;color:#9a9a9a}
+.scale span{text-align:left;padding-left:6px}
+.base-tag{font-family:"Archivo",sans-serif;font-weight:600;font-size:.66rem;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--soft);margin-right:.3em}
+@media(max-width:720px){
+  .row,.head-scale{grid-template-columns:1fr}
+  .lbl{flex-direction:row;align-items:center;gap:8px}
+  .lbl .dot{margin:0}
+  .lbl .hue{margin-left:auto}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="ic-ext" viewBox="0 0 24 24"><path d="M8 16 16 8M9.5 8H16v6.5" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></symbol></svg>
+
+<!-- ── MASTHEAD ── -->
+<header class="masthead" id="top">
+  <div class="wrap">
+    <a class="eyebrow brand" href="index.html">Press Series Collection</a>
+    <nav>
+      <a class="nav-link" href="index.html#tester">Type Tester</a>
+      <a class="nav-link" href="index.html#specimens">Specimens</a>
+      <a class="nav-link" href="index.html#about">About</a>
+      <a class="nav-link" href="https://fonts.google.com/share?selection.family=Archivo|Asap|Saira|Faustina|Labrada|Manuale" target="_blank" rel="noopener">Press Series <svg class="ext"><use href="#ic-ext"/></svg></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5h18M3 12h18M3 17.5h18" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- ── MOBILE MENU (fullscreen overlay) ── -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="menu-top">
+    <a class="eyebrow brand" href="index.html" data-close>Press Series Collection</a>
+    <button class="menu-close" id="menuClose" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+  <div class="menu-nav">
+    <a href="index.html#tester" data-close>Type Tester</a>
+    <a href="index.html#specimens" data-close>Specimens</a>
+    <a href="index.html#about" data-close>About</a>
+    <a href="https://fonts.google.com/share?selection.family=Archivo|Asap|Saira|Faustina|Labrada|Manuale" target="_blank" rel="noopener">Press Series <svg class="ext"><use href="#ic-ext"/></svg></a>
+  </div>
+</div>
+
+<!-- ── SECTION HEAD ── -->
+<section class="wrap section-head">
+  <span class="eyebrow">Color System</span>
+  <p class="spec-lead">The six palette colours plus an equivalent grey ramp, extended into lighter tints and darkened in steps up to 90 % darkness. The number below each swatch indicates its darkness level.</p>
+</section>
+
+<!-- ── SWATCHES ── -->
+<section class="wrap content">
+
+  <div class="head-scale">
+    <div></div>
+    <div class="scale">
+      <span>4%</span><span>10%</span><span>18%</span><span>27%</span>
+      <span>36%</span><span>45%</span><span>54%</span><span>63%</span>
+      <span>72%</span><span>81%</span><span>90%</span>
+    </div>
+  </div>
+
+  <div class="row"><div class="lbl"><span class="dot" style="background:#FFD2D5"></span>Asap<span class="hue"><span class="base-tag">Base</span>#FFD2D5</span></div><div class="ramp"><div class="sw" style="background:#FEF0F1;color:#111"><span class="hx">#FEF0F1</span><span class="mt">4%</span></div><div class="sw" style="background:#FEDADC;color:#111"><span class="hx">#FEDADC</span><span class="mt">10%</span></div><div class="sw" style="background:#FFBAC0;color:#111"><span class="hx">#FFBAC0</span><span class="mt">18%</span></div><div class="sw" style="background:#E5A1A7;color:#111"><span class="hx">#E5A1A7</span><span class="mt">27%</span></div><div class="sw" style="background:#CB8A8F;color:#111"><span class="hx">#CB8A8F</span><span class="mt">36%</span></div><div class="sw" style="background:#B27278;color:#fff"><span class="hx">#B27278</span><span class="mt">45%</span></div><div class="sw" style="background:#995C62;color:#fff"><span class="hx">#995C62</span><span class="mt">54%</span></div><div class="sw" style="background:#81464D;color:#fff"><span class="hx">#81464D</span><span class="mt">63%</span></div><div class="sw" style="background:#693138;color:#fff"><span class="hx">#693138</span><span class="mt">72%</span></div><div class="sw" style="background:#521C25;color:#fff"><span class="hx">#521C25</span><span class="mt">81%</span></div><div class="sw" style="background:#3B0712;color:#fff"><span class="hx">#3B0712</span><span class="mt">90%</span></div></div></div>
+
+  <div class="row"><div class="lbl"><span class="dot" style="background:#BCE2FF"></span>Archivo<span class="hue"><span class="base-tag">Base</span>#BCE2FF</span></div><div class="ramp"><div class="sw" style="background:#EAF5FE;color:#111"><span class="hx">#EAF5FE</span><span class="mt">4%</span></div><div class="sw" style="background:#C7E7FF;color:#111"><span class="hx">#C7E7FF</span><span class="mt">10%</span></div><div class="sw" style="background:#94D3FF;color:#111"><span class="hx">#94D3FF</span><span class="mt">18%</span></div><div class="sw" style="background:#76BBE8;color:#111"><span class="hx">#76BBE8</span><span class="mt">27%</span></div><div class="sw" style="background:#5CA3CE;color:#111"><span class="hx">#5CA3CE</span><span class="mt">36%</span></div><div class="sw" style="background:#418BB5;color:#fff"><span class="hx">#418BB5</span><span class="mt">45%</span></div><div class="sw" style="background:#22749D;color:#fff"><span class="hx">#22749D</span><span class="mt">54%</span></div><div class="sw" style="background:#035D82;color:#fff"><span class="hx">#035D82</span><span class="mt">63%</span></div><div class="sw" style="background:#034764;color:#fff"><span class="hx">#034764</span><span class="mt">72%</span></div><div class="sw" style="background:#003248;color:#fff"><span class="hx">#003248</span><span class="mt">81%</span></div><div class="sw" style="background:#001E2D;color:#fff"><span class="hx">#001E2D</span><span class="mt">90%</span></div></div></div>
+
+  <div class="row"><div class="lbl"><span class="dot" style="background:#F5F5AE"></span>Saira<span class="hue"><span class="base-tag">Base</span>#F5F5AE</span></div><div class="ramp"><div class="sw" style="background:#F6F5D6;color:#111"><span class="hx">#F6F5D6</span><span class="mt">4%</span></div><div class="sw" style="background:#E6E6AF;color:#111"><span class="hx">#E6E6AF</span><span class="mt">10%</span></div><div class="sw" style="background:#CFD17C;color:#111"><span class="hx">#CFD17C</span><span class="mt">18%</span></div><div class="sw" style="background:#B3BA48;color:#111"><span class="hx">#B3BA48</span><span class="mt">27%</span></div><div class="sw" style="background:#9AA22F;color:#111"><span class="hx">#9AA22F</span><span class="mt">36%</span></div><div class="sw" style="background:#818A14;color:#fff"><span class="hx">#818A14</span><span class="mt">45%</span></div><div class="sw" style="background:#6A7300;color:#fff"><span class="hx">#6A7300</span><span class="mt">54%</span></div><div class="sw" style="background:#555C00;color:#fff"><span class="hx">#555C00</span><span class="mt">63%</span></div><div class="sw" style="background:#404600;color:#fff"><span class="hx">#404600</span><span class="mt">72%</span></div><div class="sw" style="background:#2E3100;color:#fff"><span class="hx">#2E3100</span><span class="mt">81%</span></div><div class="sw" style="background:#1D1D00;color:#fff"><span class="hx">#1D1D00</span><span class="mt">90%</span></div></div></div>
+
+  <div class="row"><div class="lbl"><span class="dot" style="background:#E2DAE6"></span>Faustina<span class="hue"><span class="base-tag">Base</span>#E2DAE6</span></div><div class="ramp"><div class="sw" style="background:#FAF0FF;color:#111"><span class="hx">#FAF0FF</span><span class="mt">4%</span></div><div class="sw" style="background:#EBDEF1;color:#111"><span class="hx">#EBDEF1</span><span class="mt">10%</span></div><div class="sw" style="background:#D4C8DB;color:#111"><span class="hx">#D4C8DB</span><span class="mt">18%</span></div><div class="sw" style="background:#BBAFC2;color:#111"><span class="hx">#BBAFC2</span><span class="mt">27%</span></div><div class="sw" style="background:#A397A9;color:#111"><span class="hx">#A397A9</span><span class="mt">36%</span></div><div class="sw" style="background:#8B8091;color:#fff"><span class="hx">#8B8091</span><span class="mt">45%</span></div><div class="sw" style="background:#74697A;color:#fff"><span class="hx">#74697A</span><span class="mt">54%</span></div><div class="sw" style="background:#5E5364;color:#fff"><span class="hx">#5E5364</span><span class="mt">63%</span></div><div class="sw" style="background:#493F4E;color:#fff"><span class="hx">#493F4E</span><span class="mt">72%</span></div><div class="sw" style="background:#342B3A;color:#fff"><span class="hx">#342B3A</span><span class="mt">81%</span></div><div class="sw" style="background:#211826;color:#fff"><span class="hx">#211826</span><span class="mt">90%</span></div></div></div>
+
+  <div class="row"><div class="lbl"><span class="dot" style="background:#E5DBD0"></span>Labrada<span class="hue"><span class="base-tag">Base</span>#E5DBD0</span></div><div class="ramp"><div class="sw" style="background:#FFF2E3;color:#111"><span class="hx">#FFF2E3</span><span class="mt">4%</span></div><div class="sw" style="background:#F0E0CE;color:#111"><span class="hx">#F0E0CE</span><span class="mt">10%</span></div><div class="sw" style="background:#D9CAB8;color:#111"><span class="hx">#D9CAB8</span><span class="mt">18%</span></div><div class="sw" style="background:#C0B1A0;color:#111"><span class="hx">#C0B1A0</span><span class="mt">27%</span></div><div class="sw" style="background:#A79988;color:#111"><span class="hx">#A79988</span><span class="mt">36%</span></div><div class="sw" style="background:#8F8272;color:#fff"><span class="hx">#8F8272</span><span class="mt">45%</span></div><div class="sw" style="background:#786B5B;color:#fff"><span class="hx">#786B5B</span><span class="mt">54%</span></div><div class="sw" style="background:#625546;color:#fff"><span class="hx">#625546</span><span class="mt">63%</span></div><div class="sw" style="background:#4C4032;color:#fff"><span class="hx">#4C4032</span><span class="mt">72%</span></div><div class="sw" style="background:#372C1F;color:#fff"><span class="hx">#372C1F</span><span class="mt">81%</span></div><div class="sw" style="background:#241A0B;color:#fff"><span class="hx">#241A0B</span><span class="mt">90%</span></div></div></div>
+
+  <div class="row"><div class="lbl"><span class="dot" style="background:#D0E2CD"></span>Manuale<span class="hue"><span class="base-tag">Base</span>#D0E2CD</span></div><div class="ramp"><div class="sw" style="background:#DEFCDA;color:#111"><span class="hx">#DEFCDA</span><span class="mt">4%</span></div><div class="sw" style="background:#CDEAC9;color:#111"><span class="hx">#CDEAC9</span><span class="mt">10%</span></div><div class="sw" style="background:#B7D4B3;color:#111"><span class="hx">#B7D4B3</span><span class="mt">18%</span></div><div class="sw" style="background:#9FBB9B;color:#111"><span class="hx">#9FBB9B</span><span class="mt">27%</span></div><div class="sw" style="background:#87A283;color:#111"><span class="hx">#87A283</span><span class="mt">36%</span></div><div class="sw" style="background:#708B6C;color:#fff"><span class="hx">#708B6C</span><span class="mt">45%</span></div><div class="sw" style="background:#5A7456;color:#fff"><span class="hx">#5A7456</span><span class="mt">54%</span></div><div class="sw" style="background:#445D41;color:#fff"><span class="hx">#445D41</span><span class="mt">63%</span></div><div class="sw" style="background:#30482D;color:#fff"><span class="hx">#30482D</span><span class="mt">72%</span></div><div class="sw" style="background:#1C341A;color:#fff"><span class="hx">#1C341A</span><span class="mt">81%</span></div><div class="sw" style="background:#0A2004;color:#fff"><span class="hx">#0A2004</span><span class="mt">90%</span></div></div></div>
+
+  <div class="row"><div class="lbl"><span class="dot" style="background:#DDDDDD"></span>Grey<span class="hue"><span class="base-tag">Base</span>#DDDDDD</span></div><div class="ramp"><div class="sw" style="background:#F3F3F3;color:#111"><span class="hx">#F3F3F3</span><span class="mt">4%</span></div><div class="sw" style="background:#E2E2E2;color:#111"><span class="hx">#E2E2E2</span><span class="mt">10%</span></div><div class="sw" style="background:#CCCCCC;color:#111"><span class="hx">#CCCCCC</span><span class="mt">18%</span></div><div class="sw" style="background:#B3B3B3;color:#111"><span class="hx">#B3B3B3</span><span class="mt">27%</span></div><div class="sw" style="background:#9B9B9B;color:#111"><span class="hx">#9B9B9B</span><span class="mt">36%</span></div><div class="sw" style="background:#848484;color:#fff"><span class="hx">#848484</span><span class="mt">45%</span></div><div class="sw" style="background:#6D6D6D;color:#fff"><span class="hx">#6D6D6D</span><span class="mt">54%</span></div><div class="sw" style="background:#575757;color:#fff"><span class="hx">#575757</span><span class="mt">63%</span></div><div class="sw" style="background:#424242;color:#fff"><span class="hx">#424242</span><span class="mt">72%</span></div><div class="sw" style="background:#2E2E2E;color:#fff"><span class="hx">#2E2E2E</span><span class="mt">81%</span></div><div class="sw" style="background:#1B1B1B;color:#fff"><span class="hx">#1B1B1B</span><span class="mt">90%</span></div></div></div>
+
+</section>
+
+<script>
+(function(){
+  var mBtn=document.getElementById('menuBtn');
+  var mClose=document.getElementById('menuClose');
+  var menu=document.getElementById('mobileMenu');
+  function open(){menu.classList.add('open');mBtn.setAttribute('aria-expanded','true');menu.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}
+  function close(){menu.classList.remove('open');mBtn.setAttribute('aria-expanded','false');menu.setAttribute('aria-hidden','true');document.body.style.overflow=''}
+  mBtn.addEventListener('click',open);
+  mClose.addEventListener('click',close);
+  document.querySelectorAll('[data-close]').forEach(function(el){el.addEventListener('click',close)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&menu.classList.contains('open'))close()});
+})();
+</script>
+
+</body>
+</html>
