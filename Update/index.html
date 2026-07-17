@@ -1,0 +1,1711 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Press Series — Omnibus-Type</title>
+<meta name="description" content="Six open-source variable typeface families by Omnibus-Type, built for text-intensive typography — books, magazines and newspapers, in print and on screen.">
+<meta name="theme-color" content="#ffffff">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Asap:ital,wdth,wght@0,75..125,100..900;1,75..125,100..900&family=Faustina:ital,wght@0,300..800;1,300..800&family=Labrada:ital,wght@0,100..900;1,100..900&family=Manuale:ital,wght@0,300..800;1,300..800&family=Saira:ital,wdth,wght@0,50..125,100..900;1,50..125,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@300..700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FFFFFF; --ink:#1A181F; --soft:#757575; --line:#D9D7D0; --rule:#D9D7D0; --blob:#EBEBEB;
+  --archivo:#BCE2FF; --asap:#FFD2D5; --saira:#F5F5AE; --faustina:#E2DAE6; --labrada:#E5DBD0; --manuale:#D0E2CD;
+  --g-bg:#F1F1F1; --g-cell:#E8E8E8;
+  --archivo-l:#EAF5FE; --asap-l:#FEF0F1; --saira-l:#F6F5D6; --faustina-l:#FAF0FF; --labrada-l:#FFF2E3; --manuale-l:#DEFCDA;
+  --archivo-d:#003248; --asap-d:#521C25; --saira-d:#2E3100; --faustina-d:#342B3A; --labrada-d:#372C1F; --manuale-d:#1C341A;
+  --fam:var(--archivo); --gsans:"Google Sans Flex","Archivo",system-ui,sans-serif;
+  --maxw:1180px; --pad:clamp(20px,5vw,76px);
+  --trim-top:.1em; --trim-bottom:.12em;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Archivo",system-ui,sans-serif;font-size:clamp(17px,1.12vw,19px);line-height:1.55;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--pad);position:relative;z-index:1}
+.eyebrow{font-family:"Archivo",system-ui,sans-serif;font-weight:600;font-size:.72rem;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--soft)}
+.ext{width:1.12em;height:1.12em;vertical-align:-.19em;margin-left:.12em;flex:0 0 auto}
+a.brand{text-decoration:none;cursor:pointer;transition:color .2s;white-space:nowrap}
+a.brand:hover{color:var(--ink)}
+/* offset anchor targets so the sticky header doesn't cover the start of each section */
+#tester,#specimens,#about,.spec-fam{scroll-margin-top:64px}
+.blob{position:absolute;border-radius:50%;background:var(--blob);pointer-events:none;z-index:0}
+
+/* masthead */
+.masthead{border-bottom:1px solid var(--rule);position:sticky;top:0;z-index:5;background:rgba(241,241,241,.9);backdrop-filter:blur(8px)}
+.masthead .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:14px}
+.masthead nav{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.masthead nav a{font-family:"Archivo",sans-serif;font-weight:500;font-size:.82rem;text-decoration:none;color:var(--soft);transition:color .2s}
+.masthead nav a:hover{color:var(--ink)}
+/* mobile menu */
+.menu-btn{display:none;background:none;border:none;cursor:pointer;color:var(--soft);padding:4px;margin:-4px}
+.menu-btn svg{width:26px;height:26px;display:block}
+.menu-overlay{position:fixed;inset:0;z-index:60;background:rgba(255,255,255,.8);
+  -webkit-backdrop-filter:blur(22px);backdrop-filter:blur(22px);
+  display:flex;flex-direction:column;
+  opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-8px);
+  transition:opacity .28s ease,transform .28s ease,visibility .28s}
+.menu-overlay.open{opacity:1;visibility:visible;pointer-events:auto;transform:none}
+.menu-top{display:flex;justify-content:space-between;align-items:center;padding:14px var(--pad);border-bottom:1px solid var(--rule)}
+.menu-close{background:none;border:none;cursor:pointer;color:var(--soft);padding:4px;margin:-4px}
+.menu-close svg{width:24px;height:24px;display:block}
+.menu-nav{display:flex;flex-direction:column;gap:1.4em;padding:clamp(28px,7vh,60px) var(--pad) 0}
+.menu-nav a{font-family:"Saira",sans-serif;font-weight:800;font-stretch:88%;letter-spacing:-.02em;
+  font-size:clamp(2.6rem,8vw,5.2rem);line-height:.98;text-decoration:none;color:var(--ink);
+  display:inline-flex;align-items:center;width:max-content;transition:color .2s}
+.menu-nav a:active{color:var(--soft)}
+.menu-nav a .ext{width:.6em;height:.6em;margin-left:.22em}
+.menu-palette{margin-top:auto;display:flex;gap:11px;align-items:center;padding:0 var(--pad) clamp(28px,6vh,48px)}
+.menu-palette .dot{width:22px;height:22px;border-radius:50%;border:1px solid rgba(0,0,0,.08)}
+@media(max-width:720px){ .nav-link{display:none} .menu-btn{display:flex} }
+@media(min-width:721px){ .menu-overlay{display:none} }
+
+/* MAIN — families, fit first view */
+.main{position:relative;overflow:hidden;background:var(--paper);min-height:calc(100svh - 50px);
+  display:flex;flex-direction:column;justify-content:center;padding-block:clamp(24px,4vh,52px)}
+.main .bg-logo{position:absolute;z-index:0;font-family:"Saira",sans-serif;font-weight:800;font-stretch:88%;
+  letter-spacing:-.02em;color:var(--blob);line-height:.82;text-align:right;pointer-events:none;user-select:none;
+  font-size:min(57vh,40vw);right:-4vw;bottom:-4vh}
+.main-head{margin-bottom:clamp(14px,2.4vh,26px)}
+
+.fam{display:grid;grid-template-columns:auto auto 1fr;align-items:center;gap:clamp(12px,2.4vw,30px);
+  padding:clamp(10px,1.7vh,20px) 0;border-top:1px solid var(--rule);text-decoration:none;color:inherit;
+  transition:background .25s}
+.fam:last-child{border-bottom:1px solid var(--rule)}
+.fam-num{font-family:"Archivo",sans-serif;font-weight:600;font-size:.86rem;color:var(--soft);font-variant-numeric:tabular-nums}
+.fam-sw{width:18px;height:18px;border-radius:50%;background:var(--c);border:1px solid rgba(0,0,0,.1);transition:background .25s,border-color .25s}
+.fam-text{min-width:0}
+.fam-name{display:block;font-size:clamp(1.7rem,5.4vw,3.2rem);line-height:1;letter-spacing:-.01em;white-space:nowrap;
+  font-variation-settings:"wght" 520;transition:font-variation-settings .5s cubic-bezier(.2,.7,.2,1)}
+.fam-axes{display:block;font-family:"Archivo",sans-serif;font-weight:500;font-size:.7rem;letter-spacing:.04em;text-transform:uppercase;color:var(--soft);
+  margin-top:5px;font-variant-numeric:tabular-nums}
+.fam:hover .fam-name{font-variation-settings:"wght" 800}
+.fam:hover .fam-sw{background:#fff;border-color:rgba(0,0,0,.22)}
+.fam:hover{background:linear-gradient(90deg,var(--c) 0%,transparent 55%)}
+@media(max-width:640px){
+  .fam{gap:12px}
+  .fam-name,.spec-name{font-size:clamp(1.6rem,7vw,2.4rem)}
+}
+
+/* general info */
+.info{position:relative;overflow:hidden;background:var(--g-bg);border-top:1px solid var(--rule)}
+.info .wrap>.eyebrow{display:block;margin-bottom:clamp(18px,3vw,32px)}
+.info .blob-a{width:44vw;max-width:400px;aspect-ratio:1;top:-16%;left:-14%}
+.info .blob-b{width:38vw;max-width:340px;aspect-ratio:1;bottom:-22%;right:-12%}
+.info .wrap{padding-block:clamp(52px,8vw,100px)}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px)}
+@media(max-width:780px){.info-grid{grid-template-columns:1fr;gap:0}}
+.info h2{font-family:"Saira",sans-serif;font-weight:700;font-stretch:90%;font-size:clamp(1.5rem,3vw,2.1rem);letter-spacing:-.01em;margin:0 0 1rem}
+.info p{margin:0 0 1em;font-size:1.08rem;line-height:1.62}
+.info .credit{font-family:"Archivo",sans-serif;font-size:.88rem;color:var(--soft);margin-top:1.4em}
+.info .credit b{color:var(--ink);font-weight:600}
+
+/* tester */
+.tester{background:var(--g-bg);border-top:1px solid var(--rule);padding-block:clamp(48px,7vw,92px)}
+.inst{margin-top:26px;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 30px -26px rgba(0,0,0,.35)}
+.inst-stage{background:var(--g-cell);transition:background-color .4s ease;padding:clamp(18px,3vw,30px) clamp(20px,4vw,40px)}
+.inst:hover .inst-stage{background:var(--fam)}
+.inst-head{display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:6px}
+.inst-head .hint{font-family:"Archivo",sans-serif;font-size:.74rem;color:var(--soft)}
+.cap-tag{font-family:"Archivo",sans-serif;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--ink)}
+.inst-type{font-family:"Archivo",sans-serif;font-size:clamp(2.8rem,11vw,6.5rem);line-height:1;letter-spacing:-.01em;
+  height:clamp(3.4rem,13vw,7.7rem);
+  display:block;
+  margin:0;outline:none;cursor:text;word-break:break-word;color:var(--ink);overflow:hidden}
+/* Caret líder persistente: barra que ancla la baseline (reemplaza al strut de 0px) y
+   reserva un espacio fijo, así el texto NUNCA se corre al pasar de placeholder a texto
+   ni al enfocar. Visible en reposo, invisible al enfocar (toma el caret nativo).
+   Mismo modelo que la palabra editable de los carruseles. */
+.inst-type::before{content:"";display:inline-block;width:max(2px,.02em);height:.9em;
+  margin-right:.06em;vertical-align:baseline;background:var(--ink);
+  animation:caretBlink 1.1s step-end infinite}
+.inst-type:focus::before{background:transparent;animation:none}
+.inst-type{caret-color:var(--ink)}
+/* Placeholder solo cuando está vacío, después del caret → "▌ Type here…" */
+.inst-type:not(.has-text)::after{content:"Type here\2026";color:var(--soft);
+  font-family:"Archivo",system-ui,sans-serif;font-variation-settings:normal;font-weight:400;letter-spacing:-.01em}
+/* Hover gris (afford. de edición), como en los carruseles */
+.inst-type:hover{background:rgba(0,0,0,.05);border-radius:12px}
+@keyframes caretBlink{0%,49%{opacity:1}50%,100%{opacity:0}}
+.inst-type:focus-visible{text-decoration:none}
+.inst-panel{background:var(--paper);padding:clamp(20px,3vw,30px) clamp(20px,4vw,40px)}
+.inst-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,3vw,40px)}
+@media(max-width:780px){.inst-grid{grid-template-columns:1fr;gap:22px}}
+/* equal-height controls: reserve space so 1, 2 (or future 3) axes never change height */
+.controls{min-height:184px}
+.ctrl{margin-bottom:16px}
+.ctrl[data-empty]{visibility:hidden}
+.ctrl-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:2px}
+.ctrl-name{font-family:"Archivo",sans-serif;font-weight:600;font-size:.78rem;letter-spacing:.05em;text-transform:uppercase}
+.ctrl-val{font-family:"Archivo",sans-serif;font-weight:600;font-size:.86rem;font-variant-numeric:tabular-nums}
+.ctrl input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:2px;background:var(--rule);outline:none;margin:14px 0}
+.ctrl input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:20px;height:20px;border-radius:50%;background:var(--ink);cursor:pointer;border:4px solid var(--paper);box-shadow:0 0 0 1px var(--line)}
+.ctrl input[type=range]::-moz-range-thumb{width:20px;height:20px;border:4px solid var(--paper);border-radius:50%;background:var(--ink);cursor:pointer}
+.toggle{display:flex;align-items:center;gap:12px}
+.switch{position:relative;width:46px;height:26px;flex:0 0 auto}
+.switch input{opacity:0;width:100%;height:100%;margin:0;cursor:pointer}
+.slot{position:absolute;inset:0;border:1px solid var(--line);border-radius:100px;transition:background .2s}
+.knob{position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:var(--soft);transition:transform .2s,background .2s}
+.switch input:checked ~ .slot{background:var(--soft)}
+.switch input:checked ~ .knob{transform:translateX(20px);background:var(--fam)}
+.inst-css{background:var(--g-cell);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:16px 16px 12px;font-family:ui-monospace,monospace;font-size:.8rem;line-height:1.5;position:relative}
+.inst-css pre{margin:0;white-space:pre-wrap;word-break:break-word;font-family:inherit}
+.inst-css .ck{color:var(--soft)}
+.copy{position:absolute;top:11px;right:11px;border:1px solid var(--line);background:rgba(255,255,255,.55);color:var(--ink);font-family:"Archivo",sans-serif;font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;padding:.4em .8em;border-radius:6px;cursor:pointer}
+.copy:hover{background:#fff}
+.fam-switch{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
+.fam-switch button{font-family:"Archivo",sans-serif;font-weight:600;font-size:.84rem;display:inline-flex;align-items:center;gap:.55em;background:var(--paper);border:1px solid var(--line);color:var(--ink);padding:.42em .9em .42em .6em;border-radius:100px;cursor:pointer;transition:.18s}
+.fam-switch button .sw{width:14px;height:14px;border-radius:50%;background:var(--c);border:1px solid rgba(0,0,0,.12)}
+.fam-switch button:hover{border-color:var(--soft)}
+.fam-switch button[aria-pressed=true]{background:var(--c)}
+
+/* specimens — one horizontal strip per family */
+.spec-intro{background:var(--paper);border-top:1px solid var(--rule);padding-block:clamp(48px,7vw,84px) clamp(22px,3vw,34px)}
+.spec-lead{font-family:"Archivo",sans-serif;font-size:1.08rem;line-height:1.62;margin:.6rem 0 0}
+.spec-fam{background:var(--c);padding-top:clamp(40px,6vw,72px);padding-bottom:clamp(16px,3vw,24px);border-top:1px solid rgba(0,0,0,.06)}
+.spec-head{margin-bottom:18px}
+.spec-name{display:inline-block;font-size:clamp(1.7rem,5.4vw,3.2rem);line-height:1;letter-spacing:-.01em;color:var(--c-dark);
+  font-variation-settings:"wght" 520;transition:font-variation-settings .5s cubic-bezier(.2,.7,.2,1)}
+.spec-name:hover{font-variation-settings:"wght" 800}
+.spec-meta{display:block;font-family:"Archivo",sans-serif;font-weight:500;font-size:.7rem;letter-spacing:.04em;color:var(--soft);text-transform:uppercase;
+  margin-top:6px;font-variant-numeric:tabular-nums}
+.spec-meta a{color:var(--ink);text-decoration:none;border-bottom:1px solid rgba(26,24,31,.3);display:inline-flex;align-items:center}
+.strip-wrap{position:relative}
+.strip{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--pad);padding:4px 0 16px;
+  margin-inline:calc(-1*var(--pad));padding-inline:var(--pad);cursor:grab;scrollbar-width:none}
+.strip.drag{cursor:grabbing;scroll-snap-type:none}
+.strip::-webkit-scrollbar{height:0;display:none}
+.strip-nav{position:absolute;top:calc(50% - 6px);transform:translateY(-50%);z-index:4;
+  width:22px;height:22px;border-radius:50%;border:none;cursor:pointer;
+  background:rgba(255,255,255,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  box-shadow:0 1px 4px rgba(0,0,0,.15);color:var(--ink);
+  display:flex;align-items:center;justify-content:center;transition:opacity .25s,background .2s;padding:0}
+.strip-nav:hover{background:rgba(255,255,255,.85)}
+.strip-nav svg{width:12px;height:12px;display:block}
+.strip-nav.prev{left:-4px}
+.strip-nav.next{right:-4px}
+.strip-nav[hidden]{opacity:0;pointer-events:none}
+.panel{flex:0 0 auto;width:100%;aspect-ratio:4/5;scroll-snap-align:start;background:var(--c-light);border-radius:14px;
+  padding:26px 26px 18px;display:grid;grid-template-rows:auto 1fr 46px 28px;gap:10px;position:relative}
+/* desktop: exactamente 3 ventanas visibles; la 4ª queda fuera del recorte (fondo, no media ventana) */
+@media(min-width:768px){.panel{width:calc((100% - 32px)/3)}}
+/* ── placas custom (Archivo/Asap/Saira): el grid de 4 franjas y todo lo demostrativo
+   va scopeado por familia más abajo. Acá queda solo la base compartida. ── */
+.panel .lab{font-family:"Archivo",sans-serif;font-weight:500;font-size:.7rem;letter-spacing:.04em;text-transform:uppercase;color:var(--soft)}
+.panel .body{flex:1;min-height:0;margin-top:6px;display:flex;flex-direction:column;justify-content:center;gap:4px;overflow:hidden;container-type:inline-size}
+.panel .body span{color:var(--c-dark);line-height:1.08}
+.panel .tiny{font-family:"Archivo",sans-serif;font-size:.76rem;color:var(--soft);line-height:1.4}
+/* base compartida de placas — sistema (todas las familias) */
+.carousel-foot{margin-top:0;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.info-btn{font-family:"Archivo",sans-serif;font-weight:600;font-size:.74rem;line-height:1;letter-spacing:.04em;text-transform:uppercase;
+  color:var(--c-dark);background:rgba(0,0,0,.07);border:none;border-radius:22px;padding:8px 18px;cursor:pointer;
+  box-sizing:border-box;display:inline-flex;align-items:center;gap:.45em;text-decoration:none;vertical-align:middle}
+.info-btn:hover{background:rgba(0,0,0,.13)}
+.info-btn .ext{width:11px;height:11px;flex-shrink:0}
+.info-modal{position:fixed;inset:0;z-index:50;display:none;align-items:center;justify-content:center;background:rgba(10,8,6,.5);padding:24px}
+.info-modal.open{display:flex}
+.info-modal-box{position:relative;max-width:420px;width:100%;background:var(--c-light);border-radius:16px;padding:32px 28px 26px;box-shadow:0 16px 44px rgba(0,0,0,.28)}
+.info-modal-close{position:absolute;top:10px;right:10px;width:26px;height:26px;border-radius:50%;border:none;background:rgba(0,0,0,.07);cursor:pointer;font-size:13px;line-height:1;color:var(--ink)}
+.info-modal-close:hover{background:rgba(0,0,0,.13)}
+.lab-row{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.pill-zone{overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:7px}
+.panel .cap{overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;
+  font-family:"Archivo",sans-serif;font-weight:500;font-size:.7rem;line-height:1.3;
+  letter-spacing:.04em;text-transform:uppercase;color:var(--soft)}
+.fill{flex:1;min-height:0;width:100%;display:flex;flex-direction:column}
+.fill-between{justify-content:space-between}
+.info-title{display:block;font-family:"Archivo",sans-serif;font-weight:700;
+  letter-spacing:-.01em;font-size:1.7rem;line-height:1;color:var(--c-dark);margin-bottom:14px}
+.info-body{margin:0;font-family:"Archivo",sans-serif;font-variation-settings:"wght" 440}
+.info-modal-box .cap{margin-top:10px}
+.info-modal-box .cap a{color:inherit;text-decoration:none;border-bottom:1px solid currentColor;display:inline-flex;align-items:center}
+.info-modal-box .info-body,.info-modal-box .cap{font-size:.78rem;line-height:1.55;
+  color:color-mix(in srgb,var(--c-dark) 42%,var(--soft))}
+.glyph-cell{display:flex;align-items:center;justify-content:center;border-radius:4px}
+.pill{display:flex;gap:14px;flex-wrap:nowrap}
+.pill-ctrl{display:flex;flex-direction:column;gap:3px;flex:1;min-width:64px;max-width:150px}
+.pill-ctrl:only-child{max-width:none}
+.pill-ctrl label{font-family:"Archivo",sans-serif;font-weight:500;font-size:.58rem;letter-spacing:.05em;text-transform:uppercase;color:var(--soft)}
+.pill-ctrl input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:2px;
+  margin:5px 0 0;background:rgba(0,0,0,.18);border-radius:1px;cursor:pointer}
+.pill-ctrl input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:11px;height:11px;
+  border-radius:50%;background:var(--c-dark);cursor:pointer}
+.pill-ctrl input[type=range]::-moz-range-thumb{width:11px;height:11px;border-radius:50%;
+  background:var(--c-dark);border:none;cursor:pointer}
+.pill-ctrl input[type=range]::-moz-range-track{background:rgba(0,0,0,.18);height:2px;border-radius:1px}
+[contenteditable]{cursor:text}
+/* ═══ base demostrativa compartida ═══ */
+/* ── base demostrativa compartida (parametrizada por --demo) ── */
+#archivo{--demo:"Archivo",sans-serif}#asap{--demo:"Asap",sans-serif}#saira{--demo:"Saira",sans-serif}#faustina{--demo:"Faustina",serif}#labrada{--demo:"Labrada",serif}#manuale{--demo:"Manuale",serif}
+@keyframes tickcrawl{to{transform:translateX(-50%)}}
+@keyframes caretblink{50%{opacity:0}}
+
+/* ── Placas Words de los serifs: caret hiperfino entre las dos letras, sin leading caret,
+   con desplazamiento vertical para centrado óptico (compensa astas descendentes) ── */
+#fs-wsolo::before, #lb-wsolo::before, #mn-wsolo::before{content:none}
+#fs-wsolo{transform:translateY(-.06em)}
+#lb-wsolo, #mn-wsolo{transform:translate(-2%,-.06em);letter-spacing:-.03em}
+.wcaret{display:inline-block;width:1px;height:1.2em;background:currentColor;
+  vertical-align:-.32em;margin:0;animation:caretblink 1.1s step-end infinite;user-select:none}
+@keyframes tabWdthBreathe{0%,100%{--tab-wdth:75}50%{--tab-wdth:125}}
+@keyframes tabWghtJolt{0%,49%{--tab-wght:900}50%,99%{--tab-wght:100}100%{--tab-wght:900}}
+@keyframes wjBounce{0%{transform:translateY(0)}30%{transform:translateY(-.22em)}100%{transform:translateY(0)}}
+@keyframes wjSweep{0%{clip-path:inset(0 0 0 100%)}100%{clip-path:inset(0 0 0 0%)}}
+@keyframes wghtwdthwave{0%,100%{font-variation-settings:"wght" 900,"wdth" 50}50%{font-variation-settings:"wght" 100,"wdth" 125}}
+@keyframes wghtwdthwave-rev{0%,100%{font-variation-settings:"wght" 100,"wdth" 50}50%{font-variation-settings:"wght" 900,"wdth" 125}}
+a[href^="tel:"], a[href^="sms:"]{color:inherit;text-decoration:none;pointer-events:none}
+.refresh-btn{position:relative;top:2px;flex:0 0 auto;width:20px;height:20px;border-radius:50%;border:none; background:rgba(255,255,255,.22);color:#fff; display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;transition:background .15s}
+.refresh-btn:hover{background:rgba(255,255,255,.36)}
+.refresh-btn svg{width:11px;height:11px;display:block}
+.panel.impact{background:var(--ink)}
+.panel.impact-blue{background:var(--c-dark)}
+.panel.impact .lab, .panel.impact-blue .lab{color:rgba(255,255,255,.55)}
+.panel.impact .body span, .panel.impact-blue .body span{color:#fff}
+.panel.impact .cap, .panel.impact-blue .cap{color:rgba(255,255,255,.6)}
+.panel.impact .words-line:hover, .panel.impact .words-line:focus, .panel.impact-blue .words-line:hover, .panel.impact-blue .words-line:focus{background:rgba(255,255,255,.09)}
+.panel.impact .pill-ctrl label, .panel.impact-blue .pill-ctrl label{color:rgba(255,255,255,.55)}
+.panel.impact .pill-ctrl input[type=range], .panel.impact-blue .pill-ctrl input[type=range]{background:rgba(255,255,255,.25)}
+.panel.impact .pill-ctrl input[type=range]::-webkit-slider-thumb, .panel.impact-blue .pill-ctrl input[type=range]::-webkit-slider-thumb{background:#fff}
+.panel.impact .pill-ctrl input[type=range]::-moz-range-thumb, .panel.impact-blue .pill-ctrl input[type=range]::-moz-range-thumb{background:#fff}
+.panel.impact .pill-ctrl input[type=range]::-moz-range-track, .panel.impact-blue .pill-ctrl input[type=range]::-moz-range-track{background:rgba(255,255,255,.25)}
+.panel.impact .tick-row span, .panel.impact-blue .tick-row span{color:#fff}
+.panel.impact .runtext, .panel.impact-blue .runtext{color:rgba(255,255,255,.82)}
+.panel.text .lab{color:var(--soft)}
+.panel.text .runtext{color:var(--c-dark)}
+.panel.ticker.impact .tick-row span{color:#fff}
+.wf{flex:1;min-height:0;width:100%;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:1%}
+.wf-line{white-space:nowrap;font-size:16cqw;line-height:.95;font-family:var(--demo);color:var(--c-dark)}
+.wf-line:first-child{margin-top:calc(-1 * var(--trim-top))}
+.wf-line:last-child{margin-bottom:calc(-1 * var(--trim-bottom))}
+.panel.impact .wf-line, .panel.impact-blue .wf-line{color:#fff}
+.wf-line.wdthwave, .wf-line.wghtwave{animation-timing-function:ease-in-out;animation-iteration-count:infinite}
+.panel.ticker .body{gap:9px}
+.tick{overflow:hidden;width:100%; -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent); mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.tick-row{display:inline-flex;white-space:nowrap;will-change:transform;animation:tickcrawl 22s linear infinite; margin-top:calc(-1 * var(--trim-top));margin-bottom:calc(-1 * var(--trim-bottom))}
+.tick-row.rev{animation-duration:28s;animation-direction:reverse}
+.panel.ticker .tick-row span{padding-right:2rem;font-family:var(--demo);font-variation-settings:"wght" 800; font-size:10.5cqw;line-height:1.05;text-transform:uppercase;letter-spacing:.015em;font-variant-numeric:tabular-nums; color:color-mix(in srgb,var(--c-dark) 82%,var(--c-light))}
+.panel.ticker .tick-row.rev span{font-variation-settings:"wght" 300;text-transform:none;letter-spacing:0}
+.runtext{flex:1;min-height:0;margin:0;overflow:hidden;font-family:var(--demo); font-variation-settings:"wght" var(--rw,400); font-size:calc(var(--tsize,4.9) * 1cqw);line-height:var(--tlead,1.3);text-align:left; color:color-mix(in srgb,var(--c-dark) 58%,var(--c-light))}
+.words-line{display:block;font-family:var(--demo);outline:none;cursor:text;border-radius:8px;transition:background .15s}
+.words-line:hover, .words-line:focus{background:rgba(0,0,0,.09)}
+.words-solo::before{content:'';display:inline-block;width:.015em;height:1.05em;margin-right:.06em;vertical-align:-.12em;background:currentColor;animation:caretblink 1.1s step-end infinite}
+.words-solo:focus::before{background:transparent;animation:none}
+.panel.words{overflow:hidden}
+.panel.words .body{overflow:visible}
+.panel.words .lab, .panel.words .pill-zone, .panel.words .cap{position:relative;z-index:2;background:transparent}
+.panel.words .words-solo{cursor:grab;touch-action:none}
+.panel.words .words-solo:active, .panel.words .words-solo.panning{cursor:grabbing}
+.panel.words .words-solo:focus{cursor:text}
+.impact-stack{flex:1;min-height:0;width:100%;display:flex;flex-direction:column; justify-content:center;align-items:center;gap:1%; font-family:var(--demo);font-variation-settings:"wght" var(--iw,800)}
+.impact-line{display:block;text-align:center;white-space:nowrap;line-height:.95;font-size:16cqw}
+.impact-line:first-child{margin-top:calc(-1 * var(--trim-top))}
+.impact-line:last-child{margin-bottom:calc(-1 * var(--trim-bottom))}
+.glyph-grid{flex:1;min-height:0;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(4,1fr);gap:4px;font-family:var(--demo);font-variation-settings:"wght" var(--gw,600),"wdth" var(--gd,100)}
+.panel.impact .pill-switch .track, .panel.impact-blue .pill-switch .track{background:rgba(255,255,255,.25)}
+.panel.impact .pill-switch .thumb, .panel.impact-blue .pill-switch .thumb{background:#fff}
+.panel.impact .pill-switch.on .track, .panel.impact-blue .pill-switch.on .track{background:#fff}
+.panel.impact .pill-switch.on .thumb, .panel.impact-blue .pill-switch.on .thumb{background:var(--c-dark)}
+.pill-ctrl .ctrl-row{margin-top:5px;height:4px;display:flex;align-items:center}
+.pill-toggle{flex:0 0 auto;max-width:none}
+.pill-toggle .ctrl-row{margin-top:8px}
+.pill-toggle label{text-align:center}
+.pill-toggle .ctrl-row{justify-content:center}
+.pill-switch{position:relative;display:inline-block;width:26px;height:13px; border:none;background:none;padding:0;cursor:pointer}
+.pill-switch::after{content:'';position:absolute;top:-12px;bottom:-12px;left:-10px;right:-10px}
+.pill-switch .track{position:absolute;inset:0;background:rgba(0,0,0,.18);border-radius:999px;transition:background .15s}
+.pill-switch .thumb{position:absolute;top:2px;left:2px;width:9px;height:9px;border-radius:50%;background:var(--c-dark);transition:transform .15s}
+.pill-switch.on .track{background:var(--c-dark)}
+.pill-switch.on .thumb{transform:translateX(13px);background:#fff}
+.panel.words .pill-ctrl:not(.pill-toggle){max-width:none}
+/* ═══ ARCHIVO (propio) ═══ */
+@keyframes wdthwave_archivo{0%,100%{font-variation-settings:"wght" 640,"wdth" 125}50%{font-variation-settings:"wght" 640,"wdth" 62}}
+@keyframes wghtwave_archivo{0%,100%{font-variation-settings:"wght" 900}50%{font-variation-settings:"wght" 100}}
+@keyframes wghtwdthwave_archivo{0%,100%{font-variation-settings:"wght" 100,"wdth" 62}50%{font-variation-settings:"wght" 900,"wdth" 125}}
+#archivo .wf-line.wdthwave{animation-name:wdthwave_archivo;animation-duration:3.5s}
+#archivo .wf-line.wghtwave{animation-name:wghtwave_archivo;animation-duration:3.8s}
+#archivo .wf-line.wghtwdthwave{animation:wghtwdthwave_archivo 3.8s ease-in-out infinite}
+#archivo .panel.ticker .tick-row span{padding-right:2rem;font-family:var(--demo);font-variation-settings:"wght" 860; font-size:10.5cqw;line-height:1.05;text-transform:uppercase;letter-spacing:.015em;font-variant-numeric:tabular-nums;color:var(--c-dark)}
+#archivo .panel.ticker .tick-row.rev span{font-variation-settings:"wght" 320;text-transform:none;letter-spacing:0}
+#archivo .words-solo{position:relative;display:block;font-family:var(--demo);text-align:center;white-space:nowrap; word-break:keep-all;overflow-wrap:normal;color:var(--archivo-d);caret-color:currentColor;padding:.18em .3em;margin:-.18em -.3em; font-size:120px;line-height:.95;font-variation-settings:"wght" 700,"wdth" 85}
+#archivo .impact-stack{flex:1;min-height:0;width:100%;display:flex;flex-direction:column; justify-content:center;align-items:center;gap:1%; font-family:var(--demo);font-variation-settings:"wght" var(--iw,900),"wdth" var(--id,62)}
+/* ═══ ASAP (propio) ═══ */
+@keyframes wdthwave_asap{0%,100%{font-variation-settings:"wght" 640,"wdth" 125}50%{font-variation-settings:"wght" 640,"wdth" 75}}
+@keyframes wghtwave_asap{0%,8%{font-variation-settings:"wght" 100,"wdth" 100} 18%,58%{font-variation-settings:"wght" 900,"wdth" 100} 68%,100%{font-variation-settings:"wght" 100,"wdth" 100}}
+@property --tab-wdth{syntax:'<number>';inherits:true;initial-value:100}
+@property --tab-wght{syntax:'<number>';inherits:false;initial-value:400}
+/* refresh-btn: usa la regla global (fondo blanco semi, ícono blanco) */
+#asap .wf-line.wdthwave{animation-name:wdthwave_asap;animation-duration:3.5s}
+#asap .wf-line.wghtwave{animation-name:wghtwave_asap;animation-duration:2.4s}
+#asap .words-solo{position:relative;display:block;font-family:var(--demo);text-align:center;white-space:nowrap; word-break:keep-all;overflow-wrap:normal;color:var(--asap-d);caret-color:currentColor;padding:.18em .3em;margin:-.18em -.3em; font-size:120px;line-height:.95;font-variation-settings:"wght" 700,"wdth" 85}
+#asap .impact-stack{flex:1;min-height:0;width:100%;display:flex;flex-direction:column; justify-content:center;align-items:center;gap:1%; font-family:var(--demo);font-variation-settings:"wght" var(--iw,900),"wdth" var(--id,125)}
+#asap .tab-wave{--tab-wdth:100;animation:tabWdthBreathe 4.5s ease-in-out infinite}
+#asap .tab-line{font-variant-numeric:tabular-nums; font-variation-settings:"wght" var(--tab-wght),"wdth" var(--tab-wdth); animation:tabWghtJolt 1.1s ease-in-out infinite}
+#asap .wj-track{flex:1;min-height:0;width:100%;display:flex;justify-content:center;align-items:center;padding-top:12px}
+#asap .wj-letter{display:inline-block;font-family:var(--demo);line-height:1;font-size:var(--wj-size,34cqw)}
+#asap .wj-letter.wj-hit{animation:wjBounce .3s cubic-bezier(.3,1.7,.4,1)}
+#asap .wj-track.wj-sweep{animation:wjSweep .5s cubic-bezier(.2,.7,.2,1)}
+/* ═══ SAIRA (propio) ═══ */
+@font-face{font-family:"SairaAltOTF"; src:url(data:font/otf;base64,T1RUTwAMAIAAAwBAQ0ZGIOaBw6MAAADUAAAHFkdERUYAEQALAAAL2AAAABZHUE9TLAEkVQAAC/AAAACuR1NVQhfSD+4AAAygAAABPk9TLzJrlWvWAAAIpAAAAGBjbWFwAbUBigAAC0wAAABsaGVhZAgfS74AAAfsAAAANmhoZWEGLQF9AAAIgAAAACRobXR4JdEBpQAACCQAAABabWF4cAAXUAAAAADMAAAABm5hbWUxO0e5AAAJBAAAAkhwb3N0/7gAMgAAC7gAAAAgAABQAAAXAAABAAQCAAEBARVTYWlyYS1Db25kZW5zZWRCbGFjawABAQEh+CkA+CoB+CsC+BME+y/8OPov+vMF9+sPjhwHExL4DREAEQEBChAWHCUuNj9IUFlianN66v9ZLmxvY2xHVUFBLnNzMDFHLnNzMDFSLnNzMDF5LmxvY2xHVUFmb3VyLnNzMDFzaXguc3MwMW5pbmUuc3MwMWZvdXIuZG5vbXNpeC5kbm9tbmluZS5kbm9tZm91ci5udW1yc2l4Lm51bXJuaW5lLm51bXIwMDAuMDcxQ29weXJpZ2h0IFwoY1wpIDIwMTMtMjAxNiwgT21uaWJ1cy1UeXBlIFwod3d3Lm9tbmlidXMtdHlwZS5jb20gb21uaWJ1cy50eXBlQGdtYWlsLmNvbVwpIHdpdGggcmVzZXJ2ZWQgZm9udCBuYW1lLlNhaXJhIENvbmRlbnNlZCBCbGFjawAAAQAiAAAoAAAzAAA6AAGHAwBaAAGLAAAVAAAXAAAaAAGMCAAXAgABAAMAMAByAKcAywEBATQBdQG9AgECJwJRAq8DDAM0A4IDzAPtBEIEmAS7BREFaNoO6/fjFvdJBvsS+UQF+5sG+xL9RAX3RQab9wkF9xEGUPgwFbD7oQU6BrD3oQUO1Pe/96QV+xwHhICKgRtQhqH3T/dflIz3AqLGhoa7H/cdB5dXQJRWG/tdXkb7r/uttUT3VMrblJi+H/gj+177IQcO2/h+Fj/3lgW+spTQ5hr3MXHV+y8e+5H9RPdI93aqBsH7dgU2+LEVpga2joc5NoWJYx9wBg7Q9y8W90j3eQb3MfhfBftFBk37qgWCBkr3qgX7SQb3MfxfBQ7T9675RBX7dwf7CYuIZ2iLjvcJHvd3+0n7Rwf7W40z9xF0Hvtb90j3Wwf3EKOM4/daGvdHBw7g97UW90j4Dwb3goja+2n7aok8+4Ie/A/3SPc+0wf3lQT7AEP3AAf3CYuOr66MiPsJHg7a95yDFfdhjOH3QB/3Ovtp+yKzYgcui4phYoaO9173V5CU9wSiwIeFvh73HQeXW0KUWBv7Yl5F+677q6RC92UfDt74Z/dCFYbzcJ9XnAiPB8ehq6/3Dxr3D13M+w8e+579RPdI93qZBriOhkaRH5j7MAX3Rgb7fPgJFXD3O6UGtpGKOTiFimEfDq/3bftiFfdbkeX3QB/4Wvs7+4cH+weLh3Bwio3xHveW+zv71wf7EJlT6q26lMOiHpRTBjOKiDwe+wH7CwaEr8mGwBsOl/ee+JIVYfvuBYIGXffuBfs7Bu38kgXQBmX7VgX3OQb3G/lUBQ7G94YW90X3Eb73KFj3H/sNBlb7HwVUBvcZ+DMF+08G+wz8RQX7Fvd2Bw7H94yDFfc7tMz3SPdMVKQwUHBueYMfggb3GpKa4KfBh4W9HvccB5hWSJRfG/sJTW0waR96XIQ+Ihr7ApE/lmEe+wGrxXr3AxuI9yUVboKM3dSPka2rk4g+PYSHah8Ox/dqgxX3Bcmo36wfoL6T2fcAGvWG1X3BHvFyUJ37Bxv7PGNK+0j7TMJy5sCro6KVH5MG+xqEfDZuVY+RWh77HAd+vM+Cuhuh+CEVaoSO2NmSj6yok4o5QoeFah8Oz/eJFvdF9xHA9yhW+DP7qQb7FfxKBfsR93kHOvcoFdP3pAWU+6QGDsD3f4MV91Sm7PcW9wGB9wf7HXlzh4R2H4eQrdvZ9wLIwRmS+1kH+wb7BDf7SvsnGvsno/sA91UejfclFWyCjN7TjpGwr5KIPj2Eh2cfDsDIFvdZBr2z9yj3SvdvGvcnc/cA+1X7VHAq+xb7AZX7B/cdnaOPkqAej4Ze+wE4Kl5lGfdE+BIVZ4SO2NmSj6+qlIo4Q4iFZh8O+yX3IBby0arcbNtEBm47BWcG2/d5BSAGQfuCBUP3GgcO+yD3JocV76Kw7fBqmVRme3uAhh+GBtePk8Gcq4mIqR7XB5FtYpBwG0Jne1x4H4Jzh15NGkaNXJJ3HlicrYPRG4jaFXmEjrexjpGhoo+JYGKHhnQfDvsg9xCHFdCwmraeH5elj7nKGsaItYOoHsJ9aJZFGydzZignrX3CrpyYmZEfkAY+hoNXeWqNj24ePweFqLOGqBuY928VdYaNtrSQkKGfkIhfZImGdB8O+yX3IPfIFfLRqtxs20QGbjsFZwbb93kFIAZB+4IFQ/caBw77IPcm98QV76Kw7fBqmVRme3uAhh+GBtePk8Gcq4mIqR7XB5FtYpBwG0Jne1x4H4Jzh15NGkaNXJJ3HlicrYPRG4jaFXmEjrexjpGhoo+JYGKHhnQfDvsg9xD3xBXQsJq2nh+XpY+5yhrGiLWDqB7CfWiWRRsnc2YoJ619wq6cmJmRH5AGPoaDV3lqjY9uHj8HhaizhqgbmPdvFXWGjba0kJChn5CIX2SJhnQfDvg5FQAAAAEAAAAAEi0XP/kGXw889QADA+gAAAAA06b6+wAAAADTpvr7/iD+XAObBF8AAAADAAIAAAAAAAAB9AAAAgUAAQHuAB4B9QAoAer//gHtAB4B+gAlAfQAHgH4ACgByQAhAbEAAgHgABAB4QAeAeEAGQHpABAB2gASAdoAFAEUAAYBGQAQARkACwEUAAYBGQAQAAsAAAABAAAEb/5JAAADuf4g/2QDmwABAAAAAAAAAAAAAAAAAAAAFgADAcYDhAADAAgCigJYAAAASwKKAlgAAAFeADIBMgAAAAAKBgAAAAAAAAAAAAEAAAAAAAAAAAAAAABVS1dOAEAANAB5BG/+SQAABG8BtwAAAAEAAAAAAf4CsAAAACAABwAAAAcAWgADAAEECQAAANgAAAADAAEECQABACoA2AADAAEECQACAA4BAgADAAEECQADAD4BEAADAAEECQAEACgBTgADAAEECQAFAHgBdgADAAEECQAGACgBTgBDAG8AcAB5AHIAaQBnAGgAdAAgACgAYwApACAAMgAwADEAMwAtADIAMAAxADYALAAgAE8AbQBuAGkAYgB1AHMALQBUAHkAcABlACAAKAB3AHcAdwAuAG8AbQBuAGkAYgB1AHMALQB0AHkAcABlAC4AYwBvAG0AIABvAG0AbgBpAGIAdQBzAC4AdAB5AHAAZQBAAGcAbQBhAGkAbAAuAGMAbwBtACkAIAB3AGkAdABoACAAcgBlAHMAZQByAHYAZQBkACAAZgBvAG4AdAAgAG4AYQBtAGUALgBTAGEAaQByAGEAIABDAG8AbgBkAGUAbgBzAGUAZAAgAEIAbABhAGMAawBSAGUAZwB1AGwAYQByADAALgAwADcAMQA7AFUASwBXAE4AOwBTAGEAaQByAGEALQBDAG8AbgBkAGUAbgBzAGUAZABCAGwAYQBjAGsAUwBhAGkAcgBhAC0AQwBvAG4AZABlAG4AcwBlAGQAQgBsAGEAYwBrAFYAZQByAHMAaQBvAG4AIAAwAC4AMAA3ADEAOwBQAFMAIAAwADAAMAAuADAANwAxADsAaABvAHQAYwBvAG4AdgAgADEALgAwAC4AOAA4ADsAbQBhAGsAZQBvAHQAZgAuAGwAaQBiADIALgA1AC4ANgA0ADcANwA1AAAAAgAAAAMAAAAUAAMAAQAAABQABABYAAAAEgAQAAMAAgA0ADYAOQBBAEcAUgBZAHn//wAAADQANgA5AEEARwBSAFkAef///9f/1v/U/8D/u/+x/6v/kAABAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAD/tQAyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAwAAAAAAAAAAgABAAEACgABAAAAAQAAAAoAJAAyAAJERkxUAA5sYXRuAA4ABAAAAAD//wABAAAAAWtlcm4ACAAAAAEAAAABAAQAAgAIAAEACAACADgABAAAAEYAVgAEAAUAAP/IAAAAAAAAAAD/8QAAAAAAAAAAAAD/yP/x/+IAAP/vAAAAAAAAAAEABQABAAMABAAFAAcAAQADAAUAAwACAAIAAAABAAEAAQAKAAIAAwAAAAEAAQAAAAMAAAAEAAQAAAABAAAACgBEAIQAAkRGTFQADmxhdG4AEgAOAAAACgABR1VBIAAYAAD//wAEAAAAAQADAAQAAP//AAUAAAABAAIAAwAEAAVkbm9tACBmcmFjACZsb2NsAC5udW1yADRzYWx0ADoAAAABAAIAAAACAAMABAAAAAEAAAAAAAEAAQAAAAEABQAHABAANAAmADQATABwAKIAAQAAAAEACAABAAYAAQABAAIABAAJAAEAAAABAAgAAQAUAAYAAQAAAAEACAABAAYACQABAAMACwAMAA0ABgAAAAEACAADAAEAEgABAFwAAAABAAAABgABAAMAEQASABMAAQAAAAEACAACABYACAAGAAcACAAFAAoADgAPABAAAQAIAAEAAgADAAQACQALAAwADQABAAAAAQAIAAEABv/9AAEAAwAUABUAFgAA) format("opentype"); font-weight:900;font-style:normal;font-display:swap;}
+#saira .panel.ticker .tick-row{animation-duration:18s}
+#saira .panel.ticker .tick-row span{padding-right:2rem;font-family:var(--demo);font-variation-settings:"wght" 860,"wdth" 85; font-size:19cqw;line-height:1.05;text-transform:uppercase;letter-spacing:.015em;font-variant-numeric:tabular-nums;color:#E6E6AF}
+#saira .panel.ticker .tick-row.rev span{font-variation-settings:"wght" 320,"wdth" 100;text-transform:none;letter-spacing:0}
+#saira .runtext{flex:1;min-height:0;margin:0;overflow:hidden;font-family:var(--demo); font-variation-settings:"wght" var(--rw,400); font-size:calc(var(--tsize,4.9) * 1cqw);line-height:var(--tlead,1.3);text-align:left; color:color-mix(in srgb,var(--c-dark) 80%,var(--c-light))}
+#saira .words-solo{position:relative;display:block;font-family:var(--demo);text-align:center;white-space:nowrap; word-break:keep-all;overflow-wrap:normal;color:var(--saira-d);caret-color:currentColor;padding:.18em .3em;margin:-.18em -.3em; font-size:120px;line-height:.95;font-variation-settings:"wght" 700,"wdth" 85}
+#saira .impact-stack{flex:1;min-height:0;width:100%;display:flex;flex-direction:column; justify-content:center;align-items:center;gap:1%; font-family:var(--demo);font-variation-settings:"wght" var(--iw,100),"wdth" var(--id,125)}
+#saira .alt-track{transition:opacity .14s cubic-bezier(.32,1.5,.55,1),transform .14s cubic-bezier(.32,1.5,.55,1)}
+#saira .alt-track.alt-fade{opacity:0;transform:scale(.8)}
+#saira .alt-pair{display:inline-flex;align-items:baseline;gap:.05em;font-family:"SairaAltOTF",var(--demo); line-height:.95;font-size:var(--alt-size,30cqw)}
+#saira .panel .alt-pair .alt-norm{color:var(--c-dark)}
+#saira .panel .alt-pair .alt-alt{color:#6A7300;font-feature-settings:"salt" 1}
+#saira .wf-line.wghtwdthwave, #saira .wf-line.wghtwdthwave-rev{animation-timing-function:ease-in-out;animation-iteration-count:infinite;animation-duration:2s}
+#saira .wf-line.wghtwdthwave{animation-name:wghtwdthwave}
+#saira .wf-line.wghtwdthwave-rev{animation-name:wghtwdthwave-rev}
+#saira .wf-line.jolt-breathe{--tab-wght:900;--tab-wdth:100;
+  font-variation-settings:"wght" var(--tab-wght),"wdth" var(--tab-wdth);
+  animation:tabWghtJolt 1.1s ease-in-out infinite, tabWdthBreathe 7s ease-in-out infinite}
+/* ── footer ── */
+footer{position:relative;overflow:hidden;border-top:1px solid var(--rule);background:var(--paper)}
+.foot-logo{position:absolute;z-index:0;right:clamp(20px,4vw,48px);top:52px; font-family:"Saira",sans-serif;font-weight:800;font-stretch:88%;letter-spacing:-.02em;line-height:.82; text-align:right;color:var(--blob);pointer-events:none;user-select:none;font-size:clamp(2.4rem,9vw,4.8rem)}
+footer .blob-f{width:48vw;max-width:440px;aspect-ratio:1;bottom:-40%;right:-10%}
+footer .wrap{padding-block:52px 64px;display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap}
+.foot-links{display:flex;flex-direction:column;gap:6px}
+.foot-links a{font-family:"Archivo",sans-serif;font-size:.86rem;text-decoration:none;color:var(--soft)}
+.foot-links a:hover{color:var(--ink)}
+.foot-right{max-width:32ch}
+.gf-badge{font-family:"Archivo",sans-serif;font-size:.82rem;color:var(--soft);letter-spacing:.01em}
+.gf-logo{display:inline-block;font-family:var(--gsans);color:#4D4D4D;font-size:1.7rem;line-height:1;margin-top:6px;letter-spacing:-.005em}
+.gf-logo .g{font-variation-settings:"wght" 640}
+.gf-logo .f{font-variation-settings:"wght" 350}
+@media(max-width:640px){.foot-logo{font-size:1.75rem;line-height:.9}}
+.foot-note{font-family:"Archivo",sans-serif;font-size:.8rem;color:var(--soft);margin-top:14px}
+/* ═══ FAUSTINA (propio) ═══ */
+@keyframes wghtwave_faustina{0%,100%{font-variation-settings:"wght" 800}50%{font-variation-settings:"wght" 300}}
+#faustina .wf-line.wghtwave{animation-timing-function:ease-in-out;animation-iteration-count:infinite;animation-name:wghtwave_faustina;animation-duration:3s}
+#faustina .runtext{flex:1;min-height:0;margin:0;overflow:hidden;font-family:var(--demo); font-variation-settings:"wght" var(--rw,400); font-size:calc(var(--tsize,6.3) * 1cqw);line-height:var(--tlead,1.6);text-align:left; color:#342B3A}
+#faustina .words-solo{position:relative;display:block;font-family:var(--demo);text-align:center;white-space:nowrap; word-break:keep-all;overflow-wrap:normal;color:var(--faustina-d);caret-color:currentColor;padding:.18em .3em;margin:-.18em -.3em; font-size:120px;line-height:.95;font-variation-settings:"wght" 700,"wdth" 85}
+#faustina .fs-pull{margin:0;text-align:center;font-family:var(--demo);font-style:italic; font-variation-settings:"wght" var(--itw,400);font-size:11.1cqw;line-height:1.25; color:var(--c-dark)}
+#faustina .panel.impact .fs-pull, #faustina .panel.impact-blue .fs-pull{color:#fff}
+/* ═══ LABRADA (propio) ═══ */
+@keyframes wghtwave_labrada{0%,100%{font-variation-settings:"wght" 800}50%{font-variation-settings:"wght" 300}}
+#labrada .wf-line.wghtwave{animation-timing-function:ease-in-out;animation-iteration-count:infinite;animation-name:wghtwave_labrada;animation-duration:3s}
+#labrada .panel.ticker .tick-row span{padding-right:2rem;font-family:var(--demo);font-variation-settings:"wght" 900; font-size:10.5cqw;line-height:1.05;text-transform:uppercase;letter-spacing:.015em;font-variant-numeric:tabular-nums; color:color-mix(in srgb,var(--c-dark) 82%,var(--c-light))}
+#labrada .panel.ticker .tick-row.rev span{font-variation-settings:"wght" 100;text-transform:none;letter-spacing:0}
+#labrada .runtext{flex:1;min-height:0;margin:0;overflow:hidden;font-family:var(--demo); font-variation-settings:"wght" var(--rw,400); font-size:calc(var(--tsize,8.0) * 1cqw);line-height:var(--tlead,1.6);text-align:left; color:#372C1F; -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 82%,transparent 100%); mask-image:linear-gradient(180deg,#000 0%,#000 82%,transparent 100%)}
+#labrada .words-solo{position:relative;display:block;font-family:var(--demo);text-align:center;white-space:nowrap; word-break:keep-all;overflow-wrap:normal;color:var(--labrada-d);caret-color:currentColor;padding:.18em .3em;margin:-.18em -.3em; font-size:120px;line-height:.95;font-variation-settings:"wght" 700,"wdth" 85}
+#labrada .impact-stack{flex:1;min-height:0;width:100%;display:flex;flex-direction:column; justify-content:center;align-items:center;gap:1%; font-family:var(--demo);font-variation-settings:"wght" var(--iw,900)}
+#labrada .lb-pull{margin:0;text-align:center;font-family:var(--demo);font-style:italic; font-variation-settings:"wght" var(--itw,400);font-size:11.1cqw;line-height:1.25; color:var(--c-dark)}
+#labrada .panel.impact .lb-pull, #labrada .panel.impact-blue .lb-pull{color:#fff}
+/* ═══ MANUALE (propio) ═══ */
+@keyframes wghtwave_manuale{0%,100%{font-variation-settings:"wght" 800}50%{font-variation-settings:"wght" 300}}
+#manuale .wf-line.wghtwave{animation-timing-function:ease-in-out;animation-iteration-count:infinite;animation-name:wghtwave_manuale;animation-duration:3s}
+#manuale .runtext{flex:1;min-height:0;margin:0;overflow:hidden;font-family:var(--demo); font-variation-settings:"wght" var(--rw,400); font-size:calc(var(--tsize,6.3) * 1cqw);line-height:var(--tlead,1.6);text-align:left; color:#1C341A; -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 82%,transparent 100%); mask-image:linear-gradient(180deg,#000 0%,#000 82%,transparent 100%)}
+#manuale .words-solo{position:relative;display:block;font-family:var(--demo);text-align:center;white-space:nowrap; word-break:keep-all;overflow-wrap:normal;color:var(--manuale-d);caret-color:currentColor;padding:.18em .3em;margin:-.18em -.3em; font-size:120px;line-height:.95;font-variation-settings:"wght" 700,"wdth" 85}
+#manuale .mn-pull{margin:0;text-align:center;font-family:var(--demo);font-style:italic; font-variation-settings:"wght" var(--itw,400);font-size:11.1cqw;line-height:1.25; color:var(--c-dark)}
+#manuale .panel.impact .mn-pull, #manuale .panel.impact-blue .mn-pull{color:#fff}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="ic-ext" viewBox="0 0 24 24"><path d="M8 16 16 8M9.5 8H16v6.5" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></symbol></svg>
+
+<header class="masthead" id="top">
+  <div class="wrap">
+    <a class="eyebrow brand" href="#top">Press Series Collection</a>
+    <nav>
+      <a class="nav-link" href="#tester">Type Tester</a>
+      <a class="nav-link" href="#specimens">Specimens</a>
+      <a class="nav-link" href="#about">About</a>
+      <a class="nav-link" href="https://fonts.google.com/share?selection.family=Archivo|Asap|Saira|Faustina|Labrada|Manuale" target="_blank" rel="noopener">Press Series <svg class="ext"><use href="#ic-ext"/></svg></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5h18M3 12h18M3 17.5h18" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<div class="menu-overlay" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="menu-top">
+    <a class="eyebrow brand" href="#top" data-close>Press Series Collection</a>
+    <button class="menu-close" id="menuClose" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+  <nav class="menu-nav">
+    <a href="#tester" data-close>Type Tester</a>
+    <a href="#specimens" data-close>Specimens</a>
+    <a href="#about" data-close>About</a>
+    <a href="https://fonts.google.com/share?selection.family=Archivo|Asap|Saira|Faustina|Labrada|Manuale" target="_blank" rel="noopener" data-close>Press Series <svg class="ext"><use href="#ic-ext"/></svg></a>
+  </nav>
+  <div class="menu-palette" aria-hidden="true">
+    <span class="dot" style="background:var(--archivo)"></span>
+    <span class="dot" style="background:var(--asap)"></span>
+    <span class="dot" style="background:var(--saira)"></span>
+    <span class="dot" style="background:var(--faustina)"></span>
+    <span class="dot" style="background:var(--labrada)"></span>
+    <span class="dot" style="background:var(--manuale)"></span>
+  </div>
+</div>
+
+<!-- MAIN: families (first view) -->
+<section class="main">
+  <div class="bg-logo" aria-hidden="true">Press<br>Series</div>
+  <div class="wrap">
+    <div class="main-head">
+      <span class="eyebrow">A New Era for Editorial Typography</span>
+      <p class="spec-lead">Engineered for the press and editorial sector, Press Series is a collection of typeface families that spans the full spectrum of publishing. Divided into sans-serif and serif, it seamlessly bridges extensive and immersive reading. The sans designs excel in headlines and navigation, while the serif counterparts ensure maximum readability for dense text, delivering typographic excellence from traditional books to digital newspapers.</p>
+    </div>
+    <a class="fam" href="#archivo" style="--c:var(--archivo)">
+      <span class="fam-num">01</span><span class="fam-sw"></span>
+      <span class="fam-text">
+        <span class="fam-name" style="font-family:'Archivo'">Archivo</span>
+        <span class="fam-axes">wght 100–900 / wdth 62–125 / 108 statics</span>
+      </span>
+    </a>
+    <a class="fam" href="#asap" style="--c:var(--asap)">
+      <span class="fam-num">02</span><span class="fam-sw"></span>
+      <span class="fam-text">
+        <span class="fam-name" style="font-family:'Asap'">Asap</span>
+        <span class="fam-axes">wght 100–900 / wdth 75–125 / 90 statics</span>
+      </span>
+    </a>
+    <a class="fam" href="#saira" style="--c:var(--saira)">
+      <span class="fam-num">03</span><span class="fam-sw"></span>
+      <span class="fam-text">
+        <span class="fam-name" style="font-family:'Saira'">Saira</span>
+        <span class="fam-axes">wght 100–900 / wdth 50–125 / 126 statics</span>
+      </span>
+    </a>
+    <a class="fam" href="#faustina" style="--c:var(--faustina)">
+      <span class="fam-num">04</span><span class="fam-sw"></span>
+      <span class="fam-text">
+        <span class="fam-name" style="font-family:'Faustina'">Faustina</span>
+        <span class="fam-axes">wght 300–800 / 12 statics</span>
+      </span>
+    </a>
+    <a class="fam" href="#labrada" style="--c:var(--labrada)">
+      <span class="fam-num">05</span><span class="fam-sw"></span>
+      <span class="fam-text">
+        <span class="fam-name" style="font-family:'Labrada'">Labrada</span>
+        <span class="fam-axes">wght 100–900 / 18 statics</span>
+      </span>
+    </a>
+    <a class="fam" href="#manuale" style="--c:var(--manuale)">
+      <span class="fam-num">06</span><span class="fam-sw"></span>
+      <span class="fam-text">
+        <span class="fam-name" style="font-family:'Manuale'">Manuale</span>
+        <span class="fam-axes">wght 300–800 / 12 statics</span>
+      </span>
+    </a>
+  </div>
+</section>
+
+<!-- TYPE TESTER -->
+<section class="tester" id="tester">
+  <div class="wrap">
+    <span class="eyebrow">Type Tester</span>
+    <div class="inst" id="inst">
+      <div class="inst-stage">
+        <div class="inst-head">
+          <span class="cap-tag" id="capTag">Archivo</span>
+          <span class="hint">Drag the sliders / click the word to type your own</span>
+        </div>
+        <p class="inst-type" id="spec" contenteditable="true" spellcheck="false" aria-label="Editable type specimen"></p>
+      </div>
+      <div class="inst-panel">
+        <div class="inst-grid">
+          <div class="controls">
+            <div class="ctrl" id="ctrl-wght">
+              <div class="ctrl-top"><span class="ctrl-name">Weight</span><span class="ctrl-val" id="wghtVal">400</span></div>
+              <input type="range" id="wght" min="100" max="900" value="400" step="1" aria-label="Weight axis">
+            </div>
+            <div class="ctrl" id="ctrl-wdth">
+              <div class="ctrl-top"><span class="ctrl-name">Width</span><span class="ctrl-val" id="wdthVal">100</span></div>
+              <input type="range" id="wdth" min="75" max="125" value="100" step="1" aria-label="Width axis">
+            </div>
+            <div class="toggle">
+              <label class="switch"><input type="checkbox" id="ital" aria-label="Italic"><span class="slot"></span><span class="knob"></span></label>
+              <span class="ctrl-name">Italic</span>
+            </div>
+          </div>
+          <div class="inst-css">
+            <button class="copy" id="copyBtn">Copy</button>
+            <pre id="cssOut"></pre>
+          </div>
+        </div>
+        <div class="fam-switch" id="famSwitch" role="group" aria-label="Choose family">
+          <button data-fam="archivo" style="--c:var(--archivo)" aria-pressed="true"><span class="sw"></span>Archivo</button>
+          <button data-fam="asap" style="--c:var(--asap)" aria-pressed="false"><span class="sw"></span>Asap</button>
+          <button data-fam="saira" style="--c:var(--saira)" aria-pressed="false"><span class="sw"></span>Saira</button>
+          <button data-fam="faustina" style="--c:var(--faustina)" aria-pressed="false"><span class="sw"></span>Faustina</button>
+          <button data-fam="labrada" style="--c:var(--labrada)" aria-pressed="false"><span class="sw"></span>Labrada</button>
+          <button data-fam="manuale" style="--c:var(--manuale)" aria-pressed="false"><span class="sw"></span>Manuale</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECIMENS: 5 characteristics per family -->
+<section id="specimens">
+  <div class="spec-intro"><div class="wrap">
+    <span class="eyebrow">Specimens</span>
+    <p class="spec-lead">Six characteristics of each family — scroll each strip to explore.</p>
+  </div></div>
+  <div class="spec-fam" id="archivo"  style="--c:var(--archivo);--c-light:var(--archivo-l);--c-dark:var(--archivo-d)"></div>
+  <div class="spec-fam" id="asap"     style="--c:var(--asap);--c-light:var(--asap-l);--c-dark:var(--asap-d)"></div>
+  <div class="spec-fam" id="saira"    style="--c:var(--saira);--c-light:var(--saira-l);--c-dark:var(--saira-d)"></div>
+  <div class="spec-fam" id="faustina" style="--c:var(--faustina);--c-light:var(--faustina-l);--c-dark:var(--faustina-d)"></div>
+  <div class="spec-fam" id="labrada"  style="--c:var(--labrada);--c-light:var(--labrada-l);--c-dark:var(--labrada-d)"></div>
+  <div class="spec-fam" id="manuale"  style="--c:var(--manuale);--c-light:var(--manuale-l);--c-dark:var(--manuale-d)"></div>
+</section>
+
+<!-- GENERAL INFO -->
+<section class="info" id="about">
+  <div class="blob blob-a"></div>
+  <div class="blob blob-b"></div>
+  <div class="wrap">
+    <span class="eyebrow">About</span>
+    <div class="info-grid">
+      <div>
+        <p>Press Series is an open-source collection features six variable fonts optimized for continuous reading, delivering a flawless aesthetic experience both on high-resolution screens and in physical print. Each family is inspired by the traditions of print type and drawn with generous proportions for immersive, long-form reading.</p>
+        <p>Every family now ships as an open-source variable font: a single file carries the whole design space — continuous weight, and, where the design calls for it, width and italics. Prefer fixed styles? Each is also available as a set of static fonts.</p>
+      </div>
+      <div>
+        <p>The Omnibus-Type collective was founded on a shared typographic passion, conceived at the intersection of different ideas, cultures and even continents. Typefaces are born and given room to grow — combining academic research with the common sense of walking the streets.</p>
+        <p class="credit"><b>David Crossland</b> — Font Expert GDP<br><b>Amin Al Hazwani</b> — Web Design<br><b>Omnibus-Type</b> — Development</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-logo" aria-hidden="true">Press<br>Series</div>
+  <div class="wrap">
+    <div class="foot-right">
+      <p class="gf-badge">Made by friends of<br>
+        <span class="gf-logo"><span class="g">Google</span> <span class="f">Fonts</span></span></p>
+      <p class="foot-note">The Omnibus-Type Press Series is open source under the SIL Open Font License 1.1. A project by Omnibus-Type in collaboration with Google Fonts.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var FAMS={
+    archivo: {label:"Archivo",  accent:"var(--archivo)",  wght:[100,900,400], wdth:[62,125,100], specimen:"Magazine",  statics:108, serif:false},
+    asap:    {label:"Asap",     accent:"var(--asap)",     wght:[100,900,400], wdth:[75,125,100], specimen:"Newsprint", statics:90,  serif:false},
+    saira:   {label:"Saira",    accent:"var(--saira)",    wght:[100,900,400], wdth:[50,125,100], specimen:"Headline",  statics:126, serif:false},
+    faustina:{label:"Faustina", accent:"var(--faustina)", wght:[300,800,400], wdth:null,         specimen:"Editorial", statics:12,  serif:true},
+    labrada: {label:"Labrada",  accent:"var(--labrada)",  wght:[100,900,400], wdth:null,         specimen:"Paperback", statics:18,  serif:true},
+    manuale: {label:"Manuale",  accent:"var(--manuale)",  wght:[300,800,400], wdth:null,         specimen:"Chronicle", statics:12,  serif:true}
+  };
+  var ORDER=["archivo","asap","saira","faustina","labrada","manuale"];
+
+  // ---- specimen builders ----
+  function esc(s){return s;}
+  function span(fam,fvs,ital,text,size){
+    return '<span style="font-family:\''+fam+'\';font-variation-settings:'+fvs+';font-style:'+(ital?'italic':'normal')+';font-size:'+size+'">'+text+'</span>';
+  }
+  function panel(lab,inner,cap,cls,pillHtml,bg,extra){
+    var labRow=extra
+      ? '<div class="lab-row"><span class="lab">'+lab+'</span>'+extra+'</div>'
+      : '<span class="lab">'+lab+'</span>';
+    return '<div class="panel'+(cls?' '+cls:'')+'"'+(bg?' style="background:'+bg+'"':'')+'>'+
+      labRow+
+      '<div class="body">'+inner+'</div>'+
+      '<div class="pill-zone">'+(pillHtml||'')+'</div>'+
+      (cap?'<div class="cap">'+cap+'</div>':'')+'</div>';
+  }
+  function sansPanels(key){
+    var f=FAMS[key],lo=f.wdth[0],hi=f.wdth[1],mid=Math.round((lo+hi)/2),w=f.specimen,F=f.label;
+    return [
+      panel("Widths × weights",
+        span(F,"'wght' 300,'wdth' "+lo,0,w,"1.9rem")+span(F,"'wght' 600,'wdth' "+mid,0,w,"1.9rem")+span(F,"'wght' 900,'wdth' "+hi,0,w,"1.9rem"),
+        "From "+lo+" to "+hi+" wide, any weight."),
+      panel("Weight / 100 → 900",
+        span(F,"'wght' 200",0,w,"1.8rem")+span(F,"'wght' 400",0,w,"1.8rem")+span(F,"'wght' 700",0,w,"1.8rem")+span(F,"'wght' 900",0,w,"1.8rem")),
+      panel("Letters", span(F,"'wght' 520",0,"a g h ñ","5.4rem")),
+      panel("Figures", span(F,"'wght' 520",0,"0123456789","3rem"), "Preset tabular numerals for tables and forms."),
+      panel("Italic", span(F,"'wght' 520",0,"aghñ","3.2rem")+span(F,"'wght' 520",1,"aghñ","3.2rem"), "Roman vs. italic — note the alternate forms.")
+    ];
+  }
+  function serifPanels(key){
+    var f=FAMS[key],w=f.specimen,F=f.label;
+    return [
+      panel("Roman / 400 → 800", span(F,"'wght' 400",0,w,"2.4rem")+span(F,"'wght' 700",0,w,"2.4rem")),
+      panel("Italic / 400 → 800", span(F,"'wght' 400",1,w,"2.4rem")+span(F,"'wght' 700",1,w,"2.4rem")),
+      panel("Letters", span(F,"'wght' 480",0,"a g k x z","4.8rem")),
+      panel("Ligatures", span(F,"'wght' 480",0,"fi fl ff ffi ffl","3rem"), "Standard ligatures, roman &amp; italic."),
+      panel("Figures", span(F,"'wght' 480",0,"0123456789","3rem"))
+    ];
+  }
+  // ═════ carruseles por familia ═════
+  var REFRESH_BTN='<button class="refresh-btn" type="button" aria-label="Refrescar mosaico" title="Refrescar mosaico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg></button>';
+  function pillHTML(axes){
+    return '<div class="pill">'+axes.map(function(a){
+      if(a.type==='toggle'){
+        return '<div class="pill-ctrl pill-toggle">'+
+          '<label>'+a.label+'</label>'+
+          '<div class="ctrl-row"><button type="button" class="pill-switch'+(a.init?' on':'')+'" '+
+          'data-toggle-target="'+a.target+'" data-toggle-prop="'+a.prop+'" data-toggle-on="'+a.on+'" data-toggle-off="'+(a.off||'')+'" '+
+          'data-on="'+(a.init?'1':'0')+'" aria-pressed="'+(a.init?'true':'false')+'">'+
+          '<span class="track"></span><span class="thumb"></span></button></div>'+
+          '</div>';
+      }
+      return '<div class="pill-ctrl">'+
+        '<label data-base="'+a.label+'">'+a.label+' '+a.init+'</label>'+
+        '<div class="ctrl-row"><input type="range" data-axis="'+a.id+'" data-target="'+a.target+'" data-unit="'+(a.unit||'')+'" '+
+        'data-directpx="'+(a.directPx?'1':'0')+'" min="'+a.min+'" max="'+a.max+'" step="'+(a.step||1)+'" value="'+a.init+'"></div>'+
+        '</div>';
+    }).join('')+'</div>';
+  }
+  function wirePills(root){
+    function apply(input){
+      var tgt=root.querySelector(input.dataset.target);
+      var display=input.value;
+      if(input.dataset.directpx==='1'){
+        if(tgt)tgt.style.fontSize=input.value+'px';
+        display=input.value+'px';
+      } else {
+        if(tgt)tgt.style.setProperty('--'+input.dataset.axis,input.value);
+        if(input.dataset.unit==='px'&&tgt){display=Math.round(parseFloat(getComputedStyle(tgt).fontSize))+'px';}
+        else if(input.dataset.unit==='pct'){display=Math.round(parseFloat(input.value)*100)+'%';}
+      }
+      var lbl=input.parentElement.previousElementSibling;
+      if(lbl)lbl.textContent=lbl.dataset.base+' '+display;
+    }
+    root.querySelectorAll('.pill input[type=range]').forEach(function(input){
+      input.addEventListener('input',function(){apply(input);});
+      apply(input);
+    });
+    root.querySelectorAll('.pill-switch').forEach(function(btn){
+      function applyToggle(){
+        var on=btn.dataset.on==='1';
+        var tgt=root.querySelector(btn.dataset.toggleTarget);
+        if(tgt)tgt.style[btn.dataset.toggleProp]=on?btn.dataset.toggleOn:(btn.dataset.toggleOff||'');
+        btn.classList.toggle('on',on);
+        btn.setAttribute('aria-pressed',on?'true':'false');
+      }
+      btn.addEventListener('click',function(e){
+        e.stopPropagation();
+        btn.dataset.on=btn.dataset.on==='1'?'0':'1';
+        applyToggle();
+      });
+      applyToggle();
+    });
+  }
+  function wireEditable(root){
+    root.querySelectorAll('[contenteditable]').forEach(function(el){
+      el.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();el.blur();}});
+      // solo cuenta como "ya editó" si hubo un cambio real de texto (evento input),
+      // no cualquier foco/blur — así un arrastre para desplazar la palabra (que
+      // hace foco y blur sin tocar el contenido) no apaga el cursor de pista antes
+      // de que el usuario haya editado de verdad.
+      el.addEventListener('input',function(){el.dataset.dirty='1';});
+      el.addEventListener('blur',function(){if(el.dataset.dirty==='1')el.classList.add('edited');});
+    });
+  }
+  function wireWordPan(root){
+    var word=root.querySelector('.panel.words .words-solo');
+    if(!word)return;
+    var panel=word.closest('.panel');
+    var sizeInput=panel?panel.querySelector('input[type=range]'):null;
+    var down=false,moved=false,sx=0,startX=0,offsetX=0;
+    // pellizco (2 dedos): pointers guarda la posición de cada dedo activo por
+    // su pointerId. Mientras haya 2, el gesto pasa a "resize" y se congela el
+    // pan (el desplazamiento no se toca hasta que vuelva a quedar 1 solo dedo).
+    var pointers={};
+    var pinchStartDist=0,pinchStartSize=0;
+    function clampOffset(v){
+      var maxOff=Math.max(0,(word.scrollWidth-panel.clientWidth)/2+16);
+      return Math.max(-maxOff,Math.min(maxOff,v));
+    }
+    function dist(a,b){var dx=a.x-b.x,dy=a.y-b.y;return Math.sqrt(dx*dx+dy*dy);}
+    function setSize(px){
+      if(!sizeInput)return;
+      px=Math.max(+sizeInput.min,Math.min(+sizeInput.max,Math.round(px)));
+      sizeInput.value=px;
+      sizeInput.dispatchEvent(new Event('input',{bubbles:true}));
+    }
+    word.addEventListener('pointerdown',function(e){
+      word.setPointerCapture(e.pointerId);
+      pointers[e.pointerId]={x:e.clientX,y:e.clientY};
+      var ids=Object.keys(pointers);
+      if(ids.length===2){
+        var p=ids.map(function(id){return pointers[id];});
+        pinchStartDist=dist(p[0],p[1]);
+        pinchStartSize=sizeInput?+sizeInput.value:120;
+        down=false;word.classList.remove('panning');
+      } else if(ids.length===1){
+        down=true;moved=false;sx=e.clientX;startX=offsetX;
+      }
+    });
+    word.addEventListener('pointermove',function(e){
+      if(!(e.pointerId in pointers))return;
+      pointers[e.pointerId]={x:e.clientX,y:e.clientY};
+      var ids=Object.keys(pointers);
+      if(ids.length===2){
+        var p=ids.map(function(id){return pointers[id];});
+        var d=dist(p[0],p[1]);
+        if(pinchStartDist>0)setSize(pinchStartSize*(d/pinchStartDist));
+        e.preventDefault();
+        return;
+      }
+      if(!down)return;
+      var dx=e.clientX-sx;
+      if(!moved&&Math.abs(dx)>4){moved=true;word.classList.add('panning');word.blur();}
+      if(moved){
+        offsetX=clampOffset(startX+dx);
+        word.style.transform=offsetX?'translateX('+offsetX+'px)':'';
+        e.preventDefault();
+      }
+    });
+    function endPointer(e){
+      delete pointers[e.pointerId];
+      var ids=Object.keys(pointers);
+      if(ids.length<2)pinchStartDist=0;
+      if(ids.length===0){down=false;word.classList.remove('panning');}
+      else if(ids.length===1){
+        // queda un dedo tras soltar el pellizco: retoma el pan desde ahí, sin salto
+        var p=pointers[ids[0]];down=true;moved=true;sx=p.x;startX=offsetX;
+        word.classList.add('panning');
+      }
+    }
+    word.addEventListener('pointerup',endPointer);
+    word.addEventListener('pointercancel',endPointer);
+    // al cambiar el tamaño (por slider o por pellizco) la palabra vuelve a nacer
+    // centrada, para arrancar siempre desde una posición conocida en vez de un
+    // desplazamiento previo que ya no tiene sentido con el nuevo ancho.
+    if(sizeInput)sizeInput.addEventListener('input',function(){offsetX=0;word.style.transform='';});
+  }
+  function wireRefresh(root,palette){
+    var btn=root.querySelector('.refresh-btn');
+    if(!btn)return;
+    btn.addEventListener('click',function(e){e.stopPropagation();buildGlyphs(root.querySelector('.glyph-grid'),palette);});
+  }
+  function wireInfoModal(root){
+    var btn=root.querySelector('.info-btn'),modal=root.querySelector('.info-modal'),close=root.querySelector('.info-modal-close');
+    if(!btn||!modal)return;
+    btn.addEventListener('click',function(){modal.classList.add('open');});
+    if(close)close.addEventListener('click',function(){modal.classList.remove('open');});
+    modal.addEventListener('click',function(e){if(e.target===modal)modal.classList.remove('open');});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')modal.classList.remove('open');});
+  }
+  var GLYPH_SRC=('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789ÁÉÍÓÚÑÜáéíóúñü+-×÷=%').split('');
+  function luma(hex){
+    hex=hex.replace('#','');
+    var r=parseInt(hex.substr(0,2),16),g=parseInt(hex.substr(2,2),16),b=parseInt(hex.substr(4,2),16);
+    return (0.2126*r+0.7152*g+0.0722*b)/255;
+  }
+  function buildGlyphs(el,palette){
+    if(!el)return;
+    var bag=[],idx=0;
+    function next(){if(idx>=bag.length){bag=GLYPH_SRC.slice().sort(function(){return Math.random()-.5});idx=0;}return bag[idx++];}
+    var pal=palette||ARCHIVO_RAMP;
+    var cols=4,rows=4;
+    var occ=[],colorGrid=[];
+    for(var r=0;r<rows;r++){occ.push(new Array(cols).fill(false));colorGrid.push(new Array(cols).fill(null));}
+    function mark(c,r,s,color){for(var rr=r;rr<r+s;rr++)for(var cc=c;cc<c+s;cc++){occ[rr][cc]=true;colorGrid[rr][cc]=color;}}
+    function neighborColors(c,r,s){
+      var set={};
+      for(var i=0;i<s;i++){
+        if(c-1>=0&&colorGrid[r+i][c-1])set[colorGrid[r+i][c-1]]=1;
+        if(c+s<cols&&colorGrid[r+i][c+s])set[colorGrid[r+i][c+s]]=1;
+      }
+      for(var j=0;j<s;j++){
+        if(r-1>=0&&colorGrid[r-1][c+j])set[colorGrid[r-1][c+j]]=1;
+        if(r+s<rows&&colorGrid[r+s][c+j])set[colorGrid[r+s][c+j]]=1;
+      }
+      return Object.keys(set);
+    }
+    function pickColor(c,r,s){
+      var forbidden=neighborColors(c,r,s);
+      var options=pal.filter(function(x){return forbidden.indexOf(x)===-1;});
+      if(!options.length)options=pal;
+      return options[Math.floor(Math.random()*options.length)];
+    }
+    function cell(c,r,s,ch){
+      var bg=pickColor(c,r,s);
+      mark(c,r,s,bg);
+      var fg=luma(bg)>0.55?'var(--c-dark)':'#fff';
+      var fs=(s===2?'22cqw':'13cqw');
+      return '<span class="glyph-cell" style="grid-column:'+(c+1)+'/span '+s+';grid-row:'+(r+1)+'/span '+s+
+        ';background:'+bg+';color:'+fg+';font-size:'+fs+'">'+ch+'</span>';
+    }
+    var html='';
+    var quadrants=[[0,0],[2,0],[0,2],[2,2]].sort(function(){return Math.random()-.5;});
+    quadrants.slice(0,2).forEach(function(q){html+=cell(q[0],q[1],2,next());});
+    for(var rr=0;rr<rows;rr++)for(var cc=0;cc<cols;cc++){
+      if(occ[rr][cc])continue;html+=cell(cc,rr,1,next());
+    }
+    el.innerHTML=html;
+  }
+  // Asap — uniwidth jolt
+  var WIDTHJOLT_WORDS=['Width','Fixed','Same','Equal'];
+  var WIDTHJOLT_WEIGHTS=[900,100,800,200,700,300,600,400,500];
+  var WIDTHJOLT_COLORS={100:'#81464D',200:'#995C62',300:'#B27278',400:'#CB8A8F',
+    500:'#E5A1A7',600:'#FFBAC0',700:'#FEDADC',800:'#FEF0F1',900:'#FFFFFF'};
+  function widthJoltWordHTML(word,w){
+    var c=WIDTHJOLT_COLORS[w];
+    return word.split('').map(function(ch){
+      return '<span class="wj-letter" style="font-variation-settings:\'wght\' '+w+',\'wdth\' 75;color:'+c+'">'+ch+'</span>';
+    }).join('');
+  }
+  function fitWidthJolt(track){
+    var letters=track.querySelectorAll('.wj-letter');
+    if(!letters.length)return;
+    var target=120; // mismo tamaño que "Chip" en la placa Words
+    track.style.setProperty('--wj-size',target+'px');
+    var avail=track.clientWidth;
+    if(!avail||!track.scrollWidth)return;
+    // Si no cabe a 120px, escalar hacia abajo hasta 96% del ancho disponible
+    if(track.scrollWidth > avail*0.96){
+      var scale=(avail*0.96)/track.scrollWidth;
+      var size=Math.max(10,Math.floor(target*scale));
+      track.style.setProperty('--wj-size',size+'px');
+    }
+  }
+  function wireWidthJolt(root){
+    var track=root.querySelector('.wj-track');
+    if(!track)return;
+    if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      track.innerHTML=widthJoltWordHTML(WIDTHJOLT_WORDS[0],WIDTHJOLT_WEIGHTS[0]);
+      fitWidthJolt(track);
+      return;
+    }
+    var wIdx=0,wordIdx=0;
+    track.innerHTML=widthJoltWordHTML(WIDTHJOLT_WORDS[wordIdx],WIDTHJOLT_WEIGHTS[wIdx]);
+    fitWidthJolt(track);
+    function sweep(){
+      track.classList.remove('wj-sweep');
+      void track.offsetWidth;
+      track.classList.add('wj-sweep');
+    }
+    function jolt(){
+      wIdx++;
+      if(wIdx>=WIDTHJOLT_WEIGHTS.length){
+        // ciclo de 9 pesos completo: pasa a la próxima palabra del surtido
+        wIdx=0;
+        wordIdx=(wordIdx+1)%WIDTHJOLT_WORDS.length;
+        track.innerHTML=widthJoltWordHTML(WIDTHJOLT_WORDS[wordIdx],WIDTHJOLT_WEIGHTS[wIdx]);
+        fitWidthJolt(track);
+        sweep();
+        return;
+      }
+      var w=WIDTHJOLT_WEIGHTS[wIdx],c=WIDTHJOLT_COLORS[w];
+      var letters=track.querySelectorAll('.wj-letter');
+      letters.forEach(function(letter,i){
+        setTimeout(function(){
+          letter.style.fontVariationSettings='"wght" '+w+',"wdth" 75';
+          letter.style.color=c;
+          letter.classList.remove('wj-hit');
+          void letter.offsetWidth; // reinicia la animación aunque se repita la clase
+          letter.classList.add('wj-hit');
+        },i*60);
+      });
+    }
+    setInterval(jolt,850);
+    window.addEventListener('resize',function(){fitWidthJolt(track);});
+  }
+  // Saira — alternates OpenType
+  var ALT_CHARS=['A','G','R','4','6','9','Y','y'];
+  function altPairHTML(ch){
+    return '<span class="alt-pair">'+
+      '<span class="alt-norm">'+ch+'</span>'+
+      '<span class="alt-alt">'+ch+'</span>'+
+      '</span>';
+  }
+  function fitAltPair(track){
+    var pair=track.querySelector('.alt-pair');
+    if(!pair)return;
+    var base=100;
+    track.style.setProperty('--alt-size',base+'px');
+    var availW=track.clientWidth,availH=track.clientHeight;
+    var natural=pair.scrollWidth;
+    if(!availW||!natural)return;
+    // sin techo artificial en px (antes tope fijo de 132px): escala como
+    // fracción del ancho/alto disponible en vez de un límite duro. Se afinó
+    // dos veces: primero a casi el 100% (pedido de "mucho más grande"),
+    // después un poco para atrás (0.82/0.78, "reducir un poco el cuerpo").
+    // Segundo límite por ALTURA (no existía en el primer intento) porque un
+    // par de solo 2 caracteres angostos (p.ej. "yy") puede tener muy poco
+    // ancho natural relativo al alto de la placa, y escalar solo por ancho
+    // lo dispararía por fuera del área activa verticalmente — con más
+    // caracteres rotando ahora (4, 6, 9, Y, y) el ancho natural del par
+    // varía bastante entre uno y otro, así que hace falta el doble chequeo.
+    var scaleW=(availW*0.82)/natural;
+    var scaleH=availH?(availH*0.78)/(base*0.95):scaleW;
+    var scale=Math.min(scaleW,scaleH);
+    var size=Math.max(10,Math.floor(base*scale));
+    track.style.setProperty('--alt-size',size+'px');
+  }
+  function wireAltFeature(root){
+    var track=root.querySelector('.alt-track');
+    if(!track)return;
+    var idx=0;
+    function render(){
+      track.innerHTML=altPairHTML(ALT_CHARS[idx]);
+      fitAltPair(track);
+    }
+    render();
+    if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+    // recambio más expresivo: la transición en sí es más corta y con un
+    // pequeño "pop" de escala (antes solo opacity, 260ms) para que el cambio
+    // de signo se sienta más rápido/vivo; el intervalo total se achica un
+    // poco pero sigue dejando una pausa clara (~2s) con el par quieto para
+    // que se pueda leer antes del siguiente salto.
+    setInterval(function(){
+      track.classList.add('alt-fade');
+      setTimeout(function(){
+        idx=(idx+1)%ALT_CHARS.length;
+        render();
+        track.classList.remove('alt-fade');
+      },140);
+    },2200);
+    window.addEventListener('resize',function(){fitAltPair(track);});
+  }
+  // rampas de color por familia
+  var ARCHIVO_RAMP=['#EAF5FE','#C7E7FF','#94D3FF','#5CA3CE','#22749D','#003248'];
+  var ARCHIVO_RAMP_LIGHT=['#EAF5FE','#C7E7FF','#94D3FF','#5CA3CE'];
+  var ASAP_RAMP=['#FEF0F1','#FEDADC','#FFBAC0','#CB8A8F','#995C62','#521C25'];
+  var ASAP_RAMP_LIGHT=['#FEF0F1','#FEDADC','#FFBAC0','#CB8A8F'];
+  var ASAP_RAMP_DARK=['#995C62','#81464D','#693138','#521C25'];
+  var SAIRA_RAMP=['#F6F5D6','#E6E6AF','#CFD17C','#9AA22F','#6A7300','#2E3100'];
+  var SAIRA_RAMP_LIGHT=['#F6F5D6','#E6E6AF','#CFD17C','#9AA22F'];
+  // fichas técnicas (modales)
+  var ARCHIVO_MODAL='<div class="info-modal" aria-hidden="true">'+
+      '<div class="info-modal-box">'+
+        '<button class="info-modal-close" aria-label="Close">✕</button>'+
+        '<span class="info-title">Archivo VF</span>'+
+        '<p class="info-body">A neo-grotesque superfamily for headlines and text, drawing on the mid-20th-century sans tradition. Its flat, sharp terminals and even stroke provide strength at small sizes and impact in headlines. As a variable font, it features a weight axis from 100 (Thin) to 900 (Black) and a width axis from 62% (Extra Condensed) to 125% (Expanded), with true italics across the entire range. The italic design introduces distinctive alternate forms for letters like <em>a</em>, <em>f</em>, and <em>g</em>, setting it apart from traditional neo-grotesques while supporting over 200 languages.</p>'+
+        '<p class="cap">Ideal for headlines, pull quotes, editorial snippets, interfaces, and institutional branding. Body pairings: Faustina, Labrada, Manuale.</p>'+
+        '<p class="cap">Design: Héctor Gatti & Omnibus-Type. Contribute at <a href="https://github.com/Omnibus-Type" target="_blank" rel="noopener">github.com/Omnibus-Type <svg class="ext"><use href="#ic-ext"/></svg></a></p>'+
+      '</div>'+
+    '</div>';
+  var ASAP_MODAL='<div class="info-modal" aria-hidden="true">'+
+      '<div class="info-modal-box">'+
+        '<button class="info-modal-close" aria-label="Close">✕</button>'+
+        '<span class="info-title">Asap VF</span>'+
+        '<p class="info-body">A contemporary sans serif with subtly rounded corners that soften its neo-grotesque structure without losing crispness. Its core design constraint is width consistency: every glyph maintains the same width across the family, preventing text reflow when styles change. As a variable font, it offers a weight axis from 100 (Thin) to 900 (Black) and a continuous width axis from 75% (Condensed) to 125% (Expanded). The true italics introduce alternate forms for <em>a, g, h, m, n,</em> and <em>u</em>, adding character while maintaining its highly functional, uniform stroke.</p>'+
+        '<p class="cap">Ideal for digital headlines, navigation menus, mobile interfaces, and data-heavy tables with tabular numerals. Body pairings: Faustina, Labrada, Manuale.</p>'+
+        '<p class="cap">Design: Pablo Cosgaya & Omnibus-Type. Contribute at <a href="https://github.com/Omnibus-Type" target="_blank" rel="noopener">github.com/Omnibus-Type <svg class="ext"><use href="#ic-ext"/></svg></a></p>'+
+      '</div>'+
+    '</div>';
+  var SAIRA_MODAL='<div class="info-modal" aria-hidden="true">'+
+      '<div class="info-modal-box">'+
+        '<button class="info-modal-close" aria-label="Close">✕</button>'+
+        '<span class="info-title">Saira VF</span>'+
+        '<p class="info-body">A sans superfamily blending geometric rigor—echoing superelliptic forms—with the open simplicity of a neo-grotesque. It features a highly functional design with full case support and tabular numerals. As a variable font, it provides a weight axis from 100 (Thin) to 900 (Black) and a width axis from 50% (Ultra Condensed) to 125% (Expanded) that unifies former subfamilies into a continuous range, alongside true italics. Stylistic alternates for characters like <em>A, G, R, 4, 6, 9,</em> and <em>Y</em> give it a distinctive, confident editorial voice suitable for high-impact applications.</p>'+
+        '<p class="cap">Ideal for high-impact headlines, advertising, corporate design, packaging, and signage. Body pairings: Faustina, Labrada, Manuale.</p>'+
+        '<p class="cap">Design: Héctor Gatti & Omnibus-Type. Contribute at <a href="https://github.com/Omnibus-Type" target="_blank" rel="noopener">github.com/Omnibus-Type <svg class="ext"><use href="#ic-ext"/></svg></a></p>'+
+      '</div>'+
+    '</div>';
+  // builders por familia
+  function crawl(txt,rev){return '<div class="tick"><div class="tick-row'+(rev?' rev':'')+'"><span>'+txt+'</span><span>'+txt+'</span></div></div>';}
+  function shuffleDigits(){
+    var d=['1','2','3','4','5','6','7','8','9'];
+    for(var i=d.length-1;i>0;i--){
+      var j=Math.floor(Math.random()*(i+1));
+      var t=d[i];d[i]=d[j];d[j]=t;
+    }
+    return d.slice(0,3).join('')+'.'+d.slice(3,6).join('')+'.'+d.slice(6,9).join('');
+  }
+  function archivoPanels(){
+    var t1="MERCADOS — CIERRE DE RUEDA — RENTA VARIABLE — ";
+    var t2="MERVAL 1.842.300 | +2,4 % | S&P 500 5.210 | −0,8 % | ";
+    var t3="PANEL LÍDER — BONOS — DÓLAR — TASAS — ";
+    var t4="ORO 2.412 | PETRÓLEO 78,4 | SOJA 1.058 | EURO 1,09 | ";
+    var t5="APERTURA — MEDIODÍA — CIERRE — POSTCIERRE — ";
+    var t6="GGAL 6.980 | YPFD 42.150 | PAMP 3.204 | ALUA 1.176 | ";
+    var t7="RIESGO PAÍS — ÍNDICES — VOLUMEN OPERADO — ";
+    var t8="+1,2 % | −0,6 % | +3,8 % | −1,4 % | +0,9 % | ";
+    var t9="RENTA FIJA — ACCIONES — CEDEARS — FUTUROS — ";
+    function crawl(txt,rev){return '<div class="tick"><div class="tick-row'+(rev?' rev':'')+'"><span>'+txt+'</span><span>'+txt+'</span></div></div>';}
+    var runtext="La edición de hoy llega temprano a los kioscos. En la portada, una crónica de trazos contundentes: la ciudad amaneció con el pulso de siempre y una noticia que ordena la jornada. Las columnas se leen de corrido, sin fatiga, en un cuerpo pensado para la lectura sostenida, en el papel y en la pantalla. Los titulares imponen jerarquía; las bajadas acompañan sin competir; el texto base sostiene el relato hasta el pie. Archivo nació para la prensa diaria: una gótica de trabajo, neutra y todo-terreno, que ordena la página sin llamar la atención sobre sí misma. Cada párrafo mantiene el ritmo, cada renglón conserva el color, y la lectura avanza con la naturalidad de un diario bien compuesto.";
+    var stackWords=['WHITTLE','INDUCES','HURRIES','CASINGS','DIVORCE'];
+    var stackHTML=stackWords.map(function(w){return '<span class="impact-line">'+w+'</span>';}).join('');
+
+    return [
+      panel("Glyphs",
+        '<div class="glyph-grid" id="af-glyphgrid"></div>',
+        "Live weight and width",
+        "impact",
+        pillHTML([
+          {id:'gw',target:'#af-glyphgrid',label:'wght',min:100,max:900,step:1,init:650},
+          {id:'gd',target:'#af-glyphgrid',label:'wdth',min:62,max:125,step:1,init:100}
+        ]),
+        "#035D82",REFRESH_BTN),
+      panel("Words",
+        '<div class="fill" style="justify-content:center;align-items:center">'+
+          '<span class="words-line words-solo" id="af-wsolo" contenteditable="true" spellcheck="false">Form</span>'+
+        '</div>',
+        "Live size",
+        "words",
+        pillHTML([{id:'wsize',target:'#af-wsolo',label:'size',min:20,max:600,step:5,init:120,directPx:true}]),
+        "#FFFFFF"),
+      panel("Weight / Width",
+        '<div class="wf">'+
+          '<span class="wf-line wghtwdthwave" style="animation-delay:0s">Cover</span>'+
+          '<span class="wf-line wghtwdthwave" style="animation-delay:-.76s">Headline</span>'+
+          '<span class="wf-line wghtwdthwave" style="animation-delay:-1.52s">Feature</span>'+
+          '<span class="wf-line wghtwdthwave" style="animation-delay:-2.28s">Edition</span>'+
+          '<span class="wf-line wghtwdthwave" style="animation-delay:-3.04s">Impact</span>'+
+        '</div>',
+        "Weight 100→900 / width 62→125 / loop","impact",null,"#22749D"),
+      panel("Extensive Reading",
+        '<p class="runtext" id="af-runtext">'+runtext+'</p>',
+        "Live size and leading","text",
+        pillHTML([
+          {id:'tsize',target:'#af-runtext',label:'size',min:14,max:40,step:1,init:20,directPx:true},
+          {id:'tlead',target:'#af-runtext',label:'leading',min:1.1,max:1.8,step:.05,init:1.35,unit:'pct'}
+        ]),
+        "#94D3FF"),
+      panel("Display",
+        '<div class="impact-stack" id="af-impact">'+stackHTML+'</div>',
+        "Live weight and width","impact",
+        pillHTML([
+          {id:'iw',target:'#af-impact',label:'wght',min:100,max:900,step:1,init:900},
+          {id:'id',target:'#af-impact',label:'wdth',min:62,max:125,step:1,init:125}
+        ]),
+        "#034764"),
+      panel("Ticker: tabular numerals",
+        '<div class="fill fill-between">'+crawl(t1,0)+crawl(t2,1)+crawl(t3,0)+crawl(t4,1)+crawl(t5,0)+crawl(t6,1)+crawl(t7,0)+crawl(t8,1)+crawl(t9,0)+'</div>',
+        "Financial information","ticker impact",null,"#418BB5")
+    
+    ];
+  }
+  function asapPanels(){
+    var runtext="La interfaz carga en un instante y cada elemento encuentra su lugar sin sobresaltos: un menú que no empuja al siguiente, una etiqueta que cabe en el espacio justo, una cifra que se alinea con la de al lado. Asap nació para eso — títulos cortos, menús, tablas con números tabulares — con un trazo parejo que no cambia de ancho entre pesos, así el texto no se reacomoda cuando cambia de estilo. Sus esquinas apenas redondeadas suavizan la lectura en pantalla sin perder la estructura neo-grotesca de base. Lo que antes era una familia aparte, más angosta, hoy es apenas un extremo del mismo eje continuo: se puede recorrer todo el rango sin salir nunca del mismo diseño.";
+    var stackWords=['THERAPIST','PREMISSES','CONCEIVES','POLLSTERS','EXEMPLIFY'];
+    var stackHTML=stackWords.map(function(w){return '<span class="impact-line">'+w+'</span>';}).join('');
+
+    return [
+      panel("Glyphs",
+        '<div class="glyph-grid" id="as-glyphgrid"></div>',
+        "Live weight and width",
+        "impact",
+        pillHTML([
+          {id:'gw',target:'#as-glyphgrid',label:'wght',min:100,max:900,step:1,init:650},
+          {id:'gd',target:'#as-glyphgrid',label:'wdth',min:75,max:125,step:1,init:75}
+        ]),
+        "#995C62",REFRESH_BTN),
+      panel("Words",
+        '<div class="fill" style="justify-content:center;align-items:center">'+
+          '<span class="words-line words-solo" id="as-wsolo" contenteditable="true" spellcheck="false">Chip</span>'+
+        '</div>',
+        "Live size",
+        "words",
+        pillHTML([{id:'wsize',target:'#as-wsolo',label:'size',min:20,max:600,step:5,init:120,directPx:true}]),
+        "#FFFFFF"),
+      panel("Uniwidth",
+        '<div class="wj-track"></div>',
+        "All weights, same width",
+        "impact",null,
+        "#3B0712"),
+      panel("Extensive Reading",
+        '<p class="runtext" id="as-runtext">'+runtext+'</p>',
+        "Live size and leading","text",
+        pillHTML([
+          {id:'tsize',target:'#as-runtext',label:'size',min:14,max:40,step:1,init:20,directPx:true},
+          {id:'tlead',target:'#as-runtext',label:'leading',min:1.1,max:1.8,step:.05,init:1.35,unit:'pct'}
+        ]),
+        "#FFBAC0"),
+      panel("Display",
+        '<div class="impact-stack" id="as-impact">'+stackHTML+'</div>',
+        "Live weight and width","impact",
+        pillHTML([
+          {id:'iw',target:'#as-impact',label:'wght',min:100,max:900,step:1,init:900},
+          {id:'id',target:'#as-impact',label:'wdth',min:75,max:125,step:1,init:125}
+        ]),
+        "#521C25"),
+      panel("Uniwidth tabular numerals",
+        '<div class="wf tab-wave">'+
+          '<span class="wf-line tab-line" style="animation-delay:0s">'+shuffleDigits()+'</span>'+
+          '<span class="wf-line tab-line" style="animation-delay:-.25s">'+shuffleDigits()+'</span>'+
+          '<span class="wf-line tab-line" style="animation-delay:-.5s">'+shuffleDigits()+'</span>'+
+          '<span class="wf-line tab-line" style="animation-delay:-.75s">'+shuffleDigits()+'</span>'+
+          '<span class="wf-line tab-line" style="animation-delay:-1s">'+shuffleDigits()+'</span>'+
+        '</div>',
+        "Weight snaps, holds, repeats",null,null,"#FFBAC0")
+    
+    ];
+  }
+  function sairaPanels(){
+    var t1="EMBARCANDO — VUELO AR 1130 — BUENOS AIRES — PUERTA 14 — ";
+    var t2="10:45 | LLEGADA | MADRID T2 | A TIEMPO | ";
+    var t3="ÚLTIMA LLAMADA — VUELO IB 6844 — MADRID — PUERTA 22 — ";
+    var t4="15:20 | SALIDA | SANTIAGO | DEMORA 40 MIN | ";
+    var t5="TERMINAL 2 — AEROPUERTO INTERNACIONAL — MÁS VUELOS EN PANTALLA — ";
+    var runtext="Un titular no pide permiso: ocupa la plana entera y organiza la mirada antes que cualquier otro elemento de la página. Saira nació para ese instante — una superfamilia sans que va del extremo extra angosto al expandido sin perder su carácter, con nueve pesos que recorren del hilo más fino al negro más macizo. Su base es casi industrial: una geometría rectangular que evoca maquinaria y precisión de taller, suavizada con curvas simples que la acercan a las neo-grotescas de siempre. Alternates OpenType en la A, la G, la R, el 4, el 6, el 9 y la Y suman variantes estilísticas sin salir de la misma familia. Es, ante todo, una herramienta de impacto: para portadas, señalética y cualquier titular que necesite ocupar poco espacio diciendo mucho.";
+    var stackWords=['Obedience','Treatment','Surpassed','Unpopular','Emptiness'];
+    var stackHTML=stackWords.map(function(w){return '<span class="impact-line">'+w+'</span>';}).join('');
+
+    return [
+      panel("Glyphs",
+        '<div class="glyph-grid" id="sr-glyphgrid"></div>',
+        "Live weight and width",
+        "impact",
+        pillHTML([
+          {id:'gw',target:'#sr-glyphgrid',label:'wght',min:100,max:900,step:1,init:650},
+          {id:'gd',target:'#sr-glyphgrid',label:'wdth',min:50,max:125,step:1,init:70}
+        ]),
+        "#6A7300",REFRESH_BTN),
+      panel("Words",
+        '<div class="fill" style="justify-content:center;align-items:center">'+
+          '<span class="words-line words-solo" id="sr-wsolo" contenteditable="true" spellcheck="false">Grid</span>'+
+        '</div>',
+        "Live size",
+        "words",
+        pillHTML([{id:'wsize',target:'#sr-wsolo',label:'size',min:20,max:600,step:5,init:120,directPx:true}]),
+        "#FFFFFF"),
+      panel("Alternates",
+        '<div class="fill alt-track" style="justify-content:center;align-items:center"></div>',
+        "A / G / R / 4 / 6 / 9 / Y (OTF files only)",
+        null,null,
+        "#B3BA48"),
+      panel("Extensive Reading",
+        '<p class="runtext" id="sr-runtext">'+runtext+'</p>',
+        "Live size and leading",null,
+        pillHTML([
+          {id:'tsize',target:'#sr-runtext',label:'size',min:14,max:40,step:1,init:20,directPx:true},
+          {id:'tlead',target:'#sr-runtext',label:'leading',min:1.1,max:1.8,step:.05,init:1.35,unit:'pct'}
+        ]),
+        "#CFD17C"),
+      panel("Display",
+        '<div class="impact-stack" id="sr-impact">'+stackHTML+'</div>',
+        "Live weight and width","impact",
+        pillHTML([
+          {id:'iw',target:'#sr-impact',label:'wght',min:100,max:900,step:1,init:100},
+          {id:'id',target:'#sr-impact',label:'wdth',min:50,max:125,step:1,init:125}
+        ]),
+        "#6A7300"),
+      panel("Ticker: tabular numerals",
+        '<div class="fill fill-between">'+crawl(t1,0)+crawl(t2,1)+crawl(t3,0)+crawl(t4,1)+crawl(t5,0)+'</div>',
+        "Airport display — flights & destinations","ticker impact",null,"#404600")
+    
+    ];
+  }
+  // mapas familia → (builder / modal / paleta glifos / wiring extra)
+  // ── serif: rampas de color ──
+  var FAUSTINA_RAMP=['#FAF0FF','#D4C8DB','#A397A9','#74697A','#493F4E','#211826'];
+  var FAUSTINA_RAMP_LIGHT=['#FAF0FF','#D4C8DB','#A397A9','#74697A'];
+  var LABRADA_RAMP=['#FFF2E3','#DBCEBF','#ACA092','#7D7164','#4E4336','#372C1F'];
+  var LABRADA_RAMP_LIGHT=['#FFF2E3','#DBCEBF','#ACA092','#7D7164'];
+  var MANUALE_RAMP=['#DEFCDA','#BBD8B7','#8DA98A','#607A5D','#334B30','#1C341A'];
+  var MANUALE_RAMP_LIGHT=['#DEFCDA','#BBD8B7','#8DA98A','#607A5D'];
+  // ── serif: fichas técnicas (modales) ──
+  var FAUSTINA_MODAL='<div class="info-modal" aria-hidden="true">'+
+      '<div class="info-modal-box">'+
+        '<button class="info-modal-close" aria-label="Close">✕</button>'+
+        '<span class="info-title">Faustina VF</span>'+
+        '<p class="info-body">An editorial serif designed for extended reading on paper and screen, balancing classical proportions with modern clarity. Its bespoke italic is a true, hand-drawn design rather than a synthetic slant, offering elegant contrast to the roman. As a variable font, it features a single weight axis ranging from Light (300) to ExtraBold (800). With its optimized spacing and refined stroke contrast, it provides exceptional readability for long-form content while maintaining a sophisticated, contemporary aesthetic.</p>'+
+        '<p class="cap">Ideal for extended body text, editorial copy, books, and elegant italic pull quotes. Headline pairings: Archivo, Asap, Saira.</p>'+
+        '<p class="cap">Design: Alfonso García & Omnibus-Type. Contribute at <a href="https://github.com/Omnibus-Type" target="_blank" rel="noopener">github.com/Omnibus-Type <svg class="ext"><use href="#ic-ext"/></svg></a></p>'+
+      '</div>'+
+    '</div>';
+  var LABRADA_MODAL='<div class="info-modal" aria-hidden="true">'+
+      '<div class="info-modal-box">'+
+        '<button class="info-modal-close" aria-label="Close">✕</button>'+
+        '<span class="info-title">Labrada VF</span>'+
+        '<p class="info-body">A contemporary serif inspired by woodcut printing, designed to dialogue with classical reading forms while reflecting the oral tradition of original American cultures. It brings unique texture and character to editorial text through its distinct terminal shapes and organic rhythm. As a variable font, it offers a comprehensive weight axis from Thin (100) to Black (900), with true italics across the entire range, allowing for highly expressive typography in both immersive reading and display contexts.</p>'+
+        '<p class="cap">Ideal for immersive reading, distinctive editorial text, and headlines requiring woodcut texture. Headline pairings: Archivo, Asap, Saira.</p>'+
+        '<p class="cap">Design: Mercedes Jáuregui & Omnibus-Type. Contribute at <a href="https://github.com/Omnibus-Type" target="_blank" rel="noopener">github.com/Omnibus-Type <svg class="ext"><use href="#ic-ext"/></svg></a></p>'+
+      '</div>'+
+    '</div>';
+  var MANUALE_MODAL='<div class="info-modal" aria-hidden="true">'+
+      '<div class="info-modal-box">'+
+        '<button class="info-modal-close" aria-label="Close">✕</button>'+
+        '<span class="info-title">Manuale VF</span>'+
+        '<p class="info-body">A revival of a classical printing serif, featuring an enlarged x-height that sustains legibility at small sizes without losing the page\'s whiteness. Its most striking feature is the italic: redrawn to be more mechanical and inclined, departing from traditional ornamental printing italics. As a variable font, it offers a weight axis from Light (300) to ExtraBold (800). This combination of historical roots and modern variable flexibility makes it highly versatile for dense, extended body copy.</p>'+
+        '<p class="cap">Ideal for books, reference texts, manuals, and dense, extended body copy. Headline pairings: Archivo, Asap, Saira.</p>'+
+        '<p class="cap">Design: Pablo Cosgaya, Eduardo Tunni & Omnibus-Type. Contribute at <a href="https://github.com/Omnibus-Type" target="_blank" rel="noopener">github.com/Omnibus-Type <svg class="ext"><use href="#ic-ext"/></svg></a></p>'+
+      '</div>'+
+    '</div>';
+  // ── serif: builders ──
+  function faustinaPanels(){
+    // ticker: alterna títulos de libros (en inglés, de dominio público — los
+    // títulos en sí no tienen copyright) con cotizaciones de grupos
+    // editoriales que sí cotizan en bolsa (Pearson, Wiley, Bloomsbury, News
+    // Corp, Lagardère, Scholastic). Las cifras son ilustrativas, no datos
+    // reales de mercado — mismo criterio que usa el resto del sistema.
+    var t1="MOBY-DICK — GREAT EXPECTATIONS — PRIDE AND PREJUDICE — ";
+    var t2="PEARSON +1,4 % | BLOOMSBURY +0,6 % | WILEY −0,9 % | SCHOLASTIC +2,3 % | ";
+    var t3="THE GREAT GATSBY — JANE EYRE — DAVID COPPERFIELD — ";
+    var t4="LAGARDÈRE −0,3 % | NEWS CORP +1,1 % | HACHETTE +0,8 % | ";
+    var t5="WUTHERING HEIGHTS — VANITY FAIR — MIDDLEMARCH — ";
+    var t6="PEARSON 1.142 | WILEY 42,80 | BLOOMSBURY 512 | SCHOLASTIC 28,40 | ";
+    var t7="A TALE OF TWO CITIES — ROBINSON CRUSOE — DRACULA — ";
+    var t8="+1,4 % | −0,9 % | +2,3 % | −0,3 % | +0,8 % | ";
+    var t9="GRUPOS EDITORIALES — MERCADO DEL LIBRO — TIRADAS — ";
+    function crawl(txt,rev){return '<div class="tick"><div class="tick-row'+(rev?' rev':'')+'"><span>'+txt+'</span><span>'+txt+'</span></div></div>';}
+    var runtext="El libro se abre en la mesa de luz y la página sostiene la mirada sin esfuerzo. Cada línea avanza con un paso parejo, las serifas guían el ojo de una palabra a la siguiente, y el cuerpo aguanta capítulos enteros sin fatiga. Faustina nació para eso: para la lectura larga, la del libro que se termina de un tirón y la del diario que se lee de punta a punta, en el papel y en la pantalla. El texto corrido respira con una interlínea generosa; los títulos ordenan sin gritar; la itálica acompaña las citas y los pensamientos ajenos con un trazo propio, distinto del romano. Nada en la página reclama atención de más: todo está ahí para que el relato llegue primero.";
+    // 5 del surtido dado, eligiendo las de 8 letras para que la pila quede
+    // pareja (quedan afuera ACQUIRES, CASTIRON, PITIFULLY y RESISTIVE)
+    var stackWords=['CATHOLIC','SLUGGING','RESINOUS','ASSIGNED','SCRABBLE'];
+    var stackHTML=stackWords.map(function(w){return '<span class="impact-line">'+w+'</span>';}).join('');
+
+    return [
+      panel("Glyphs",
+        '<div class="glyph-grid" id="fs-glyphgrid"></div>',
+        "Live weight, Italic on-off",
+        "impact glyphs",
+        pillHTML([
+          {id:'gw',target:'#fs-glyphgrid',label:'wght',min:300,max:800,step:1,init:500},
+          {type:'toggle',target:'#fs-glyphgrid',label:'italic',prop:'fontStyle',on:'italic',off:'normal',init:false}
+        ]),
+        "#5E5364",REFRESH_BTN),
+      panel("Words",
+        '<div class="fill" style="justify-content:center;align-items:center">'+
+          '<span class="words-line words-solo" id="fs-wsolo" contenteditable="true" spellcheck="false">F<span class="wcaret" contenteditable="false"></span>f</span>'+
+        '</div>',
+        "Live size",
+        "words",
+        pillHTML([
+          {id:'wsize',target:'#fs-wsolo',label:'size',min:20,max:600,step:5,init:225,directPx:true},
+          {type:'toggle',target:'#fs-wsolo',label:'italic',prop:'fontStyle',on:'italic',off:'normal',init:false}
+        ]),
+        "#FFFFFF"),
+      panel("Italic",
+        '<div class="fill" style="justify-content:center;align-items:center">'+
+          '<p class="fs-pull" id="fs-pull">“A&nbsp;well-set page asks nothing of&nbsp;the reader but&nbsp;attention.”</p>'+
+        '</div>',
+        "live weight","impact",
+        pillHTML([{id:'itw',target:'#fs-pull',label:'wght',min:300,max:800,step:1,init:400}]),
+        "#211826"),
+      panel("Immersive Reading",
+        '<p class="runtext" id="fs-runtext">'+runtext+'</p>',
+        "Live size and leading",null,
+        pillHTML([
+          {id:'tsize',target:'#fs-runtext',label:'size',min:14,max:40,step:1,init:24,directPx:true},
+          {id:'tlead',target:'#fs-runtext',label:'leading',min:1.1,max:1.8,step:.05,init:1.55,unit:'pct'}
+        ]),
+        "#D4C8DB"),
+      panel("Display",
+        '<div class="impact-stack" id="fs-impact">'+stackHTML+'</div>',
+        "Live weight","impact",
+        pillHTML([
+          {id:'iw',target:'#fs-impact',label:'wght',min:300,max:800,step:1,init:800}
+        ]),
+        "#493F4E"),
+      panel("Ticker: tabular numerals",
+        '<div class="fill fill-between">'+crawl(t1,0)+crawl(t2,1)+crawl(t3,0)+crawl(t4,1)+crawl(t5,0)+crawl(t6,1)+crawl(t7,0)+crawl(t8,1)+crawl(t9,0)+'</div>',
+        "Books and publishing groups","ticker",null,"#A397A9")
+    
+    ];
+  }
+  function labradaPanels(){
+    // ticker: alterna títulos y relatos de tradición oral (de dominio
+    // público) con vocabulario de la xilografía/grabado —el oficio que
+    // inspiró el diseño de Labrada—, en vez de la industria editorial que
+    // usa el ticker de Faustina. Distinto ángulo, mismo mecanismo.
+    var t1="POPOL VUH — ONE THOUSAND AND ONE NIGHTS — AESOP'S FABLES — ";
+    var t2="WOODCUT · LETTERPRESS · RELIEF PRINTING · WOODBLOCK · ";
+    var t3="THE ODYSSEY — GRIMMS' FAIRY TALES — THE ILIAD — ";
+    var t4="ENGRAVING · XILOGRAFÍA · BURIN · GOUGE · ";
+    var t5="BEOWULF — THE MABINOGION — THE KALEVALA — ";
+    var t6="INK · PRESSURE · GRAIN · IMPRESSION · ";
+    var t7="THE PANCHATANTRA — JATAKA TALES — THE NIBELUNGENLIED — ";
+    var t8="CARVE · STRIKE · TRANSFER · REPEAT · ";
+    var t9="TRADICIÓN ORAL — TALLA EN MADERA — RELATO — ";
+    function crawl(txt,rev){return '<div class="tick"><div class="tick-row'+(rev?' rev':'')+'"><span>'+txt+'</span><span>'+txt+'</span></div></div>';}
+    var runtext="La letra nace del corte, no del trazo: cada forma conserva la firmeza de una matriz tallada a mano, el peso de la herramienta contra la madera. Labrada dialoga con las formas clásicas de la lectura mientras conserva un acento propio, heredado de la tradición oral de las culturas originarias que inspiraron su diseño. No es una serifa neutra: tiene carácter, aunque sostiene párrafos largos sin cansar la vista. Nació como tesis de la Maestría en Tipografía de la UBA y creció hasta una familia completa, de la más liviana a la más negra, con itálicas propias en cada peso. En el cuerpo de texto esa historia se nota: hay grano donde otras serifas ofrecen apenas pulido.";
+    // 5 palabras del mismo largo (9 letras), sin descendentes en ninguna
+    // línea —a diferencia del set de Faustina, acá se pudo lograr en las 5—,
+    // del campo semántico de la tradición oral y el relato heredado.
+    var waveWords=[
+      {w:'Ancestral',wght:300,ital:false},
+      {w:'Folktales',wght:400,ital:true},
+      {w:'Chronicle',wght:500,ital:false},
+      {w:'Dialectal',wght:700,ital:true},
+      {w:'Narrative',wght:800,ital:false}
+    ];
+    var waveHTML=waveWords.map(function(x,i){
+      // delays escalonados para la nueva duración (3s), como Faustina/Manuale
+      var delays=['0s','-1.8s','-3.5s','-5.3s','-7.1s'];
+      return '<span class="wf-line wghtwave" style="animation-delay:'+delays[i]+';'+(x.ital?'font-style:italic;':'')+'font-variation-settings:\'wght\' '+x.wght+'">'+x.w+'</span>';
+    }).join('');
+    // 5 del nuevo surtido dado, eligiendo las de 8 letras para que la pila
+    // quede pareja (Officiate/Diffusive/Epileptic quedan afuera por ser de
+    // 9; Guidance y Tableaux, aunque también de 8, quedan afuera por
+    // sobrar); la última evita descendentes.
+    var stackWords=['UPDATING','DRAFTING','BREEDING','SIMPERED','SHORTISH'];
+    var stackHTML=stackWords.map(function(w){return '<span class="impact-line">'+w+'</span>';}).join('');
+
+    return [
+      panel("Glyphs",
+        '<div class="glyph-grid" id="lb-glyphgrid"></div>',
+        "Live weight, Italic on-off",
+        "impact glyphs",
+        pillHTML([
+          {id:'gw',target:'#lb-glyphgrid',label:'wght',min:100,max:900,step:1,init:500},
+          {type:'toggle',target:'#lb-glyphgrid',label:'italic',prop:'fontStyle',on:'italic',off:'normal',init:false}
+        ]),
+        "#665A4D",REFRESH_BTN),
+      panel("Words",
+        '<div class="fill" style="justify-content:center;align-items:center">'+
+          '<span class="words-line words-solo" id="lb-wsolo" contenteditable="true" spellcheck="false">Q<span class="wcaret" contenteditable="false"></span>q</span>'+
+        '</div>',
+        "Live size",
+        "words",
+        pillHTML([
+          {id:'wsize',target:'#lb-wsolo',label:'size',min:20,max:600,step:5,init:225,directPx:true},
+          {type:'toggle',target:'#lb-wsolo',label:'italic',prop:'fontStyle',on:'italic',off:'normal',init:false}
+        ]),
+        "#FFFFFF"),
+      panel("Italic",
+        '<div class="fill" style="justify-content:center;align-items:center">'+
+          '<p class="lb-pull" id="lb-pull">“La&nbsp;talla recuerda lo&nbsp;que la&nbsp;voz solo alcanza a&nbsp;decir una&nbsp;vez.”</p>'+
+        '</div>',
+        "Live weight","impact",
+        pillHTML([{id:'itw',target:'#lb-pull',label:'wght',min:100,max:900,step:1,init:400}]),
+        "#372C1F"),
+      panel("Immersive Reading",
+        '<p class="runtext" id="lb-runtext">'+runtext+'</p>',
+        "Live size and leading",null,
+        pillHTML([
+          {id:'tsize',target:'#lb-runtext',label:'size',min:14,max:40,step:1,init:24,directPx:true},
+          {id:'tlead',target:'#lb-runtext',label:'leading',min:1.1,max:1.8,step:.05,init:1.55,unit:'pct'}
+        ]),
+        "#DBCEBF"),
+      panel("Display",
+        '<div class="impact-stack" id="lb-impact">'+stackHTML+'</div>',
+        "Live weight","impact",
+        pillHTML([
+          {id:'iw',target:'#lb-impact',label:'wght',min:100,max:900,step:1,init:900}
+        ]),
+        "#4E4336"),
+      panel("Ticker: weight contrast",
+        '<div class="fill fill-between">'+crawl(t1,0)+crawl(t2,1)+crawl(t3,0)+crawl(t4,1)+crawl(t5,0)+crawl(t6,1)+crawl(t7,0)+crawl(t8,1)+crawl(t9,0)+'</div>',
+        "Woodblocks, gouges, and prints","ticker",null,"#ACA092")
+    
+    ];
+  }
+  function manualePanels(){
+    // ticker adaptado al italiano: alterna títulos de manuales/obras de
+    // consulta clásicas (de dominio público) con vocabulario de imprenta y
+    // composición tipográfica en italiano —Manuali Hoepli es, de hecho, la
+    // colección de manuales prácticos más célebre de Italia, conexión
+    // directa con el propio nombre de la tipografía.
+    var t1="IL GALATEO — I PROMESSI SPOSI — IL PRINCIPE — ";
+    var t2="COMPOSIZIONE · INTERLINEA · CRENATURA · GIUSTEZZA · ";
+    var t3="MANUALI HOEPLI — ENCICLOPEDIA TRECCANI — VOCABOLARIO DELLA CRUSCA — ";
+    var t4="COLONNINO · REFUSO · BOZZA · IMPAGINATO · ";
+    var t5="IL CORTEGIANO — LA DIVINA COMMEDIA — LE OPERETTE MORALI — ";
+    var t6="CARATTERE · CORPO · OCCHIO · GRAZIA · ";
+    var t7="IL LIBRO DI CUCINA — MANUALE DI CONVERSAZIONE — GUIDA PRATICA — ";
+    var t8="FRONTESPIZIO · COLOFONE · SEGNATURA · INDICE · ";
+    var t9="MANUALI E LIBRI DI CONSULTA — TIPOGRAFIA ITALIANA — ";
+    function crawl(txt,rev){return '<div class="tick"><div class="tick-row'+(rev?' rev':'')+'"><span>'+txt+'</span><span>'+txt+'</span></div></div>';}
+    var runtext="Manuale desciende de una serifa de imprenta clásica, pero no es una copia: se le agrandó el ojo medio para que aguante cuerpos chicos en papel de diario y en pantalla sin perder blancura. Ahí está el gesto revival —conservar el carácter de la letra de plomo— y ahí también su distancia: la itálica no imita la pluma. Se dibujó de nuevo, más mecánica, más inclinada que caligráfica, para acompañar al romano en vez de sonar como una voz aparte. Nació para manuales, libros de consulta y textos de referencia, esos que se leen por partes y se vuelven a abrir: necesitaba aguantar la lectura salteada tan bien como la corrida.";
+    // 5 palabras del mismo largo (9 letras), del campo semántico de los
+    // libros de consulta; la última evita descendentes.
+    var waveWords=[
+      {w:'Handbooks',wght:300,ital:false},
+      {w:'Gazetteer',wght:400,ital:true},
+      {w:'Compendia',wght:500,ital:false},
+      {w:'Directory',wght:600,ital:true},
+      {w:'Reference',wght:800,ital:false}
+    ];
+    var waveHTML=waveWords.map(function(x,i){
+      var delays=['0s','-1.8s','-3.5s','-5.3s','-7.1s'];
+      return '<span class="wf-line wghtwave" style="animation-delay:'+delays[i]+';'+(x.ital?'font-style:italic;':'')+'font-variation-settings:\'wght\' '+x.wght+'">'+x.w+'</span>';
+    }).join('');
+    // 5 del surtido dado, eligiendo las de 9 letras para que la pila quede
+    // pareja (Stiflingly/Bestiality quedan afuera por ser de 10; Conserves
+    // y Regularly, aunque también de 9, quedan afuera por sobrar); la
+    // última evita descendentes.
+    var stackWords=['REALIGNED','TARGETING','GAUDINESS','VEXATIONS','EXTERNALS'];
+    var stackHTML=stackWords.map(function(w){return '<span class="impact-line">'+w+'</span>';}).join('');
+
+    return [
+      panel("Glyphs",
+        '<div class="glyph-grid" id="mn-glyphgrid"></div>',
+        "Live weight, Italic on-off",
+        "impact glyphs",
+        pillHTML([
+          {id:'gw',target:'#mn-glyphgrid',label:'wght',min:300,max:800,step:1,init:500},
+          {type:'toggle',target:'#mn-glyphgrid',label:'italic',prop:'fontStyle',on:'italic',off:'normal',init:false}
+        ]),
+        "#496347",REFRESH_BTN),
+      panel("Words",
+        '<div class="fill" style="justify-content:center;align-items:center">'+
+          '<span class="words-line words-solo" id="mn-wsolo" contenteditable="true" spellcheck="false">G<span class="wcaret" contenteditable="false"></span>g</span>'+
+        '</div>',
+        "Live size",
+        "words",
+        pillHTML([
+          {id:'wsize',target:'#mn-wsolo',label:'size',min:20,max:600,step:5,init:225,directPx:true},
+          {type:'toggle',target:'#mn-wsolo',label:'italic',prop:'fontStyle',on:'italic',off:'normal',init:false}
+        ]),
+        "#FFFFFF"),
+      panel("Italic",
+        '<div class="fill" style="justify-content:center;align-items:center">'+
+          '<p class="mn-pull" id="mn-pull">“A&nbsp;good manual is&nbsp;patient: it&nbsp;waits to&nbsp;be&nbsp;asked exactly the&nbsp;right question.”</p>'+
+        '</div>',
+        "Live weight","impact",
+        pillHTML([{id:'itw',target:'#mn-pull',label:'wght',min:300,max:800,step:1,init:400}]),
+        "#1C341A"),
+      panel("Immersive Reading",
+        '<p class="runtext" id="mn-runtext">'+runtext+'</p>',
+        "Live size and leading",null,
+        pillHTML([
+          {id:'tsize',target:'#mn-runtext',label:'size',min:14,max:40,step:1,init:24,directPx:true},
+          {id:'tlead',target:'#mn-runtext',label:'leading',min:1.1,max:1.8,step:.05,init:1.55,unit:'pct'}
+        ]),
+        "#BBD8B7"),
+      panel("Display",
+        '<div class="impact-stack" id="mn-impact">'+stackHTML+'</div>',
+        "Live weight","impact",
+        pillHTML([
+          {id:'iw',target:'#mn-impact',label:'wght',min:300,max:800,step:1,init:800}
+        ]),
+        "#334B30"),
+      panel("Ticker: weight contrast",
+        '<div class="fill fill-between">'+crawl(t1,0)+crawl(t2,1)+crawl(t3,0)+crawl(t4,1)+crawl(t5,0)+crawl(t6,1)+crawl(t7,0)+crawl(t8,1)+crawl(t9,0)+'</div>',
+        "Manuali e libri di consulta","ticker",null,"#8DA98A")
+    
+    ];
+  }
+  var CUSTOM={ archivo:archivoPanels, asap:asapPanels, saira:sairaPanels, faustina:faustinaPanels, labrada:labradaPanels, manuale:manualePanels };
+  var MODALS={ archivo:ARCHIVO_MODAL, asap:ASAP_MODAL, saira:SAIRA_MODAL, faustina:FAUSTINA_MODAL, labrada:LABRADA_MODAL, manuale:MANUALE_MODAL };
+  var GLYPHPAL={ archivo:ARCHIVO_RAMP_LIGHT, asap:ASAP_RAMP_LIGHT, saira:SAIRA_RAMP_LIGHT, faustina:FAUSTINA_RAMP_LIGHT, labrada:LABRADA_RAMP_LIGHT, manuale:MANUALE_RAMP_LIGHT };
+  var EXTRA_WIRE={ asap:wireWidthJolt, saira:wireAltFeature };
+  function buildSpecimens(){
+    ORDER.forEach(function(key){
+      var f=FAMS[key],host=document.getElementById(key);
+      var axes="wght "+f.wght[0]+"–"+f.wght[1]+(f.wdth?" / wdth "+f.wdth[0]+"–"+f.wdth[1]:"")+" / italic";
+      var panels=(CUSTOM[key]||(f.serif?serifPanels:sansPanels))(key).join("");
+      var gfLink='<a class="info-btn" href="https://fonts.google.com/specimen/'+f.label+'" target="_blank" rel="noopener">Google Fonts <svg class="ext"><use href="#ic-ext"/></svg></a>';
+      var foot=CUSTOM[key]?'<div class="carousel-foot"><button class="info-btn" type="button">+ info</button>'+gfLink+'</div>':'<div class="carousel-foot">'+gfLink+'</div>';
+      var modal=MODALS[key]||'';
+      host.innerHTML=
+        '<div class="wrap">'+
+          '<div class="spec-head">'+
+            '<span class="spec-name" style="font-family:\''+f.label+'\'">'+f.label+'</span>'+
+            '<span class="spec-meta">'+axes+' / '+f.statics+' statics</span>'+
+          '</div>'+
+          '<div class="strip-wrap">'+
+            '<button class="strip-nav prev" hidden aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 5 8 12 15 19"/></svg></button>'+
+            '<div class="strip" data-strip>'+panels+'</div>'+
+            '<button class="strip-nav next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 5 16 12 9 19"/></svg></button>'+
+          '</div>'+
+          foot+
+        '</div>'+modal;
+    });
+    document.querySelectorAll(".strip-wrap").forEach(setupStrip);
+    ORDER.forEach(function(key){
+      if(!CUSTOM[key])return;
+      var host=document.getElementById(key),pal=GLYPHPAL[key];
+      var gg=host.querySelector(".glyph-grid"); if(gg)buildGlyphs(gg,pal);
+      wirePills(host); wireEditable(host); wireWordPan(host); wireInfoModal(host); wireRefresh(host,pal);
+      if(EXTRA_WIRE[key])EXTRA_WIRE[key](host);
+    });
+  }
+  function setupStrip(wrap){
+    var strip=wrap.querySelector(".strip"),
+        prev=wrap.querySelector(".strip-nav.prev"),
+        next=wrap.querySelector(".strip-nav.next");
+    enableDrag(strip);
+    function step(){var p=strip.querySelector(".panel");return (p?p.offsetWidth:320)+16;}
+    function update(){
+      var panels=strip.querySelectorAll(".panel");
+      if(!panels.length){prev.hidden=true;next.hidden=true;return;}
+      var cs=getComputedStyle(strip);
+      var pl=parseFloat(cs.paddingLeft)||0, pr=parseFloat(cs.paddingRight)||0;
+      var sr=strip.getBoundingClientRect();
+      var viewLeft=sr.left+pl, viewRight=sr.right-pr;
+      var firstLeft=panels[0].getBoundingClientRect().left;
+      var lastRight=panels[panels.length-1].getBoundingClientRect().right;
+      prev.hidden = firstLeft >= viewLeft-1;   // no hay placa fuera de pantalla a la izquierda
+      next.hidden = lastRight <= viewRight+1;   // no hay placa fuera de pantalla a la derecha
+    }
+    prev.addEventListener("click",function(){strip.scrollBy({left:-step(),behavior:"smooth"});});
+    next.addEventListener("click",function(){strip.scrollBy({left:step(),behavior:"smooth"});});
+    strip.addEventListener("scroll",update,{passive:true});
+    window.addEventListener("resize",update);
+    window.addEventListener("load",update);
+    if(document.fonts&&document.fonts.ready){document.fonts.ready.then(update);}
+    update();
+  }
+  function enableDrag(strip){
+    var down=false,sx=0,sl=0;
+    strip.addEventListener("pointerdown",function(e){
+      if(e.target.closest('input[type=range]')||e.target.closest('.pill-switch')||e.target.closest('[contenteditable]')||e.target.closest('.refresh-btn'))return;
+      down=true;sx=e.clientX;sl=strip.scrollLeft;strip.classList.add("drag");strip.setPointerCapture(e.pointerId);
+    });
+    strip.addEventListener("pointermove",function(e){if(down)strip.scrollLeft=sl-(e.clientX-sx);});
+    strip.addEventListener("pointerup",function(){down=false;strip.classList.remove("drag");});
+    strip.addEventListener("pointercancel",function(){down=false;strip.classList.remove("drag");});
+  }
+
+  // ---- type tester ----
+  var cur="archivo",root=document.documentElement;
+  var spec=document.getElementById("spec"),wght=document.getElementById("wght"),wdth=document.getElementById("wdth"),
+      ital=document.getElementById("ital"),wghtVal=document.getElementById("wghtVal"),wdthVal=document.getElementById("wdthVal"),
+      ctrlWdth=document.getElementById("ctrl-wdth"),cssOut=document.getElementById("cssOut"),capTag=document.getElementById("capTag");
+  function render(){
+    var f=FAMS[cur],w=+wght.value,settings='"wght" '+w;
+    if(f.wdth) settings+=', "wdth" '+wdth.value;
+    spec.style.fontFamily="'"+f.label+"'";
+    spec.style.fontVariationSettings=settings;
+    spec.style.fontStyle=ital.checked?"italic":"normal";
+    wghtVal.textContent=w; wdthVal.textContent=wdth.value;
+    capTag.textContent=f.label+(ital.checked?" Italic":"");
+    var imp='@import url("https://fonts.googleapis.com/css2?family='+f.label+
+      (f.wdth?':ital,wdth,wght@0,'+f.wdth[0]+'..'+f.wdth[1]+','+f.wght[0]+'..'+f.wght[1]
+             :':ital,wght@0,'+f.wght[0]+'..'+f.wght[1])+'&display=swap");';
+    var rule='font-family: "'+f.label+'";\n'+'font-variation-settings: '+settings+';'+(ital.checked?'\nfont-style: italic;':'');
+    cssOut.innerHTML='<span class="ck">'+imp+'</span>\n\n'+rule;
+  }
+  function setFamily(name){
+    cur=name; var f=FAMS[name];
+    root.style.setProperty('--fam',f.accent);
+    document.querySelectorAll("#famSwitch button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.fam===name?"true":"false");});
+    wght.min=f.wght[0]; wght.max=f.wght[1]; wght.value=Math.min(Math.max(+wght.value,f.wght[0]),f.wght[1]);
+    if(f.wdth){ ctrlWdth.removeAttribute("data-empty"); wdth.disabled=false;
+      wdth.min=f.wdth[0]; wdth.max=f.wdth[1]; wdth.value=Math.min(Math.max(+wdth.value,f.wdth[0]),f.wdth[1]); }
+    else { ctrlWdth.setAttribute("data-empty","1"); wdth.disabled=true; }  // hidden but keeps height
+    render();
+  }
+  function syncPlaceholder(){
+    var has=spec.textContent.replace(/\u200b/g,"").trim().length>0;
+    spec.classList.toggle("has-text",has);
+  }
+  spec.addEventListener("input",syncPlaceholder);
+  wght.addEventListener("input",render);
+  wdth.addEventListener("input",render);
+  ital.addEventListener("change",render);
+  document.getElementById("famSwitch").addEventListener("click",function(e){var b=e.target.closest("button"); if(b) setFamily(b.dataset.fam);});
+  document.getElementById("copyBtn").addEventListener("click",function(){var btn=this;navigator.clipboard&&navigator.clipboard.writeText(cssOut.textContent).then(function(){btn.textContent="Copied";setTimeout(function(){btn.textContent="Copy";},1400);});});
+  // mobile menu overlay
+  var menuBtn=document.getElementById("menuBtn"),menuClose=document.getElementById("menuClose"),mobileMenu=document.getElementById("mobileMenu");
+  function openMenu(){mobileMenu.classList.add("open");menuBtn.setAttribute("aria-expanded","true");document.body.style.overflow="hidden";}
+  function closeMenu(){mobileMenu.classList.remove("open");menuBtn.setAttribute("aria-expanded","false");document.body.style.overflow="";}
+  menuBtn.addEventListener("click",openMenu);
+  menuClose.addEventListener("click",closeMenu);
+  mobileMenu.querySelectorAll("[data-close]").forEach(function(a){a.addEventListener("click",closeMenu);});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape"&&mobileMenu.classList.contains("open"))closeMenu();});
+
+  // wordmark → back to top (rAF animation: reliable on iOS Safari, and sticky-proof)
+  var reduceMotion=window.matchMedia&&window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+  function scrollToTop(){
+    var start=window.pageYOffset||document.documentElement.scrollTop||0;
+    if(start<=0){return;}
+    if(reduceMotion){window.scrollTo(0,0);return;}
+    var t0=null,dur=480;
+    function step(ts){if(t0===null)t0=ts;var p=Math.min((ts-t0)/dur,1),e=1-Math.pow(1-p,3);
+      window.scrollTo(0,Math.round(start*(1-e)));if(p<1)requestAnimationFrame(step);}
+    requestAnimationFrame(step);
+  }
+  document.querySelectorAll("a.brand").forEach(function(a){
+    a.addEventListener("click",function(ev){ev.preventDefault();scrollToTop();});
+  });
+  // Nav explícito: cierra el menú si está abierto y hace scroll suave al ancla
+  // con el offset del masthead sticky. Robusto en iOS Safari y sticky-proof.
+  document.querySelectorAll('.masthead a[href^="#"]:not(.brand), .menu-nav a[href^="#"]:not(.brand)').forEach(function(a){
+    a.addEventListener("click",function(ev){
+      var href=a.getAttribute("href");
+      if(!href||href.length<2)return;
+      var target=document.querySelector(href);
+      if(!target)return;
+      ev.preventDefault();
+      if(mobileMenu.classList.contains("open"))closeMenu();
+      var y=target.getBoundingClientRect().top+(window.pageYOffset||document.documentElement.scrollTop||0)-64;
+      window.scrollTo({top:Math.max(0,y),behavior:reduceMotion?"auto":"smooth"});
+      if(history.replaceState)history.replaceState(null,"",href);
+    });
+  });
+
+  buildSpecimens();
+  setFamily("archivo");
+  syncPlaceholder();
+
+  /* Place the background "Press Series" logotype so the CAP line of "Press" sits on
+     Asap's top rule and the BASELINE of "Series" sits on Manuale's bottom rule.
+     Measured live so it stays exact at any viewport. */
+  (function(){
+    var logo=document.querySelector(".bg-logo");
+    var main=document.querySelector("section.main");
+    if(!logo||!main) return;
+    function place(){
+      var fams=main.querySelectorAll(".fam");
+      if(fams.length<2) return;
+      var first=fams[0].getBoundingClientRect();
+      var last=fams[fams.length-1].getBoundingClientRect();
+      var mainR=main.getBoundingClientRect();
+      var topRuleY=first.top, botRuleY=last.bottom, famRight=first.right;
+      var targetH=botRuleY-topRuleY;
+      if(targetH<=0) return;
+      /* cap-height ratio of Saira (vertical metrics are unaffected by the width axis) */
+      var capRatio=0.70;
+      try{var cx=document.createElement("canvas").getContext("2d");
+        cx.font='800 200px "Saira"';var cm=cx.measureText("P");
+        if(cm.actualBoundingBoxAscent) capRatio=cm.actualBoundingBoxAscent/200;}catch(e){}
+      /* reference measurement at a known size + origin */
+      var F0=200;
+      logo.style.bottom="auto";logo.style.top="0px";logo.style.right="0px";logo.style.fontSize=F0+"px";
+      logo.innerHTML='<span class="bl1">Press</span><br><span class="bl2">Series</span>';
+      var l1=logo.querySelector(".bl1"),l2=logo.querySelector(".bl2");
+      var s1=document.createElement("i"),s2=document.createElement("i");
+      s1.style.cssText=s2.style.cssText="display:inline-block;width:0;height:0;vertical-align:baseline";
+      l1.appendChild(s1);l2.appendChild(s2);
+      var logoTop0=logo.getBoundingClientRect().top;
+      var capTop1=s1.getBoundingClientRect().top-capRatio*F0;  /* cap top of line 1 */
+      var base2=s2.getBoundingClientRect().top;                /* baseline of line 2 */
+      var k1=(capTop1-logoTop0)/F0, k2=(base2-logoTop0)/F0;
+      logo.innerHTML="Press<br>Series";
+      var denom=k2-k1;
+      if(!denom||!isFinite(denom)) return;
+      var F=targetH/denom;
+      logo.style.fontSize=F+"px";
+      logo.style.top=((topRuleY-mainR.top)-k1*F)+"px";
+      logo.style.bottom="auto";
+      logo.style.right=(mainR.right-famRight)+"px";
+    }
+    if(document.fonts&&document.fonts.ready){document.fonts.ready.then(place);}
+    place();
+    window.addEventListener("load",place);
+    window.addEventListener("resize",place);
+  })();
+
+  /* Footer watermark: align the CAP line of "Press Series" with the legend's
+     first line ("Made by friends of"), so it doesn't sit low on small screens. */
+  (function(){
+    var logo=document.querySelector(".foot-logo");
+    var footer=document.querySelector("footer");
+    var badge=footer&&footer.querySelector(".gf-badge");
+    if(!logo||!footer||!badge) return;
+    function capTop(el,fam){
+      var cs=getComputedStyle(el), fs=parseFloat(cs.fontSize);
+      var s=document.createElement("span");
+      s.style.cssText="display:inline-block;width:0;height:0;vertical-align:baseline";
+      el.insertBefore(s, el.firstChild);
+      var base=s.getBoundingClientRect().top;
+      el.removeChild(s);
+      var cr=0.7;
+      try{var c=document.createElement("canvas").getContext("2d");
+        c.font=(cs.fontWeight||"400")+" 200px "+(fam||cs.fontFamily);
+        var m=c.measureText("M"); if(m.actualBoundingBoxAscent) cr=m.actualBoundingBoxAscent/200;}catch(e){}
+      return base - cr*fs;
+    }
+    function align(){
+      logo.style.transform="none"; logo.style.top="0px";
+      var lc=capTop(logo,'"Saira"'), bc=capTop(badge);
+      if(isFinite(lc)&&isFinite(bc)) logo.style.top=(bc-lc)+"px";
+    }
+    if(document.fonts&&document.fonts.ready){document.fonts.ready.then(align);}
+    align();
+    window.addEventListener("load",align);
+    window.addEventListener("resize",align);
+  })();
+})();
+</script>
+</body>
+</html>
