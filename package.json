@@ -39,7 +39,7 @@
     "babelify": "^7.3.0",
     "browser-sync": "^2.12.8",
     "browserify": "^13.0.1",
-    "browserify-shim": "^3.8.12",
+    "browserify-shim": "^3.8.16",
     "cssnano": "^3.6.2",
     "del": "2.2.0",
     "eslint-plugin-babel": "^3.3.0",
