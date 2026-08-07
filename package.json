@@ -73,7 +73,7 @@
     "watchify": "^3.7.0"
   },
   "dependencies": {
-    "gh-pages": "2.2.0",
+    "gh-pages": "5.0.0",
     "normalize.css": "^4.1.1"
   }
 }
