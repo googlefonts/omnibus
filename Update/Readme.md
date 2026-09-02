@@ -6,6 +6,27 @@ text-intensive editorial typography (books, magazines and newspapers) on
 screen and in print. This document reports the final state of the
 implementation.
 
+## Screenshots
+
+The site top to bottom.
+
+![Hero and family index](https://github.com/googlefonts/omnibus/raw/main/Update/00.png)
+*Hero — eyebrow, lead paragraph and the numbered index of the six families with their axis ranges.*
+
+![Type Tester](https://github.com/googlefonts/omnibus/raw/main/Update/01.png)
+*Type Tester — live variable-font tester with weight, width and italic controls, plus a CSS panel showing the current settings ready to copy.*
+
+![Specimens: Archivo and Asap](https://github.com/googlefonts/omnibus/raw/main/Update/02.png)
+*Specimens — Archivo (top) and Asap (bottom) carousels. Six panels per family in the canonical order: Glyphs · Words · [distinctive] · Reading · Display · Ticker.*
+
+![Specimens: Saira and Faustina](https://github.com/googlefonts/omnibus/raw/main/Update/03.png)
+*Specimens — Saira (top, sans) with its Alternates panel at slot 3, and Faustina (bottom, serif) with its bespoke Italic pull-quote.*
+
+![Specimens: Labrada and Manuale](https://github.com/googlefonts/omnibus/raw/main/Update/04.png)
+*Specimens — Labrada (top) and Manuale (bottom), the remaining two serif families, sharing the same panel structure and mechanics.*
+
+![About and footer](https://github.com/googlefonts/omnibus/raw/main/Update/05.png)
+*About — two-column editorial prose with credits, and the footer with the "Made by friends of Google Fonts" badge.*
 
 ## 1 · Delivery
 
