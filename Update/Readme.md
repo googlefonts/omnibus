@@ -626,7 +626,6 @@ page — self-contained, includes the same masthead, links back to
 ## 19 · Credits and license
 
 - Design and typography: **Omnibus-Type** — [omnibus-type.com](https://omnibus-type.com)
-- Technical coordination: **Pablo Cosgaya**
 - A project by Omnibus-Type in collaboration with **Google Fonts**.
 
 Typefaces under the **SIL Open Font License 1.1**; each family is on
